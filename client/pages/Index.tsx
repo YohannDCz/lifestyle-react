@@ -215,6 +215,7 @@ const Index = () => {
         className="relative bg-cover bg-center bg-no-repeat flex items-center justify-center"
         style={{
           backgroundImage: `url('https://api.builder.io/api/v1/image/assets/TEMP/0f48c92dc93bad0c6dbc4caabb608b1fdabc1e7c?width=2880')`,
+          height: 'calc(100vh - 70px - 50px)'
         }}
       >
 
