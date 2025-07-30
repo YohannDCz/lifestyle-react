@@ -193,11 +193,11 @@ const Index = () => {
       <div className="bg-gray-600 relative z-40">
         <div className="bg-gray-800/90 py-3">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="flex flex-row gap-4 justify-center">
+            <div className="flex flex-row gap-2 justify-between">
               {categoryPills.map((pill, index) => (
                 <div
                   key={index}
-                  className={`bg-gradient-to-r ${pill.colors} rounded-xl px-8 py-3`}
+                  className={`bg-gradient-to-r ${pill.colors} rounded-xl py-3 flex-1 text-center`}
                 >
                   <span className="text-white font-semibold text-sm drop-shadow-lg">
                     {pill.name}
