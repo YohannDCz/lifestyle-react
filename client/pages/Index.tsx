@@ -193,7 +193,7 @@ const Index = () => {
       <div className="bg-gray-600 relative z-40">
         <div className="bg-gray-800/90 py-3">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="flex flex-wrap gap-4 justify-center">
+            <div className="flex flex-row gap-4 justify-center">
               {categoryPills.map((pill, index) => (
                 <div
                   key={index}
