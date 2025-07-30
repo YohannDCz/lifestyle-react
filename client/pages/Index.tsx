@@ -217,7 +217,7 @@ const Index = () => {
         }}
       >
         <div className="absolute inset-0 bg-black/30"></div>
-        <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-6">
+        <div className="relative z-10 text-center text-white max-w-4xl px-6" style={{ margin: '0 auto 0 250px' }}>
           <div className="mb-8">
             <h1 className="font-roboto text-6xl md:text-7xl lg:text-8xl font-medium mb-4">
               Website of
