@@ -177,7 +177,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Top Navigation Bar */}
-      <nav className="bg-black text-white py-1.5 px-6 relative z-50">
+      <nav className="bg-black text-white py-1.5 px-6 relative z-50" style={{ height: '50px' }}>
         <div className="flex items-center justify-between max-w-7xl mx-auto">
           <div className="font-righteous text-3xl">Lifestyle</div>
           <div className="flex items-center gap-6">
