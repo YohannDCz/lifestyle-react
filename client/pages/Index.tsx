@@ -258,6 +258,7 @@ const Index = () => {
         className="relative py-24 bg-cover bg-center"
         style={{
           backgroundImage: `url('https://api.builder.io/api/v1/image/assets/TEMP/fc240d1217d36251709ceffd44696097607a9771?width=2892')`,
+          height: '100vh'
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-purple-900/80 to-blue-900/80"></div>
