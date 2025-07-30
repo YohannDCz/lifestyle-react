@@ -177,7 +177,10 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Top Navigation Bar */}
-      <nav className="bg-black text-white py-1.5 px-6 relative z-50" style={{ height: '50px' }}>
+      <nav
+        className="bg-black text-white py-1.5 px-6 relative z-50"
+        style={{ height: "50px" }}
+      >
         <div className="flex items-center justify-between max-w-7xl mx-auto">
           <div className="font-righteous text-3xl">Lifestyle</div>
           <div className="flex items-center gap-6">
@@ -191,14 +194,14 @@ const Index = () => {
 
       {/* Category Pills Navigation */}
       <div className="bg-gray-600 relative z-40">
-        <div className="bg-gray-800/90 py-3" style={{ height: '70px' }}>
+        <div className="bg-gray-800/90 py-3" style={{ height: "70px" }}>
           <div className="max-w-7xl mx-auto px-6">
             <div className="flex flex-row gap-2 justify-between">
               {categoryPills.map((pill, index) => (
                 <div
                   key={index}
                   className={`bg-gradient-to-r ${pill.colors} rounded-xl flex-1 text-center`}
-                  style={{ height: '46px', padding: '9px 0' }}
+                  style={{ height: "46px", padding: "9px 0" }}
                 >
                   <span className="text-white font-semibold text-lg drop-shadow-lg">
                     {pill.name}
@@ -215,29 +218,46 @@ const Index = () => {
         className="relative bg-cover bg-center bg-no-repeat flex items-center justify-center"
         style={{
           backgroundImage: `url('https://api.builder.io/api/v1/image/assets/TEMP/0f48c92dc93bad0c6dbc4caabb608b1fdabc1e7c?width=2880')`,
-          height: 'calc(100vh - 70px - 50px)'
+          height: "calc(100vh - 70px - 50px)",
         }}
       >
-
-        <div className="relative z-10 text-center text-white max-w-4xl" style={{ margin: '0 auto 0 250px' }}>
+        <div
+          className="relative z-10 text-center text-white max-w-4xl"
+          style={{ margin: "0 auto 0 250px" }}
+        >
           <div className="mb-8">
-            <h1 className="font-roboto text-6xl md:text-7xl lg:text-8xl font-medium text-left" style={{ margin: '0 auto 16px 0' }}>
+            <h1
+              className="font-roboto text-6xl md:text-7xl lg:text-8xl font-medium text-left"
+              style={{ margin: "0 auto 16px 0" }}
+            >
               Website of
             </h1>
-            <h1 className="font-shrikhand text-6xl md:text-7xl lg:text-8xl text-right" style={{ margin: '0 auto 16px 0' }}>
+            <h1
+              className="font-shrikhand text-6xl md:text-7xl lg:text-8xl text-right"
+              style={{ margin: "0 auto 16px 0" }}
+            >
               dynamic
             </h1>
-            <h1 className="font-roboto text-6xl md:text-7xl lg:text-8xl font-medium text-center" style={{ marginRight: 'auto' }}>
+            <h1
+              className="font-roboto text-6xl md:text-7xl lg:text-8xl font-medium text-center"
+              style={{ marginRight: "auto" }}
+            >
               energies
             </h1>
           </div>
 
-          <p className="text-xl font-medium max-w-2xl text-left" style={{ margin: '0 auto 16px' }}>
+          <p
+            className="text-xl font-medium max-w-2xl text-left"
+            style={{ margin: "0 auto 16px" }}
+          >
             From one habit to an entire routine system. Let lifestyle.com change
             your life!
           </p>
 
-          <p className="text-base max-w-2xl text-left" style={{ margin: '0 auto 32px' }}>
+          <p
+            className="text-base max-w-2xl text-left"
+            style={{ margin: "0 auto 32px" }}
+          >
             Lifestyle is lucid dreams, mindfulness, a healthy mental, body &
             brain, and balanced diet & relationships.
           </p>
@@ -258,7 +278,7 @@ const Index = () => {
         className="relative py-24 bg-cover bg-center"
         style={{
           backgroundImage: `url('https://api.builder.io/api/v1/image/assets/TEMP/fc240d1217d36251709ceffd44696097607a9771?width=2892')`,
-          height: '100vh'
+          height: "100vh",
         }}
       >
         {/* Sparkles */}
