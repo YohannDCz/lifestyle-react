@@ -198,7 +198,7 @@ const Index = () => {
                 <div
                   key={index}
                   className={`bg-gradient-to-r ${pill.colors} rounded-xl flex-1 text-center`}
-                  style={{ height: '46px' }}
+                  style={{ height: '46px', padding: '9px 0' }}
                 >
                   <span className="text-white font-semibold text-lg drop-shadow-lg">
                     {pill.name}
