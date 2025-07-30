@@ -261,8 +261,6 @@ const Index = () => {
           height: '100vh'
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-purple-900/80 to-blue-900/80"></div>
-
         {/* Sparkles */}
         <div className="absolute top-8 left-24">
           <svg width="120" height="120" viewBox="0 0 160 160" fill="none">
