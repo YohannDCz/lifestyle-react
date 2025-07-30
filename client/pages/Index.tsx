@@ -225,7 +225,7 @@ const Index = () => {
             <h1 className="font-shrikhand text-6xl md:text-7xl lg:text-8xl" style={{ margin: '0 auto 16px 0' }}>
               dynamic
             </h1>
-            <h1 className="font-roboto text-6xl md:text-7xl lg:text-8xl font-medium">
+            <h1 className="font-roboto text-6xl md:text-7xl lg:text-8xl font-medium text-right" style={{ marginRight: 'auto' }}>
               energies
             </h1>
           </div>
