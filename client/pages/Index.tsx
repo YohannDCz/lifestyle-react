@@ -191,7 +191,7 @@ const Index = () => {
 
       {/* Category Pills Navigation */}
       <div className="bg-gray-600 relative z-40">
-        <div className="bg-gray-800/90 py-3">
+        <div className="bg-gray-800/90 py-3" style={{ height: '70px' }}>
           <div className="max-w-7xl mx-auto px-6">
             <div className="flex flex-row gap-2 justify-between">
               {categoryPills.map((pill, index) => (
