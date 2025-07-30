@@ -235,7 +235,7 @@ const Index = () => {
             your life!
           </p>
 
-          <p className="text-base mb-8 max-w-2xl mx-auto">
+          <p className="text-base max-w-2xl text-left" style={{ margin: '0 auto 32px' }}>
             Lifestyle is lucid dreams, mindfulness, a healthy mental, body &
             brain, and balanced diet & relationships.
           </p>
