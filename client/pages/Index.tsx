@@ -230,7 +230,7 @@ const Index = () => {
             </h1>
           </div>
 
-          <p className="text-xl font-medium mb-4 max-w-2xl mx-auto">
+          <p className="text-xl font-medium max-w-2xl text-left" style={{ margin: '0 auto 16px' }}>
             From one habit to an entire routine system. Let lifestyle.com change
             your life!
           </p>
