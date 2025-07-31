@@ -278,7 +278,8 @@ const Index = () => {
         className="relative py-24 bg-cover bg-center"
         style={{
           backgroundImage: `url('https://api.builder.io/api/v1/image/assets/TEMP/fc240d1217d36251709ceffd44696097607a9771?width=2892')`,
-          height: "100vh",
+          height: "958px",
+          padding: "80px 0 96px",
         }}
       >
         {/* Sparkles */}
@@ -336,43 +337,51 @@ const Index = () => {
                 </div>
               </div>
 
-              {/* Category pills around the circle */}
+              {/* Category pills around the circle - positioned at 45-degree intervals starting with Mind */}
+              {/* Mind - 0 degrees (top) */}
               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-8">
                 <span className="bg-purple-400 text-black px-6 py-2 rounded-full text-lg">
                   Mind
                 </span>
               </div>
-              <div className="absolute top-1/4 right-0 transform translate-x-8">
+              {/* Mental - 45 degrees (top-right) */}
+              <div className="absolute" style={{ top: '15%', right: '15%', transform: 'translate(50%, -50%)' }}>
                 <span className="bg-pink-400 text-black px-6 py-2 rounded-full text-lg">
                   Mental
                 </span>
               </div>
+              {/* Soul - 90 degrees (right) */}
               <div className="absolute right-0 top-1/2 transform translate-x-8 -translate-y-1/2">
                 <span className="bg-red-400 text-black px-6 py-2 rounded-full text-lg">
                   Soul
                 </span>
               </div>
-              <div className="absolute bottom-1/4 right-0 transform translate-x-8">
+              {/* Body - 135 degrees (bottom-right) */}
+              <div className="absolute" style={{ bottom: '15%', right: '15%', transform: 'translate(50%, 50%)' }}>
                 <span className="bg-orange-400 text-black px-6 py-2 rounded-full text-lg">
                   Body
                 </span>
               </div>
+              {/* Brain - 180 degrees (bottom) */}
               <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-8">
                 <span className="bg-yellow-400 text-black px-6 py-2 rounded-full text-lg">
                   Brain
                 </span>
               </div>
-              <div className="absolute bottom-1/4 left-0 transform -translate-x-8">
+              {/* Food - 225 degrees (bottom-left) */}
+              <div className="absolute" style={{ bottom: '15%', left: '15%', transform: 'translate(-50%, 50%)' }}>
                 <span className="bg-green-400 text-black px-6 py-2 rounded-full text-lg">
                   Food
                 </span>
               </div>
+              {/* Health - 270 degrees (left) */}
               <div className="absolute left-0 top-1/2 transform -translate-x-8 -translate-y-1/2">
                 <span className="bg-cyan-400 text-black px-6 py-2 rounded-full text-lg">
                   Health
                 </span>
               </div>
-              <div className="absolute top-1/4 left-0 transform -translate-x-8">
+              {/* Sleep - 315 degrees (top-left) */}
+              <div className="absolute" style={{ top: '15%', left: '15%', transform: 'translate(-50%, -50%)' }}>
                 <span className="bg-blue-400 text-black px-6 py-2 rounded-full text-lg">
                   Sleep
                 </span>
@@ -398,11 +407,12 @@ const Index = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-5xl md:text-6xl font-semibold text-center mb-16">
-            Your lifestyle right at your fingerprints
+            Your lifestyle <br />
+            right at your fingerprints
           </h2>
 
           {/* Tabs */}
-          <div className="flex flex-wrap gap-4 justify-center mb-12">
+          <div className="flex flex-wrap gap-4 justify-start mb-12 items-center">
             {tabs.map((tab) => (
               <button
                 key={tab}
@@ -419,65 +429,58 @@ const Index = () => {
           </div>
 
           {/* Tab Content */}
-          <div className="bg-gradient-to-r from-purple-100 via-pink-100 to-purple-100 rounded-3xl p-8 md:p-12 relative overflow-hidden">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="relative">
-                <img
-                  src="https://api.builder.io/api/v1/image/assets/TEMP/980bff91973aff50ef58da5eecca8cb33f48718f?width=2640"
-                  alt="Lifestyle tracking interface"
-                  className="w-full rounded-2xl"
-                />
+          <div className="bg-gradient-to-r from-purple-100 via-pink-100 to-purple-100 rounded-3xl relative overflow-hidden flex flex-row px-12">
+            <img
+              src="https://api.builder.io/api/v1/image/assets/TEMP/980bff91973aff50ef58da5eecca8cb33f48718f?width=2640"
+              alt="Lifestyle tracking interface"
+              className="rounded-2xl absolute top-0 left-0 z-0 w-full h-full"
+            />
+            <div className="relative w-24"></div>
+            <div className="flex flex-row">
+              <div className="grid items-end justify-center">
+                <div className="relative flex flex-col justify-end items-center w-64 h-[504px]">
+                  <img
+                    src="https://api.builder.io/api/v1/image/assets/TEMP/25a7cbb0066f516134cbed838dae9c33fc7224ce?width=668"
+                    alt="Phone mockup 1"
+                    className="border-4 border-black overflow-hidden"
+                  />
+                  <img
+                    src="https://api.builder.io/api/v1/image/assets/TEMP/9a6fdc0a24d45f0be25d4882a43c7c88728a99cc?width=668"
+                    alt="Phone mockup 2"
+                    className="rounded-2xl absolute right-0 w-60 left-44 border-4 border-black"
+                  />
+                </div>
               </div>
-              <div>
-                <h3 className="text-4xl font-semibold mb-6">
-                  Track your progress
-                </h3>
-                <p className="text-lg mb-8 text-gray-700">
-                  Explore the growth tracker as you make more and more
-                  improvements throughout the entire lifestyle rehabilitation
-                  process.
-                </p>
-                <button className="bg-white text-black px-8 py-4 rounded-full font-medium shadow-lg hover:shadow-xl transition-shadow">
-                  Learn more
-                </button>
+              <div className="flex gap-12 z-10 justify-center flex-row my-12 mr-12">
+                <div className="relative w-[3000px]"></div>
+                <div className="flex flex-col justify-center items-start">
+                  <h3 className="text-4xl font-semibold mb-6">
+                    Track your progress
+                  </h3>
+                  <p className="text-lg mb-8 text-gray-700">
+                    Explore the growth tracker as you <br />
+                    make more and more improvements <br />
+                    throughout the entire lifestyle rehabilitation process.
+                  </p>
+                  <button className="bg-white text-black px-8 py-4 rounded-full font-medium shadow-lg hover:shadow-xl transition-shadow">
+                    Learn more
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Phone mockup section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="relative">
-              <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/25a7cbb0066f516134cbed838dae9c33fc7224ce?width=668"
-                alt="Phone mockup 1"
-                className="w-2/3 rounded-2xl border-4 border-black"
-              />
-              <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/9a6fdc0a24d45f0be25d4882a43c7c88728a99cc?width=668"
-                alt="Phone mockup 2"
-                className="w-2/3 rounded-2xl border-4 border-black absolute top-20 right-0"
-              />
-            </div>
-            <div>
-              <h3 className="text-4xl font-semibold mb-6">
-                Track your progress
-              </h3>
-              <p className="text-lg mb-8 text-gray-700">
-                Explore the growth tracker as you make more and more
-                improvements throughout the entire lifestyle rehabilitation
-                process.
-              </p>
-              <button className="bg-white border border-gray-300 text-black px-8 py-4 rounded-full font-medium hover:bg-gray-50 transition-colors">
-                Learn more
+            <div className="flex gap-2 justify-end items-center pr-6 pt-6">
+              <button className="bg-gray-200 hover:bg-gray-300 w-12 h-12 rounded-full flex items-center justify-center">
+                <ChevronLeft size={20} />
+              </button>
+              <button className="bg-gray-200 hover:bg-gray-300 w-12 h-12 rounded-full flex items-center justify-center">
+                <ChevronRight size={20} />
               </button>
             </div>
           </div>
         </div>
       </section>
+
+
 
       {/* Articles Section */}
       <section className="py-20 bg-white">
@@ -562,8 +565,9 @@ const Index = () => {
               Meet our top-level experts
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-              From doctors to psychologist, master or even teachers, you'll have
-              the choice to get the next moves. Available in the complete plan.
+              From doctors to psychologist, master or even teachers,you'll
+              have the choice to get the next moves. Available in the
+              complete plan.
             </p>
           </div>
 
@@ -600,7 +604,8 @@ const Index = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-5xl md:text-6xl font-semibold text-center mb-16">
-            Members are enjoying happier and healthier lives
+            Members are enjoying <br />
+            happier and healthier lives
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -653,7 +658,7 @@ const Index = () => {
             </div>
           </div>
 
-          <h2 className="text-5xl md:text-6xl font-semibold mb-12">
+          <h2 className="text-5xl md:text-6xl font-semibold mb-12" style={{ lineHeight: "70px" }}>
             Join the millions <br />
             who use Lifestyle <br />
             every day
@@ -698,13 +703,14 @@ const Index = () => {
             {pricingPlans.map((plan, index) => (
               <div
                 key={index}
-                className="border border-black rounded-3xl p-8 bg-white"
+                className="border border-black rounded-3xl bg-white"
+                style={{ padding: "32px 32px 20px" }}
               >
                 <div className="border-b border-black pb-4 mb-8">
                   <h3 className="text-2xl font-semibold">{plan.name}</h3>
                 </div>
 
-                <div style={{ display: "flex", flexDirection: "column" }}>
+                <div style={{ display: "grid", flexDirection: "column" }}>
                   <div className="mb-8">
                     <div className="flex items-end mb-6" style={{ justifyContent: "flex-start" }}>
                       <div style={{ display: "flex", flexDirection: "row" }}>
@@ -765,10 +771,9 @@ const Index = () => {
         className="bg-cover bg-center relative py-20"
         style={{
           backgroundImage: `url('https://api.builder.io/api/v1/image/assets/TEMP/6b51dae713ae449e455c96ca2bde037b456c8c18?width=2880')`,
-          height: "100vh",
         }}
       >
-        <div className="absolute inset-0 bg-purple-900/80" style={{ height: "100vh" }}></div>
+        <div className="absolute inset-0 bg-purple-900/80"></div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 text-white">
           <div className="grid lg:grid-cols-4 gap-12">
             <div className="lg:col-span-2">
@@ -851,7 +856,7 @@ const Index = () => {
           {/* Language Selector */}
           <div className="mt-16 pt-8 border-t border-white/20">
             <div className="flex justify-between items-center">
-              <div className="flex gap-8 text-sm">
+              <div className="flex gap-8 text-sm text-white">
                 <span>© 2025 Scientologic Inc.</span>
                 <span className="underline">Terms & conditions</span>
                 <span className="underline">Privacy policy</span>
@@ -861,7 +866,7 @@ const Index = () => {
 
               <div className="flex items-center gap-3 border-4 border-white rounded-full px-6 py-3">
                 <Globe className="w-6 h-6" />
-                <span className="text-lg">English</span>
+                <span className="text-lg text-white">English</span>
                 <ChevronRight className="w-6 h-6 rotate-90" />
               </div>
             </div>
