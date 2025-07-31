@@ -493,6 +493,14 @@ const Index = () => {
                 <ChevronRight size={20} />
               </button>
             </div>
+            <div className="flex gap-2 justify-end items-center pr-6 pt-6">
+              <button className="bg-gray-200 hover:bg-gray-300 w-12 h-12 rounded-full flex items-center justify-center">
+                <ChevronLeft size={20} />
+              </button>
+              <button className="bg-gray-200 hover:bg-gray-300 w-12 h-12 rounded-full flex items-center justify-center">
+                <ChevronRight size={20} />
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -599,8 +607,8 @@ const Index = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
                   <div className="absolute bottom-6 left-6 right-6 text-white">
-                    <h3 className="text-xl font-bold mb-2">{expert.name}</h3>
-                    <p className="text-sm leading-relaxed whitespace-pre-line">
+                    <h3 className="text-xl font-bold mb-2 text-center">{expert.name}</h3>
+                    <p className="text-sm leading-relaxed whitespace-pre-line text-center">
                       {expert.description}
                     </p>
                   </div>
@@ -869,7 +877,7 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="mt-16 pt-8 border-t border-white/20"></div>
+
         </div>
       </footer>
 
