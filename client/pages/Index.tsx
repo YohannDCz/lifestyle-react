@@ -651,7 +651,9 @@ const Index = () => {
           </div>
 
           <h2 className="text-5xl md:text-6xl font-semibold mb-12">
-            Join the millions who use Lifestyle every day
+            Join the millions <br />
+            who use Lifestyle <br />
+            every day
           </h2>
 
           <button className="bg-black text-white px-12 py-6 rounded-3xl text-2xl font-semibold mb-16">
