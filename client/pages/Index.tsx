@@ -623,7 +623,7 @@ const Index = () => {
           backgroundImage: `url('https://api.builder.io/api/v1/image/assets/TEMP/0adc245cd947d6d9433bd09299fd12b548a7a398?width=2624')`,
         }}
       >
-        <div className="absolute inset-0 bg-blue-900/70"></div>
+
         <div className="relative z-10 max-w-7xl mx-auto px-6 text-center text-white">
           {/* Sparkle decoration */}
           <div className="absolute top-8 left-8">
