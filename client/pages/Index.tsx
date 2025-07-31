@@ -623,6 +623,7 @@ const Index = () => {
         className="py-24 bg-cover bg-center relative"
         style={{
           backgroundImage: `url('https://api.builder.io/api/v1/image/assets/TEMP/0adc245cd947d6d9433bd09299fd12b548a7a398?width=2624')`,
+          height: "100vh",
         }}
       >
 
