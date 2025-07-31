@@ -704,44 +704,48 @@ const Index = () => {
                   <h3 className="text-2xl font-semibold">{plan.name}</h3>
                 </div>
 
-                <div className="mb-8">
-                  <div className="flex items-baseline mb-6">
-                    <span className="text-lg">$</span>
-                    <span className="text-4xl font-normal">{plan.price}</span>
-                    <span className="text-xs text-gray-500 ml-2">
-                      USD/month
-                    </span>
-                  </div>
-
-                  <div className="space-y-3 mb-8">
-                    {plan.features.map((feature, featureIndex) => (
-                      <div
-                        key={featureIndex}
-                        className="flex items-center gap-3"
-                      >
-                        <Check className="w-5 h-5 text-green-500" />
-                        <span>{feature}</span>
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  <div className="mb-8">
+                    <div className="flex items-end mb-6" style={{ justifyContent: "flex-start" }}>
+                      <div style={{ display: "flex", flexDirection: "row" }}>
+                        <span className="text-lg">$</span>
+                        <span className="text-4xl font-normal">{plan.price}</span>
                       </div>
-                    ))}
-                  </div>
-                </div>
+                      <span className="text-xs text-gray-500" style={{ margin: "0 0 4px 4px" }}>
+                        USD/month
+                      </span>
+                    </div>
 
-                <div className="mb-8">
-                  <h4 className="text-lg font-medium mb-4">
-                    Guaranteed in this plan
-                  </h4>
-                  <div className="space-y-3">
-                    {plan.guarantees.map((guarantee, guaranteeIndex) => (
-                      <div
-                        key={guaranteeIndex}
-                        className="flex items-center gap-3"
-                      >
-                        <div className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center">
-                          <Check className="w-3 h-3 text-white" />
+                    <div className="space-y-3 mb-8">
+                      {plan.features.map((feature, featureIndex) => (
+                        <div
+                          key={featureIndex}
+                          className="flex items-center gap-3"
+                        >
+                          <Check className="w-5 h-5 text-green-500" />
+                          <span>{feature}</span>
                         </div>
-                        <span>{guarantee}</span>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="mb-8">
+                    <h4 className="text-lg font-medium mb-4">
+                      Guaranteed in this plan
+                    </h4>
+                    <div className="space-y-3">
+                      {plan.guarantees.map((guarantee, guaranteeIndex) => (
+                        <div
+                          key={guaranteeIndex}
+                          className="flex items-center gap-3"
+                        >
+                          <div className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center">
+                            <Check className="w-3 h-3 text-white" />
+                          </div>
+                          <span>{guarantee}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
