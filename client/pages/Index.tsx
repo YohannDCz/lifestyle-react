@@ -227,7 +227,7 @@ const Index = () => {
             width: "100vw",
             height: "100vh",
             transform: "scale(1.2)",
-            pointerEvents: "none"
+            pointerEvents: "none",
           }}
           src="https://www.youtube.com/embed/caiHvJbLC-w?autoplay=1&mute=1&loop=1&playlist=caiHvJbLC-w&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&start=18"
           allow="autoplay; encrypted-media"
@@ -335,16 +335,15 @@ const Index = () => {
                   <div className="flex flex-row relative">
                     <div className="flex flex-row">
                       <p className="text-sm leading-relaxed text-black">
-                        <span style={{ whiteSpaceCollapse: 'preserve' }}>
+                        <span style={{ whiteSpaceCollapse: "preserve" }}>
                           <em>
                             <b>Rejuvenate</b>
-                          </em>{' '}
-                          your body and mind by prioritizing restful sleep
-                          and delving into the fascinating realm of dreams.
-                          Quality sleep restores your energy, boosts
-                          cognitive function, and supports emotional
-                          balance, creating the foundation for everything
-                          you do.
+                          </em>{" "}
+                          your body and mind by prioritizing restful sleep and
+                          delving into the fascinating realm of dreams. Quality
+                          sleep restores your energy, boosts cognitive function,
+                          and supports emotional balance, creating the
+                          foundation for everything you do.
                         </span>
                       </p>
                     </div>
@@ -370,7 +369,14 @@ const Index = () => {
                 </span>
               </div>
               {/* Mental - 45 degrees (top-right) */}
-              <div className="absolute" style={{ top: '15%', right: '15%', transform: 'translate(50%, -50%)' }}>
+              <div
+                className="absolute"
+                style={{
+                  top: "15%",
+                  right: "15%",
+                  transform: "translate(50%, -50%)",
+                }}
+              >
                 <span className="bg-pink-400 text-black px-6 py-2 rounded-full text-lg">
                   Mental
                 </span>
@@ -382,7 +388,14 @@ const Index = () => {
                 </span>
               </div>
               {/* Body - 135 degrees (bottom-right) */}
-              <div className="absolute" style={{ bottom: '15%', right: '15%', transform: 'translate(50%, 50%)' }}>
+              <div
+                className="absolute"
+                style={{
+                  bottom: "15%",
+                  right: "15%",
+                  transform: "translate(50%, 50%)",
+                }}
+              >
                 <span className="bg-orange-400 text-black px-6 py-2 rounded-full text-lg">
                   Body
                 </span>
@@ -394,7 +407,14 @@ const Index = () => {
                 </span>
               </div>
               {/* Food - 225 degrees (bottom-left) */}
-              <div className="absolute" style={{ bottom: '15%', left: '15%', transform: 'translate(-50%, 50%)' }}>
+              <div
+                className="absolute"
+                style={{
+                  bottom: "15%",
+                  left: "15%",
+                  transform: "translate(-50%, 50%)",
+                }}
+              >
                 <span className="bg-green-400 text-black px-6 py-2 rounded-full text-lg">
                   Food
                 </span>
@@ -406,14 +426,19 @@ const Index = () => {
                 </span>
               </div>
               {/* Sleep - 315 degrees (top-left) */}
-              <div className="absolute" style={{ top: '15%', left: '15%', transform: 'translate(-50%, -50%)' }}>
+              <div
+                className="absolute"
+                style={{
+                  top: "15%",
+                  left: "15%",
+                  transform: "translate(-50%, -50%)",
+                }}
+              >
                 <span className="bg-blue-400 text-black px-6 py-2 rounded-full text-lg">
                   Sleep
                 </span>
               </div>
             </div>
-
-
           </div>
         </div>
       </div>
@@ -505,8 +530,6 @@ const Index = () => {
         </div>
       </section>
 
-
-
       {/* Articles Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
@@ -590,9 +613,8 @@ const Index = () => {
               Meet our top-level experts
             </h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-              From doctors to psychologist, master or even teachers,you'll
-              have the choice to get the next moves. Available in the
-              complete plan.
+              From doctors to psychologist, master or even teachers,you'll have
+              the choice to get the next moves. Available in the complete plan.
             </p>
           </div>
 
@@ -607,7 +629,9 @@ const Index = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
                   <div className="absolute bottom-6 left-6 right-6 text-white">
-                    <h3 className="text-xl font-bold mb-2 text-center">{expert.name}</h3>
+                    <h3 className="text-xl font-bold mb-2 text-center">
+                      {expert.name}
+                    </h3>
                     <p className="text-sm leading-relaxed whitespace-pre-line text-center">
                       {expert.description}
                     </p>
@@ -635,8 +659,18 @@ const Index = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-gray-100 rounded-3xl p-8" style={{ height: "492px" }}>
-                <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+              <div
+                key={index}
+                className="bg-gray-100 rounded-3xl p-8"
+                style={{ height: "492px" }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                  }}
+                >
                   <p className="text-lg font-semibold mb-8 leading-relaxed">
                     "{testimonial.text}"
                   </p>
@@ -655,7 +689,6 @@ const Index = () => {
           backgroundImage: `url('https://api.builder.io/api/v1/image/assets/TEMP/0adc245cd947d6d9433bd09299fd12b548a7a398?width=2624')`,
         }}
       >
-
         <div className="relative z-10 max-w-7xl mx-auto px-6 text-center text-white">
           {/* Sparkle decoration */}
           <div className="absolute top-8 left-8">
@@ -682,7 +715,10 @@ const Index = () => {
             </div>
           </div>
 
-          <h2 className="text-5xl md:text-6xl font-semibold mb-12" style={{ lineHeight: "70px" }}>
+          <h2
+            className="text-5xl md:text-6xl font-semibold mb-12"
+            style={{ lineHeight: "70px" }}
+          >
             Join the millions <br />
             who use Lifestyle <br />
             every day
@@ -736,12 +772,20 @@ const Index = () => {
 
                 <div style={{ display: "grid", flexDirection: "column" }}>
                   <div className="mb-8">
-                    <div className="flex items-end mb-6" style={{ justifyContent: "flex-start" }}>
+                    <div
+                      className="flex items-end mb-6"
+                      style={{ justifyContent: "flex-start" }}
+                    >
                       <div style={{ display: "flex", flexDirection: "row" }}>
                         <span className="text-lg">$</span>
-                        <span className="text-4xl font-normal">{plan.price}</span>
+                        <span className="text-4xl font-normal">
+                          {plan.price}
+                        </span>
                       </div>
-                      <span className="text-xs text-gray-500" style={{ margin: "0 0 4px 4px" }}>
+                      <span
+                        className="text-xs text-gray-500"
+                        style={{ margin: "0 0 4px 4px" }}
+                      >
                         USD/month
                       </span>
                     </div>
@@ -805,7 +849,9 @@ const Index = () => {
                 <h3 className="font-roboto text-6xl font-medium mb-2">
                   Website of
                 </h3>
-                <h3 className="font-shrikhand text-6xl text-center">energies</h3>
+                <h3 className="font-shrikhand text-6xl text-center">
+                  energies
+                </h3>
               </div>
 
               {/* Social Media Icons */}
@@ -876,13 +922,14 @@ const Index = () => {
               </ul>
             </div>
           </div>
-
-
         </div>
       </footer>
 
       {/* Bottom footer section */}
-      <div className="bg-black text-white flex items-center h-24 px-10" style={{ height: "100px", padding: "0 20px 0 40px" }}>
+      <div
+        className="bg-black text-white flex items-center h-24 px-10"
+        style={{ height: "100px", padding: "0 20px 0 40px" }}
+      >
         <div className="flex justify-between items-center w-full">
           <div className="flex gap-8 text-sm">
             <span>© 2025 Scientologic Inc.</span>
