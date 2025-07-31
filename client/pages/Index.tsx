@@ -645,7 +645,6 @@ const Index = () => {
         className="py-24 bg-cover bg-center relative"
         style={{
           backgroundImage: `url('https://api.builder.io/api/v1/image/assets/TEMP/0adc245cd947d6d9433bd09299fd12b548a7a398?width=2624')`,
-          height: "100vh",
         }}
       >
 
@@ -870,51 +869,26 @@ const Index = () => {
             </div>
           </div>
 
-          {/* Language Selector */}
-          <div className="mt-16 pt-8 border-t border-white/20">
-            <div className="flex justify-between items-center">
-              <div className="flex gap-8 text-sm text-white">
-                <span>© 2025 Scientologic Inc.</span>
-                <span className="underline">Terms & conditions</span>
-                <span className="underline">Privacy policy</span>
-                <span className="underline">Consumer Health Data</span>
-                <span className="underline">CA Privacy Notice</span>
-              </div>
-
-              <div className="flex items-center gap-3 border-4 border-white rounded-full px-6 py-3">
-                <Globe className="w-6 h-6" />
-                <span className="text-lg text-white">English</span>
-                <ChevronRight className="w-6 h-6 rotate-90" />
-              </div>
-            </div>
-          </div>
+          <div className="mt-16 pt-8 border-t border-white/20"></div>
         </div>
       </footer>
 
       {/* Bottom footer section */}
-      <div
-        className="bg-black text-white flex items-center h-24 px-10"
-        style={{ height: "100px", padding: "0 20px 0 40px" }}
-      >
-        <section
-          className="flex flex-col relative w-full max-w-5xl mx-auto"
-          style={{ minHeight: "100px", height: "100px", padding: "0 20px 0 40px" }}
-        >
-          <div className="flex justify-between items-center my-auto">
-            <div className="flex gap-8 text-sm text-white">
-              <span>© 2025 Scientologic Inc.</span>
-              <span className="underline">Terms & conditions</span>
-              <span className="underline">Privacy policy</span>
-              <span className="underline">Consumer Health Data</span>
-              <span className="underline">CA Privacy Notice</span>
-            </div>
-            <div className="flex items-center gap-3 border-4 border-white rounded-full px-6 py-3">
-              <Globe className="w-6 h-6" />
-              <span className="text-lg text-white">English</span>
-              <ChevronRight className="w-6 h-6 rotate-90" />
-            </div>
+      <div className="bg-black text-white flex items-center h-24 px-10" style={{ height: "100px", padding: "0 20px 0 40px" }}>
+        <div className="flex justify-between items-center w-full">
+          <div className="flex gap-8 text-sm">
+            <span>© 2025 Scientologic Inc.</span>
+            <span className="underline">Terms & conditions</span>
+            <span className="underline">Privacy policy</span>
+            <span className="underline">Consumer Health Data</span>
+            <span className="underline">CA Privacy Notice</span>
           </div>
-        </section>
+          <div className="flex items-center gap-3 border-4 border-white rounded-full px-6 py-3">
+            <Globe className="w-6 h-6" />
+            <span className="text-lg">English</span>
+            <ChevronRight className="w-6 h-6 rotate-90" />
+          </div>
+        </div>
       </div>
     </div>
   );
