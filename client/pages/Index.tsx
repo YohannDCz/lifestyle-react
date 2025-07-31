@@ -449,24 +449,26 @@ const Index = () => {
               alt="Lifestyle tracking interface"
               className="rounded-2xl absolute top-0 left-0 z-0 w-full h-full"
             />
-            <div className="relative w-24"></div>
-            <div className="flex flex-row">
+            <div className="flex">
+              <div className="relative w-24"></div>
               <div className="grid items-end justify-center">
                 <div className="relative flex flex-col justify-end items-center w-64 h-[504px]">
                   <img
                     src="https://api.builder.io/api/v1/image/assets/TEMP/25a7cbb0066f516134cbed838dae9c33fc7224ce?width=668"
                     alt="Phone mockup 1"
-                    className="border-4 border-black overflow-hidden"
+                    className="overflow-hidden"
+                    style={{ border: "4px none rgb(0, 0, 0)" }}
                   />
                   <img
                     src="https://api.builder.io/api/v1/image/assets/TEMP/9a6fdc0a24d45f0be25d4882a43c7c88728a99cc?width=668"
                     alt="Phone mockup 2"
-                    className="rounded-2xl absolute right-0 w-60 left-44 border-4 border-black"
+                    className="rounded-2xl absolute right-0 w-60"
+                    style={{ left: "176px", border: "4px none rgb(0, 0, 0)" }}
                   />
                 </div>
               </div>
-              <div className="flex gap-12 z-10 justify-center flex-row my-12 mr-12">
-                <div className="relative w-[3000px]"></div>
+              <div className="flex gap-12 z-10 justify-center my-12 mr-12">
+                <div className="relative w-[500px]"></div>
                 <div className="flex flex-col justify-center items-start">
                   <h3 className="text-4xl font-semibold mb-6">
                     Track your progress
