@@ -761,7 +761,7 @@ const Index = () => {
           height: "100vh",
         }}
       >
-        <div className="absolute inset-0 bg-purple-900/80"></div>
+        <div className="absolute inset-0 bg-purple-900/80" style={{ height: "100vh" }}></div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 text-white">
           <div className="grid lg:grid-cols-4 gap-12">
             <div className="lg:col-span-2">
