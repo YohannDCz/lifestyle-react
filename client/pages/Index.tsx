@@ -776,7 +776,7 @@ const Index = () => {
                 <h3 className="font-roboto text-6xl font-medium mb-2">
                   Website of
                 </h3>
-                <h3 className="font-shrikhand text-6xl">energies</h3>
+                <h3 className="font-shrikhand text-6xl text-center">energies</h3>
               </div>
 
               {/* Social Media Icons */}
