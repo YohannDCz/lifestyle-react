@@ -605,11 +605,13 @@ const Index = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-gray-100 rounded-3xl p-8">
-                <p className="text-lg font-semibold mb-8 leading-relaxed">
-                  "{testimonial.text}"
-                </p>
-                <p className="text-sm text-gray-600">{testimonial.author}</p>
+              <div key={index} className="bg-gray-100 rounded-3xl p-8" style={{ height: "492px" }}>
+                <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+                  <p className="text-lg font-semibold mb-8 leading-relaxed">
+                    "{testimonial.text}"
+                  </p>
+                  <p className="text-sm text-gray-600">{testimonial.author}</p>
+                </div>
               </div>
             ))}
           </div>
