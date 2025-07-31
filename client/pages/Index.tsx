@@ -784,27 +784,27 @@ const Index = () => {
                 <img
                   src="https://api.builder.io/api/v1/image/assets/TEMP/433b3c2c2fdc1651876d6448e272cb9e4fc02393?width=158"
                   alt="Instagram"
-                  className="w-12 h-12"
+                  style={{ width: "42px", height: "42px" }}
                 />
                 <img
                   src="https://api.builder.io/api/v1/image/assets/TEMP/d199181698e43581e3becaef5ee0b3c2618a81ec?width=138"
                   alt="Facebook"
-                  className="w-12 h-12"
+                  style={{ width: "42px", height: "42px" }}
                 />
                 <img
                   src="https://api.builder.io/api/v1/image/assets/TEMP/c7eeb7031c9b7fd8d3c39ab9b1b99e935f5e6c2c?width=138"
                   alt="Twitter"
-                  className="w-12 h-12"
+                  style={{ width: "42px", height: "42px" }}
                 />
                 <img
                   src="https://api.builder.io/api/v1/image/assets/TEMP/ce2b5166f8fab3c7a38bd92d7a0bc86e11a47ea6?width=138"
                   alt="YouTube"
-                  className="w-12 h-12"
+                  style={{ width: "42px", height: "42px" }}
                 />
                 <img
                   src="https://api.builder.io/api/v1/image/assets/TEMP/15660308f942849ee97bb806ae67d4f2b9bfd449?width=138"
                   alt="TikTok"
-                  className="w-12 h-12"
+                  style={{ width: "42px", height: "42px" }}
                 />
               </div>
             </div>
