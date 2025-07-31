@@ -334,9 +334,6 @@ const Index = () => {
                   </div>
                   <div className="flex flex-row relative">
                     <div className="flex flex-row">
-                      <button className="bg-black text-white w-8 h-8 rounded-full flex items-center justify-center absolute -left-4 top-36">
-                        <ChevronLeft size={20} />
-                      </button>
                       <p className="text-sm leading-relaxed text-black">
                         <span style={{ whiteSpaceCollapse: 'preserve' }}>
                           <em>
@@ -351,14 +348,18 @@ const Index = () => {
                         </span>
                       </p>
                     </div>
-                    <button className="bg-black text-white w-8 h-8 rounded-full flex items-center justify-center absolute left-80 top-36">
-                      <ChevronRight size={20} />
-                    </button>
                   </div>
                   <button className="bg-black text-white px-6 py-2 rounded-lg mx-auto">
                     See More
                   </button>
                 </div>
+                {/* Navigation arrows positioned at the edge of the center circle, vertically centered */}
+                <button className="bg-black text-white w-8 h-8 rounded-full flex items-center justify-center absolute left-0 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                  <ChevronLeft size={20} />
+                </button>
+                <button className="bg-black text-white w-8 h-8 rounded-full flex items-center justify-center absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2">
+                  <ChevronRight size={20} />
+                </button>
               </div>
 
               {/* Category pills around the circle - positioned at 45-degree intervals starting with Mind */}
