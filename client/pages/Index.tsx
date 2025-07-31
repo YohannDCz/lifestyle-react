@@ -758,6 +758,7 @@ const Index = () => {
         className="bg-cover bg-center relative py-20"
         style={{
           backgroundImage: `url('https://api.builder.io/api/v1/image/assets/TEMP/6b51dae713ae449e455c96ca2bde037b456c8c18?width=2880')`,
+          height: "100vh",
         }}
       >
         <div className="absolute inset-0 bg-purple-900/80"></div>
