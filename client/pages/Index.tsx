@@ -229,7 +229,7 @@ const Index = () => {
             transform: "scale(1.2)",
             pointerEvents: "none"
           }}
-          src="https://www.youtube.com/embed/caiHvJbLC-w?autoplay=1&mute=1&loop=1&playlist=caiHvJbLC-w&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1"
+          src="https://www.youtube.com/embed/caiHvJbLC-w?autoplay=1&mute=1&loop=1&playlist=caiHvJbLC-w&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&start=18"
           allow="autoplay; encrypted-media"
           allowFullScreen
         />
