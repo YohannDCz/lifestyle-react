@@ -262,7 +262,7 @@ const Index = () => {
             brain, and balanced diet & relationships.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+          <div className="flex flex-col sm:flex-row gap-6 justify-start items-center">
             <button className="bg-gradient-to-r from-cyan-400 to-white text-black px-12 py-6 rounded-full text-xl font-medium">
               Pro Plan
             </button>
@@ -314,26 +314,36 @@ const Index = () => {
 
               {/* Center content */}
               <div className="absolute inset-1/4 bg-white rounded-full flex flex-col items-center justify-center text-black">
-                <div className="text-center p-8">
-                  <div className="bg-blue-400 text-black px-6 py-2 rounded-full text-lg font-medium mb-4">
+                <div className="flex flex-col gap-6 px-8">
+                  <div className="bg-blue-400 text-black px-5 py-2 rounded-full text-lg font-medium mx-auto">
                     Sleep
                   </div>
-                  <h3 className="text-2xl font-bold mb-4">Rejuvenate</h3>
-                  <p className="text-sm leading-relaxed mb-6">
-                    your body and mind by prioritizing restful sleep and delving
-                    into the fascinating realm of dreams. Quality sleep restores
-                    your energy, boosts cognitive function, and supports
-                    emotional balance.
-                  </p>
-                  <button className="bg-black text-white px-6 py-2 rounded-lg">
+                  <div className="flex flex-row relative">
+                    <div className="flex flex-row">
+                      <button className="bg-black text-white w-8 h-8 rounded-full flex items-center justify-center absolute -left-4 top-36">
+                        <ChevronLeft size={20} />
+                      </button>
+                      <p className="text-sm leading-relaxed text-black">
+                        <span style={{ whiteSpaceCollapse: 'preserve' }}>
+                          <em>
+                            <b>Rejuvenate</b>
+                          </em>{' '}
+                          your body and mind by prioritizing restful sleep
+                          and delving into the fascinating realm of dreams.
+                          Quality sleep restores your energy, boosts
+                          cognitive function, and supports emotional
+                          balance, creating the foundation for everything
+                          you do.
+                        </span>
+                      </p>
+                    </div>
+                    <button className="bg-black text-white w-8 h-8 rounded-full flex items-center justify-center absolute left-80 top-36">
+                      <ChevronRight size={20} />
+                    </button>
+                  </div>
+                  <button className="bg-black text-white px-6 py-2 rounded-lg mx-auto">
                     See More
                   </button>
-                  <div className="flex gap-2 justify-center mt-4">
-                    <div className="w-6 h-2 bg-white rounded-full"></div>
-                    <div className="w-6 h-2 bg-white/50 rounded-full"></div>
-                    <div className="w-6 h-2 bg-white/50 rounded-full"></div>
-                    <div className="w-6 h-2 bg-white/50 rounded-full"></div>
-                  </div>
                 </div>
               </div>
 
@@ -388,17 +398,7 @@ const Index = () => {
               </div>
             </div>
 
-            {/* Navigation arrows */}
-            <div className="absolute left-0 top-1/2 transform -translate-y-1/2">
-              <button className="bg-black text-white w-8 h-8 rounded-full flex items-center justify-center">
-                <ChevronLeft size={20} />
-              </button>
-            </div>
-            <div className="absolute right-0 top-1/2 transform -translate-y-1/2">
-              <button className="bg-black text-white w-8 h-8 rounded-full flex items-center justify-center">
-                <ChevronRight size={20} />
-              </button>
-            </div>
+
           </div>
         </div>
       </div>
