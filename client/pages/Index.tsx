@@ -215,12 +215,26 @@ const Index = () => {
 
       {/* Hero Section */}
       <div
-        className="relative bg-cover bg-center bg-no-repeat flex items-center justify-center"
+        className="relative flex items-center justify-center overflow-hidden"
         style={{
-          backgroundImage: `url('https://api.builder.io/api/v1/image/assets/TEMP/0f48c92dc93bad0c6dbc4caabb608b1fdabc1e7c?width=2880')`,
           height: "calc(100vh - 70px - 50px)",
         }}
       >
+        {/* Background Video */}
+        <iframe
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{
+            width: "100vw",
+            height: "100vh",
+            transform: "scale(1.2)",
+            pointerEvents: "none"
+          }}
+          src="https://www.youtube.com/embed/caiHvJbLC-w?autoplay=1&mute=1&loop=1&playlist=caiHvJbLC-w&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1"
+          allow="autoplay; encrypted-media"
+          allowFullScreen
+        />
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/30 z-10"></div>
         <div
           className="relative z-10 text-center text-white max-w-4xl"
           style={{ margin: "0 auto 0 250px" }}
