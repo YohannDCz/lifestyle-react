@@ -442,7 +442,7 @@ const Index = () => {
                         style={{ transform: `translateX(-${currentSlide * 100}%)` }}
                       >
                         {currentContent.content.map((text, index) => (
-                          <div key={index} className="w-full flex-shrink-0 flex flex-col justify-center px-4">
+                          <div key={index} className="w-full flex-shrink-0 flex flex-col justify-center">
                             <p className="text-sm leading-relaxed text-black text-center">
                               <span style={{ color: "rgba(0, 0, 0, 1)" }}>
                                 {index === 0 && (
@@ -453,7 +453,9 @@ const Index = () => {
                                     {" "}
                                   </>
                                 )}
-                                {text}
+                                <span style={{ width: "100%" }}>
+                                  {text}
+                                </span>
                               </span>
                             </p>
                           </div>
