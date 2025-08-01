@@ -881,7 +881,7 @@ const Index = () => {
                 <button
                   className={`w-full py-4 rounded-full font-medium`}
                   style={{
-                    backgroundColor: plan.name === "Pro Plan" ? "rgb(255, 255, 255)" : plan.buttonStyle.includes("bg-black") ? "rgb(0, 0, 0)" : "rgb(255, 255, 255)",
+                    backgroundColor: plan.name === "Plus Plan" ? "rgb(255, 255, 255)" : plan.buttonStyle.includes("bg-black") ? "rgb(0, 0, 0)" : "rgb(255, 255, 255)",
                     color: plan.buttonStyle.includes("text-white") ? "rgb(255, 255, 255)" : "rgb(0, 0, 0)",
                     border: "1px none rgb(0, 0, 0)",
                   }}
