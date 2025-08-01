@@ -849,6 +849,15 @@ const Index = () => {
                       ))}
                     </div>
                   </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      position: "relative",
+                      height: "0px",
+                      margin: "16px 0",
+                    }}
+                  />
                 </div>
 
                 <button
