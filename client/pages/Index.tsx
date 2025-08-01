@@ -832,7 +832,7 @@ const Index = () => {
                       {plan.name === "Max Plan" && (
                         <div className="flex items-center gap-3">
                           <Check className="w-5 h-5 text-green-500" />
-                          <span>All included in Plus Plan</span>
+                          <span>All included in Pro Plan</span>
                         </div>
                       )}
                       {plan.features.map((feature, featureIndex) => (
