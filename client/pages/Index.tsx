@@ -674,7 +674,7 @@ const Index = () => {
               >
                 <div
                   style={{
-                    display: "flex",
+                    display: "grid",
                     flexDirection: "column",
                     justifyContent: "space-between",
                   }}
@@ -682,6 +682,15 @@ const Index = () => {
                   <p className="text-lg font-semibold leading-relaxed" style={{ marginBottom: "32px" }}>
                     "{testimonial.text}"
                   </p>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      position: "relative",
+                      marginTop: "20px",
+                      height: "200px",
+                    }}
+                  />
                   <p className="text-sm text-gray-600">{testimonial.author}</p>
                 </div>
               </div>
