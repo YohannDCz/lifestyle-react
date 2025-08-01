@@ -788,7 +788,7 @@ const Index = () => {
                   <h3 className="text-2xl font-semibold">{plan.name}</h3>
                 </div>
 
-                <div style={{ display: "flex", flexDirection: "column" }}>
+                <div style={{ display: "grid", flexDirection: "column" }}>
                   <div className="mb-8">
                     <div
                       className="flex items-end mb-6"
