@@ -823,10 +823,10 @@ const Index = () => {
                     </div>
 
                     <div className="space-y-3 mb-8">
-                      {plan.name === "Plus Plan" && (
+                      {plan.name === "Pro Plan" && (
                         <div className="flex items-center gap-3">
                           <Check className="w-5 h-5 text-green-500" />
-                          <span>All included in Pro Plan</span>
+                          <span>All included in Plus Plan</span>
                         </div>
                       )}
                       {plan.name === "Max Plan" && (
@@ -840,8 +840,7 @@ const Index = () => {
                           key={featureIndex}
                           className="flex items-center gap-3"
                           style={{
-                            paddingTop: (plan.name === "Plus Plan" || plan.name === "Max Plan") && featureIndex === 0 ? "12px" : undefined,
-                            marginTop: (plan.name === "Plus Plan" || plan.name === "Max Plan") && featureIndex === 0 ? undefined : "12px",
+                            marginTop: (plan.name === "Pro Plan" || plan.name === "Max Plan") && featureIndex === 0 ? undefined : "12px",
                           }}
                         >
                           <Check className="w-5 h-5 text-green-500" />
