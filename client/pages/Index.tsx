@@ -445,10 +445,14 @@ const Index = () => {
                           <div key={index} className="w-full flex-shrink-0 flex flex-col justify-center px-4">
                             <p className="text-sm leading-relaxed text-black text-center">
                               <span style={{ color: "rgba(0, 0, 0, 1)" }}>
-                                <em style={{ color: "rgba(0, 0, 0, 1)" }}>
-                                  <b>{currentContent.title}</b>
-                                </em>
-                                {" "}
+                                {index === 0 && (
+                                  <>
+                                    <em style={{ color: "rgba(0, 0, 0, 1)" }}>
+                                      <b>{currentContent.title}</b>
+                                    </em>
+                                    {" "}
+                                  </>
+                                )}
                                 {text}
                               </span>
                             </p>
