@@ -3,6 +3,8 @@ import { ChevronLeft, ChevronRight, Star, Check, Globe } from "lucide-react";
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState("Growth Tracking");
+  const [activeCategory, setActiveCategory] = useState("SLEEP");
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   const categoryPills = [
     { name: "SLEEP", colors: "from-blue-400 to-blue-800" },
