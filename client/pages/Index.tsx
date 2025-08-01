@@ -371,14 +371,14 @@ const Index = () => {
                 </button>
               </div>
 
-              {/* Category pills around the circle - positioned in perfect circle at 45-degree intervals starting with Mind */}
+              {/* Category pills around the circle - positioned in perfect 672px circle at 45-degree intervals starting with Mind */}
               {/* Mind - 0 degrees (top) */}
               <div
                 className="absolute"
                 style={{
                   top: "50%",
                   left: "50%",
-                  transform: "translate(-50%, -50%) translateY(-140px)",
+                  transform: "translate(-50%, -50%) translateY(-336px)",
                 }}
               >
                 <span className="bg-purple-400 text-black px-6 py-2 rounded-full text-lg">
@@ -391,7 +391,7 @@ const Index = () => {
                 style={{
                   top: "50%",
                   left: "50%",
-                  transform: "translate(-50%, -50%) translate(99px, -99px)",
+                  transform: "translate(-50%, -50%) translate(238px, -238px)",
                 }}
               >
                 <span className="bg-pink-400 text-black px-6 py-2 rounded-full text-lg">
@@ -404,7 +404,7 @@ const Index = () => {
                 style={{
                   top: "50%",
                   left: "50%",
-                  transform: "translate(-50%, -50%) translateX(140px)",
+                  transform: "translate(-50%, -50%) translateX(336px)",
                 }}
               >
                 <span className="bg-red-400 text-black px-6 py-2 rounded-full text-lg">
@@ -417,7 +417,7 @@ const Index = () => {
                 style={{
                   top: "50%",
                   left: "50%",
-                  transform: "translate(-50%, -50%) translate(99px, 99px)",
+                  transform: "translate(-50%, -50%) translate(238px, 238px)",
                 }}
               >
                 <span className="bg-orange-400 text-black px-6 py-2 rounded-full text-lg">
@@ -430,7 +430,7 @@ const Index = () => {
                 style={{
                   top: "50%",
                   left: "50%",
-                  transform: "translate(-50%, -50%) translateY(140px)",
+                  transform: "translate(-50%, -50%) translateY(336px)",
                 }}
               >
                 <span className="bg-yellow-400 text-black px-6 py-2 rounded-full text-lg">
@@ -443,7 +443,7 @@ const Index = () => {
                 style={{
                   top: "50%",
                   left: "50%",
-                  transform: "translate(-50%, -50%) translate(-99px, 99px)",
+                  transform: "translate(-50%, -50%) translate(-238px, 238px)",
                 }}
               >
                 <span className="bg-green-400 text-black px-6 py-2 rounded-full text-lg">
@@ -456,7 +456,7 @@ const Index = () => {
                 style={{
                   top: "50%",
                   left: "50%",
-                  transform: "translate(-50%, -50%) translateX(-140px)",
+                  transform: "translate(-50%, -50%) translateX(-336px)",
                 }}
               >
                 <span className="bg-cyan-400 text-black px-6 py-2 rounded-full text-lg">
@@ -469,7 +469,7 @@ const Index = () => {
                 style={{
                   top: "50%",
                   left: "50%",
-                  transform: "translate(-50%, -50%) translate(-99px, -99px)",
+                  transform: "translate(-50%, -50%) translate(-238px, -238px)",
                 }}
               >
                 <span className="bg-blue-400 text-black px-6 py-2 rounded-full text-lg">
