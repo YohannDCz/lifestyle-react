@@ -430,7 +430,7 @@ const Index = () => {
               {/* Center content */}
               <div className="absolute inset-1/4 bg-white rounded-full flex flex-col items-center justify-center text-black">
                 <div className="flex flex-col px-8 relative w-full h-full" style={{ gap: "12px" }}>
-                  <div className={`${currentContent.color} text-black px-5 py-2 rounded-full text-lg font-medium`} style={{ margin: "32px auto 0" }}>
+                  <div className={`${currentContent.color} text-black px-5 py-2 rounded-full text-lg font-medium`} style={{ margin: "16px auto 0" }}>
                     {activeCategory}
                   </div>
 
