@@ -117,6 +117,18 @@ const Index = () => {
     setCurrentSlide(0);
   };
 
+  const nextLifestyleSlide = () => {
+    const nextIndex = (currentLifestyleSlide + 1) % lifestyleContent.length;
+    setCurrentLifestyleSlide(nextIndex);
+    setActiveTab(tabs[nextIndex]);
+  };
+
+  const prevLifestyleSlide = () => {
+    const prevIndex = currentLifestyleSlide === 0 ? lifestyleContent.length - 1 : currentLifestyleSlide - 1;
+    setCurrentLifestyleSlide(prevIndex);
+    setActiveTab(tabs[prevIndex]);
+  };
+
   const tabs = [
     "Growth Tracking",
     "Expert-led programs",
