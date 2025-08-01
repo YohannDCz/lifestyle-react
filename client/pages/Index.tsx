@@ -242,19 +242,19 @@ const Index = () => {
           <div className="mb-8">
             <h1
               className="font-roboto text-6xl md:text-7xl lg:text-8xl font-medium text-left"
-              style={{ margin: "0 auto 16px 0" }}
+              style={{ marginRight: "auto" }}
             >
               Website of
             </h1>
             <h1
               className="font-shrikhand text-6xl md:text-7xl lg:text-8xl text-right"
-              style={{ margin: "0 auto 16px 0" }}
+              style={{ marginRight: "auto" }}
             >
               dynamic
             </h1>
             <h1
-              className="font-roboto text-6xl md:text-7xl lg:text-8xl font-medium text-center"
-              style={{ marginRight: "auto" }}
+              className="font-roboto text-6xl md:text-7xl lg:text-8xl font-medium"
+              style={{ margin: "-10px auto 0 0" }}
             >
               energies
             </h1>
@@ -262,7 +262,7 @@ const Index = () => {
 
           <p
             className="text-xl font-medium max-w-2xl text-left"
-            style={{ margin: "0 auto 16px" }}
+            style={{ margin: "0 auto 16px", paddingTop: "12px" }}
           >
             From one habit to an entire routine system. Let lifestyle.com change
             your life!
@@ -276,12 +276,12 @@ const Index = () => {
             brain, and balanced diet & relationships.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-start items-center">
-            <button className="bg-gradient-to-r from-cyan-400 to-white text-black px-12 py-6 rounded-full text-xl font-medium">
-              Pro Plan
-            </button>
-            <button className="bg-gradient-to-r from-purple-400 to-white text-black px-12 py-6 rounded-full text-xl font-medium">
+          <div className="flex flex-col sm:flex-row gap-6 justify-start items-center" style={{ paddingTop: "12px" }}>
+            <button className="bg-gradient-to-r from-cyan-400 to-white text-black px-12 py-6 rounded-full text-xl font-medium" style={{ width: "190px" }}>
               Plus Plan
+            </button>
+            <button className="bg-gradient-to-r from-purple-400 to-white text-black px-12 py-6 rounded-full text-xl font-medium" style={{ width: "190px" }}>
+              Pro Plan
             </button>
           </div>
         </div>
