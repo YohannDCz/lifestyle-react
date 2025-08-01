@@ -476,11 +476,13 @@ const Index = () => {
                   </div>
 
                   <button
-                    className="px-6 py-2 rounded-lg mx-auto underline mb-4"
+                    className="rounded-lg mx-auto underline"
                     style={{
                       backgroundColor: "rgba(0, 0, 0, 0)",
                       color: "rgba(0, 0, 0, 1)",
                       fontWeight: "600",
+                      margin: "0 auto 12px",
+                      padding: "0 24px",
                     }}
                   >
                     See More
