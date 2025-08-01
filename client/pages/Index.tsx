@@ -781,8 +781,12 @@ const Index = () => {
             {pricingPlans.map((plan, index) => (
               <div
                 key={index}
-                className="border border-black rounded-3xl bg-white"
-                style={{ padding: "32px 32px 20px" }}
+                className="rounded-3xl"
+                style={{
+                  backgroundColor: "rgba(245, 245, 245, 1)",
+                  border: "1px none rgb(0, 0, 0)",
+                  padding: "32px 32px 20px",
+                }}
               >
                 <div className="border-b border-black pb-4 mb-8">
                   <h3 className="text-2xl font-semibold">{plan.name}</h3>
@@ -809,10 +813,26 @@ const Index = () => {
                     </div>
 
                     <div className="space-y-3 mb-8">
+                      {plan.name === "Plus Plan" && (
+                        <div className="flex items-center gap-3">
+                          <Check className="w-5 h-5 text-green-500" />
+                          <span>All included in Pro Plan</span>
+                        </div>
+                      )}
+                      {plan.name === "Max Plan" && (
+                        <div className="flex items-center gap-3">
+                          <Check className="w-5 h-5 text-green-500" />
+                          <span>All included in Plus Plan</span>
+                        </div>
+                      )}
                       {plan.features.map((feature, featureIndex) => (
                         <div
                           key={featureIndex}
                           className="flex items-center gap-3"
+                          style={{
+                            paddingTop: (plan.name === "Plus Plan" || plan.name === "Max Plan") && featureIndex === 0 ? "12px" : undefined,
+                            marginTop: (plan.name === "Plus Plan" || plan.name === "Max Plan") && featureIndex === 0 ? undefined : "12px",
+                          }}
                         >
                           <Check className="w-5 h-5 text-green-500" />
                           <span>{feature}</span>
@@ -820,17 +840,6 @@ const Index = () => {
                       ))}
                     </div>
                   </div>
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      position: "relative",
-                      height: "0px",
-                      width: "100%",
-                      margin: "16px 0",
-                    }}
-                  />
-
                   <div className="mb-8">
                     <h4 className="text-lg font-medium mb-4">
                       Guaranteed in this plan
@@ -861,7 +870,12 @@ const Index = () => {
                 </div>
 
                 <button
-                  className={`w-full py-4 rounded-full font-medium ${plan.buttonStyle}`}
+                  className={`w-full py-4 rounded-full font-medium`}
+                  style={{
+                    backgroundColor: plan.name === "Pro Plan" ? "rgb(255, 255, 255)" : plan.buttonStyle.includes("bg-black") ? "rgb(0, 0, 0)" : "rgb(255, 255, 255)",
+                    color: plan.buttonStyle.includes("text-white") ? "rgb(255, 255, 255)" : "rgb(0, 0, 0)",
+                    border: "1px none rgb(0, 0, 0)",
+                  }}
                 >
                   {plan.buttonText}
                 </button>
