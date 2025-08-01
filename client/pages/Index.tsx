@@ -336,19 +336,29 @@ const Index = () => {
                     <div className="flex flex-row">
                       <p className="text-sm leading-relaxed text-black">
                         <span style={{ whiteSpaceCollapse: "preserve" }}>
-                          <em>
+                          <em style={{ color: "rgba(0, 0, 0, 1)" }}>
                             <b>Rejuvenate</b>
-                          </em>{" "}
-                          your body and mind by prioritizing restful sleep and
-                          delving into the fascinating realm of dreams. Quality
-                          sleep restores your energy, boosts cognitive function,
-                          and supports emotional balance, creating the
-                          foundation for everything you do.
+                          </em>
+                          <span style={{ color: "rgba(0, 0, 0, 1)" }}>
+                            {" "}
+                            your body and mind by prioritizing restful sleep and
+                            delving into the fascinating realm of dreams. Quality
+                            sleep restores your energy, boosts cognitive function,
+                            and supports emotional balance, creating the
+                            foundation for everything you do.
+                          </span>
                         </span>
                       </p>
                     </div>
                   </div>
-                  <button className="bg-black text-white px-6 py-2 rounded-lg mx-auto">
+                  <button
+                    className="px-6 py-2 rounded-lg mx-auto underline"
+                    style={{
+                      backgroundColor: "rgba(0, 0, 0, 0)",
+                      color: "rgba(0, 0, 0, 1)",
+                      fontWeight: "600",
+                    }}
+                  >
                     See More
                   </button>
                 </div>
