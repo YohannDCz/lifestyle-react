@@ -820,6 +820,16 @@ const Index = () => {
                       ))}
                     </div>
                   </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      position: "relative",
+                      height: "0px",
+                      width: "100%",
+                      margin: "16px 0",
+                    }}
+                  />
 
                   <div className="mb-8">
                     <h4 className="text-lg font-medium mb-4">
