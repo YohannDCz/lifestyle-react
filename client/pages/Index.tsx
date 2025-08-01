@@ -371,9 +371,16 @@ const Index = () => {
                 </button>
               </div>
 
-              {/* Category pills around the circle - positioned at 45-degree intervals starting with Mind */}
+              {/* Category pills around the circle - positioned in perfect circle at 45-degree intervals starting with Mind */}
               {/* Mind - 0 degrees (top) */}
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-8">
+              <div
+                className="absolute"
+                style={{
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%) translateY(-140px)",
+                }}
+              >
                 <span className="bg-purple-400 text-black px-6 py-2 rounded-full text-lg">
                   Mind
                 </span>
@@ -382,9 +389,9 @@ const Index = () => {
               <div
                 className="absolute"
                 style={{
-                  top: "15%",
-                  right: "15%",
-                  transform: "translate(50%, -50%)",
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%) translate(99px, -99px)",
                 }}
               >
                 <span className="bg-pink-400 text-black px-6 py-2 rounded-full text-lg">
@@ -392,7 +399,14 @@ const Index = () => {
                 </span>
               </div>
               {/* Soul - 90 degrees (right) */}
-              <div className="absolute right-0 top-1/2 transform translate-x-8 -translate-y-1/2">
+              <div
+                className="absolute"
+                style={{
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%) translateX(140px)",
+                }}
+              >
                 <span className="bg-red-400 text-black px-6 py-2 rounded-full text-lg">
                   Soul
                 </span>
@@ -401,9 +415,9 @@ const Index = () => {
               <div
                 className="absolute"
                 style={{
-                  bottom: "15%",
-                  right: "15%",
-                  transform: "translate(50%, 50%)",
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%) translate(99px, 99px)",
                 }}
               >
                 <span className="bg-orange-400 text-black px-6 py-2 rounded-full text-lg">
@@ -411,7 +425,14 @@ const Index = () => {
                 </span>
               </div>
               {/* Brain - 180 degrees (bottom) */}
-              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-8">
+              <div
+                className="absolute"
+                style={{
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%) translateY(140px)",
+                }}
+              >
                 <span className="bg-yellow-400 text-black px-6 py-2 rounded-full text-lg">
                   Brain
                 </span>
@@ -420,9 +441,9 @@ const Index = () => {
               <div
                 className="absolute"
                 style={{
-                  bottom: "15%",
-                  left: "15%",
-                  transform: "translate(-50%, 50%)",
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%) translate(-99px, 99px)",
                 }}
               >
                 <span className="bg-green-400 text-black px-6 py-2 rounded-full text-lg">
@@ -430,7 +451,14 @@ const Index = () => {
                 </span>
               </div>
               {/* Health - 270 degrees (left) */}
-              <div className="absolute left-0 top-1/2 transform -translate-x-8 -translate-y-1/2">
+              <div
+                className="absolute"
+                style={{
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%) translateX(-140px)",
+                }}
+              >
                 <span className="bg-cyan-400 text-black px-6 py-2 rounded-full text-lg">
                   Health
                 </span>
@@ -439,9 +467,9 @@ const Index = () => {
               <div
                 className="absolute"
                 style={{
-                  top: "15%",
-                  left: "15%",
-                  transform: "translate(-50%, -50%)",
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%) translate(-99px, -99px)",
                 }}
               >
                 <span className="bg-blue-400 text-black px-6 py-2 rounded-full text-lg">
