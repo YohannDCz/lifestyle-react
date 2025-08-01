@@ -668,10 +668,13 @@ const Index = () => {
 
           {/* Tabs */}
           <div className="flex flex-wrap gap-4 justify-start mb-12 items-center">
-            {tabs.map((tab) => (
+            {tabs.map((tab, index) => (
               <button
                 key={tab}
-                onClick={() => setActiveTab(tab)}
+                onClick={() => {
+                  setActiveTab(tab);
+                  setCurrentLifestyleSlide(index);
+                }}
                 className={`px-6 py-3 rounded-full font-semibold transition-colors ${
                   activeTab === tab
                     ? "bg-black text-white"
@@ -683,69 +686,70 @@ const Index = () => {
             ))}
           </div>
 
-          {/* Tab Content */}
-          <div className="bg-gradient-to-r from-purple-100 via-pink-100 to-purple-100 rounded-3xl relative overflow-hidden flex flex-row px-12">
-            <img
-              src="https://api.builder.io/api/v1/image/assets/TEMP/980bff91973aff50ef58da5eecca8cb33f48718f?width=2640"
-              alt="Lifestyle tracking interface"
-              className="rounded-2xl absolute top-0 left-0 z-0 w-full h-full"
-            />
-            <div className="flex">
-              <div className="relative w-24"></div>
-              <div className="grid items-end justify-center">
-                <div className="relative flex flex-col justify-end items-center w-64 h-[504px]">
-                  <img
-                    src="https://api.builder.io/api/v1/image/assets/TEMP/25a7cbb0066f516134cbed838dae9c33fc7224ce?width=668"
-                    alt="Phone mockup 1"
-                    className="overflow-hidden"
-                    style={{ border: "4px none rgb(0, 0, 0)" }}
-                  />
-                  <img
-                    src="https://api.builder.io/api/v1/image/assets/TEMP/9a6fdc0a24d45f0be25d4882a43c7c88728a99cc?width=668"
-                    alt="Phone mockup 2"
-                    className="rounded-2xl absolute right-0 w-60"
-                    style={{ left: "176px", border: "4px none rgb(0, 0, 0)" }}
-                  />
+          {/* Carousel Container */}
+          <div className="relative overflow-hidden">
+            <div
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{ transform: `translateX(-${currentLifestyleSlide * 100}%)` }}
+            >
+              {lifestyleContent.map((content, index) => (
+                <div key={index} className="w-full flex-shrink-0">
+                  <div className="bg-gradient-to-r from-purple-100 via-pink-100 to-purple-100 rounded-3xl relative overflow-hidden flex flex-row px-12">
+                    <img
+                      src={content.image}
+                      alt="Lifestyle tracking interface"
+                      className="rounded-2xl absolute top-0 left-0 z-0 w-full h-full"
+                    />
+                    <div className="flex">
+                      <div className="relative w-24"></div>
+                      <div className="grid items-end justify-center">
+                        <div className="relative flex flex-col justify-end items-center w-64 h-[504px]">
+                          <img
+                            src="https://api.builder.io/api/v1/image/assets/TEMP/25a7cbb0066f516134cbed838dae9c33fc7224ce?width=668"
+                            alt="Phone mockup 1"
+                            className="overflow-hidden"
+                            style={{ border: "4px none rgb(0, 0, 0)" }}
+                          />
+                          <img
+                            src="https://api.builder.io/api/v1/image/assets/TEMP/9a6fdc0a24d45f0be25d4882a43c7c88728a99cc?width=668"
+                            alt="Phone mockup 2"
+                            className="rounded-2xl absolute right-0 w-60"
+                            style={{ left: "176px", border: "4px none rgb(0, 0, 0)" }}
+                          />
+                        </div>
+                      </div>
+                      <div className="flex gap-12 z-10 justify-center my-12 mr-12">
+                        <div className="relative w-[500px]"></div>
+                        <div className="flex flex-col justify-center items-start">
+                          <h3 className="text-4xl font-semibold mb-6">
+                            {content.title}
+                          </h3>
+                          <p className="text-lg mb-8 text-gray-700">
+                            {content.description}
+                          </p>
+                          <button className="bg-white text-black px-8 py-4 rounded-full font-medium shadow-lg hover:shadow-xl transition-shadow">
+                            Learn more
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div className="flex gap-12 z-10 justify-center my-12 mr-12">
-                <div className="relative w-[500px]"></div>
-                <div className="flex flex-col justify-center items-start">
-                  <h3 className="text-4xl font-semibold mb-6">
-                    Track your progress
-                  </h3>
-                  <p className="text-lg mb-8 text-gray-700">
-                    Explore the growth tracker as you <br />
-                    make more and more improvements <br />
-                    throughout the entire lifestyle rehabilitation process.
-                  </p>
-                  <button className="bg-white text-black px-8 py-4 rounded-full font-medium shadow-lg hover:shadow-xl transition-shadow">
-                    Learn more
-                  </button>
-                </div>
-              </div>
+              ))}
             </div>
-            <div className="flex gap-2 justify-end items-center pr-6 pt-6">
-              <button className="bg-gray-200 hover:bg-gray-300 w-12 h-12 rounded-full flex items-center justify-center">
+
+            {/* Navigation arrows */}
+            <div className="flex gap-2 justify-center items-center mt-6">
+              <button
+                onClick={() => setCurrentLifestyleSlide((prev) => prev === 0 ? lifestyleContent.length - 1 : prev - 1)}
+                className="bg-gray-200 hover:bg-gray-300 w-12 h-12 rounded-full flex items-center justify-center transition-colors"
+              >
                 <ChevronLeft size={20} />
               </button>
-              <button className="bg-gray-200 hover:bg-gray-300 w-12 h-12 rounded-full flex items-center justify-center">
-                <ChevronRight size={20} />
-              </button>
-            </div>
-            <div className="flex gap-2 justify-end items-center pr-6 pt-6">
-              <button className="bg-gray-200 hover:bg-gray-300 w-12 h-12 rounded-full flex items-center justify-center">
-                <ChevronLeft size={20} />
-              </button>
-              <button className="bg-gray-200 hover:bg-gray-300 w-12 h-12 rounded-full flex items-center justify-center">
-                <ChevronRight size={20} />
-              </button>
-            </div>
-            <div className="flex gap-2 justify-end items-center pr-6 pt-6">
-              <button className="bg-gray-200 hover:bg-gray-300 w-12 h-12 rounded-full flex items-center justify-center">
-                <ChevronLeft size={20} />
-              </button>
-              <button className="bg-gray-200 hover:bg-gray-300 w-12 h-12 rounded-full flex items-center justify-center">
+              <button
+                onClick={() => setCurrentLifestyleSlide((prev) => (prev + 1) % lifestyleContent.length)}
+                className="bg-gray-200 hover:bg-gray-300 w-12 h-12 rounded-full flex items-center justify-center transition-colors"
+              >
                 <ChevronRight size={20} />
               </button>
             </div>
