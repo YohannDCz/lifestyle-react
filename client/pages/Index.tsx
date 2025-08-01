@@ -429,31 +429,50 @@ const Index = () => {
 
               {/* Center content */}
               <div className="absolute inset-1/4 bg-white rounded-full flex flex-col items-center justify-center text-black">
-                <div className="flex flex-col gap-6 px-8">
-                  <div className="bg-blue-400 text-black px-5 py-2 rounded-full text-lg font-medium mx-auto">
-                    Sleep
+                <div className="flex flex-col gap-6 px-8 relative w-full h-full">
+                  <div className={`${currentContent.color} text-black px-5 py-2 rounded-full text-lg font-medium mx-auto mt-8`}>
+                    {activeCategory}
                   </div>
-                  <div className="flex flex-row relative">
-                    <div className="flex flex-row">
-                      <p className="text-sm leading-relaxed text-black">
-                        <span style={{ whiteSpaceCollapse: "preserve" }}>
-                          <em style={{ color: "rgba(0, 0, 0, 1)" }}>
-                            <b>Rejuvenate</b>
-                          </em>
-                          <span style={{ color: "rgba(0, 0, 0, 1)" }}>
-                            {" "}
-                            your body and mind by prioritizing restful sleep and
-                            delving into the fascinating realm of dreams. Quality
-                            sleep restores your energy, boosts cognitive function,
-                            and supports emotional balance, creating the
-                            foundation for everything you do.
-                          </span>
-                        </span>
-                      </p>
+
+                  {/* Carousel Content */}
+                  <div className="flex-1 flex flex-col justify-center relative overflow-hidden">
+                    <div className="relative h-48">
+                      <div
+                        className="flex transition-transform duration-300 ease-in-out h-full"
+                        style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+                      >
+                        {currentContent.content.map((text, index) => (
+                          <div key={index} className="w-full flex-shrink-0 flex flex-col justify-center px-4">
+                            <p className="text-sm leading-relaxed text-black text-center">
+                              <span style={{ color: "rgba(0, 0, 0, 1)" }}>
+                                <em style={{ color: "rgba(0, 0, 0, 1)" }}>
+                                  <b>{currentContent.title}</b>
+                                </em>
+                                {" "}
+                                {text}
+                              </span>
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Slide indicators */}
+                    <div className="flex justify-center gap-2 mt-4">
+                      {currentContent.content.map((_, index) => (
+                        <button
+                          key={index}
+                          onClick={() => setCurrentSlide(index)}
+                          className={`w-2 h-2 rounded-full transition-colors ${
+                            index === currentSlide ? 'bg-gray-800' : 'bg-gray-300'
+                          }`}
+                        />
+                      ))}
                     </div>
                   </div>
+
                   <button
-                    className="px-6 py-2 rounded-lg mx-auto underline"
+                    className="px-6 py-2 rounded-lg mx-auto underline mb-4"
                     style={{
                       backgroundColor: "rgba(0, 0, 0, 0)",
                       color: "rgba(0, 0, 0, 1)",
@@ -463,11 +482,18 @@ const Index = () => {
                     See More
                   </button>
                 </div>
-                {/* Navigation arrows positioned at the edge of the center circle, vertically centered */}
-                <button className="bg-black text-white w-8 h-8 rounded-full flex items-center justify-center absolute left-0 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+
+                {/* Navigation arrows for carousel */}
+                <button
+                  onClick={prevSlide}
+                  className="bg-black text-white w-8 h-8 rounded-full flex items-center justify-center absolute left-0 top-1/2 transform -translate-x-1/2 -translate-y-1/2 hover:bg-gray-800 transition-colors"
+                >
                   <ChevronLeft size={20} />
                 </button>
-                <button className="bg-black text-white w-8 h-8 rounded-full flex items-center justify-center absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2">
+                <button
+                  onClick={nextSlide}
+                  className="bg-black text-white w-8 h-8 rounded-full flex items-center justify-center absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2 hover:bg-gray-800 transition-colors"
+                >
                   <ChevronRight size={20} />
                 </button>
               </div>
