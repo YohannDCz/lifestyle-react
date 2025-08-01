@@ -324,7 +324,7 @@ const Index = () => {
           <div className="relative max-w-4xl mx-auto mb-16">
             <div className="relative w-full aspect-square max-w-2xl mx-auto">
               {/* Main circle */}
-              <div className="absolute inset-0 rounded-full border-4 border-white/30"></div>
+              <div className="absolute inset-0 rounded-full border-4 border-white/30" style={{ width: "672px" }}></div>
 
               {/* Center content */}
               <div className="absolute inset-1/4 bg-white rounded-full flex flex-col items-center justify-center text-black">
