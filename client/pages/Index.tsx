@@ -153,7 +153,7 @@ const Index = () => {
         "Faster growth across all area of life",
         "Regular lucid dreaming",
       ],
-      buttonText: "Get Plus",
+      buttonText: "Get Pro",
       buttonStyle: "bg-black text-white",
     },
     {
