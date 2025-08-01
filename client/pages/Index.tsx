@@ -526,6 +526,14 @@ const Index = () => {
                 <ChevronRight size={20} />
               </button>
             </div>
+            <div className="flex gap-2 justify-end items-center pr-6 pt-6">
+              <button className="bg-gray-200 hover:bg-gray-300 w-12 h-12 rounded-full flex items-center justify-center">
+                <ChevronLeft size={20} />
+              </button>
+              <button className="bg-gray-200 hover:bg-gray-300 w-12 h-12 rounded-full flex items-center justify-center">
+                <ChevronRight size={20} />
+              </button>
+            </div>
           </div>
         </div>
       </section>
