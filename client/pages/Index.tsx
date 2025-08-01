@@ -124,8 +124,8 @@ const Index = () => {
 
   const pricingPlans = [
     {
-      name: "Pro Plan",
-      price: "20",
+      name: "Plus Plan",
+      price: "200",
       features: [
         "All tools",
         "All articles",
@@ -141,8 +141,8 @@ const Index = () => {
       buttonStyle: "border border-black bg-white text-black",
     },
     {
-      name: "Plus Plan",
-      price: "200",
+      name: "Pro Plan",
+      price: "20",
       features: [
         "Weekly video coaching session",
         "Personalized learning paths",
