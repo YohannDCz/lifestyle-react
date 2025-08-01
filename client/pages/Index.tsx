@@ -501,105 +501,113 @@ const Index = () => {
               {/* Category pills around the circle - positioned in perfect 672px circle at 45-degree intervals starting with Mind */}
               {/* Mind - 0 degrees (top) */}
               <div
-                className="absolute"
+                className="absolute cursor-pointer transition-transform duration-200"
                 style={{
                   top: "50%",
                   left: "50%",
                   transform: "translate(-50%, -50%) translateY(-336px)",
                 }}
+                onMouseEnter={() => handleCategoryHover("MIND")}
               >
-                <span className="bg-purple-400 text-black px-6 py-2 rounded-full text-lg">
+                <span className={`bg-purple-400 text-black px-6 py-2 rounded-full text-lg transition-all duration-200 hover:scale-110 ${activeCategory === "MIND" ? 'scale-110 shadow-lg' : ''}`}>
                   Mind
                 </span>
               </div>
               {/* Mental - 45 degrees (top-right) */}
               <div
-                className="absolute"
+                className="absolute cursor-pointer transition-transform duration-200"
                 style={{
                   top: "50%",
                   left: "50%",
                   transform: "translate(-50%, -50%) translate(238px, -238px)",
                 }}
+                onMouseEnter={() => handleCategoryHover("MENTAL")}
               >
-                <span className="bg-pink-400 text-black px-6 py-2 rounded-full text-lg">
+                <span className={`bg-pink-400 text-black px-6 py-2 rounded-full text-lg transition-all duration-200 hover:scale-110 ${activeCategory === "MENTAL" ? 'scale-110 shadow-lg' : ''}`}>
                   Mental
                 </span>
               </div>
               {/* Soul - 90 degrees (right) */}
               <div
-                className="absolute"
+                className="absolute cursor-pointer transition-transform duration-200"
                 style={{
                   top: "50%",
                   left: "50%",
                   transform: "translate(-50%, -50%) translateX(336px)",
                 }}
+                onMouseEnter={() => handleCategoryHover("SOUL")}
               >
-                <span className="bg-red-400 text-black px-6 py-2 rounded-full text-lg">
+                <span className={`bg-red-400 text-black px-6 py-2 rounded-full text-lg transition-all duration-200 hover:scale-110 ${activeCategory === "SOUL" ? 'scale-110 shadow-lg' : ''}`}>
                   Soul
                 </span>
               </div>
               {/* Body - 135 degrees (bottom-right) */}
               <div
-                className="absolute"
+                className="absolute cursor-pointer transition-transform duration-200"
                 style={{
                   top: "50%",
                   left: "50%",
                   transform: "translate(-50%, -50%) translate(238px, 238px)",
                 }}
+                onMouseEnter={() => handleCategoryHover("BODY")}
               >
-                <span className="bg-orange-400 text-black px-6 py-2 rounded-full text-lg">
+                <span className={`bg-orange-400 text-black px-6 py-2 rounded-full text-lg transition-all duration-200 hover:scale-110 ${activeCategory === "BODY" ? 'scale-110 shadow-lg' : ''}`}>
                   Body
                 </span>
               </div>
               {/* Brain - 180 degrees (bottom) */}
               <div
-                className="absolute"
+                className="absolute cursor-pointer transition-transform duration-200"
                 style={{
                   top: "50%",
                   left: "50%",
                   transform: "translate(-50%, -50%) translateY(336px)",
                 }}
+                onMouseEnter={() => handleCategoryHover("BRAIN")}
               >
-                <span className="bg-yellow-400 text-black px-6 py-2 rounded-full text-lg">
+                <span className={`bg-yellow-400 text-black px-6 py-2 rounded-full text-lg transition-all duration-200 hover:scale-110 ${activeCategory === "BRAIN" ? 'scale-110 shadow-lg' : ''}`}>
                   Brain
                 </span>
               </div>
               {/* Food - 225 degrees (bottom-left) */}
               <div
-                className="absolute"
+                className="absolute cursor-pointer transition-transform duration-200"
                 style={{
                   top: "50%",
                   left: "50%",
                   transform: "translate(-50%, -50%) translate(-238px, 238px)",
                 }}
+                onMouseEnter={() => handleCategoryHover("FOOD")}
               >
-                <span className="bg-green-400 text-black px-6 py-2 rounded-full text-lg">
+                <span className={`bg-green-400 text-black px-6 py-2 rounded-full text-lg transition-all duration-200 hover:scale-110 ${activeCategory === "FOOD" ? 'scale-110 shadow-lg' : ''}`}>
                   Food
                 </span>
               </div>
               {/* Health - 270 degrees (left) */}
               <div
-                className="absolute"
+                className="absolute cursor-pointer transition-transform duration-200"
                 style={{
                   top: "50%",
                   left: "50%",
                   transform: "translate(-50%, -50%) translateX(-336px)",
                 }}
+                onMouseEnter={() => handleCategoryHover("HEALTH")}
               >
-                <span className="bg-cyan-400 text-black px-6 py-2 rounded-full text-lg">
+                <span className={`bg-cyan-400 text-black px-6 py-2 rounded-full text-lg transition-all duration-200 hover:scale-110 ${activeCategory === "HEALTH" ? 'scale-110 shadow-lg' : ''}`}>
                   Health
                 </span>
               </div>
               {/* Sleep - 315 degrees (top-left) */}
               <div
-                className="absolute"
+                className="absolute cursor-pointer transition-transform duration-200"
                 style={{
                   top: "50%",
                   left: "50%",
                   transform: "translate(-50%, -50%) translate(-238px, -238px)",
                 }}
+                onMouseEnter={() => handleCategoryHover("SLEEP")}
               >
-                <span className="bg-blue-400 text-black px-6 py-2 rounded-full text-lg">
+                <span className={`bg-blue-400 text-black px-6 py-2 rounded-full text-lg transition-all duration-200 hover:scale-110 ${activeCategory === "SLEEP" ? 'scale-110 shadow-lg' : ''}`}>
                   Sleep
                 </span>
               </div>
