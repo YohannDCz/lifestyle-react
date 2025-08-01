@@ -753,13 +753,13 @@ const Index = () => {
             {/* Navigation arrows */}
             <div className="flex gap-2 justify-center items-center mt-6">
               <button
-                onClick={() => setCurrentLifestyleSlide((prev) => prev === 0 ? lifestyleContent.length - 1 : prev - 1)}
+                onClick={prevLifestyleSlide}
                 className="bg-gray-200 hover:bg-gray-300 w-12 h-12 rounded-full flex items-center justify-center transition-colors"
               >
                 <ChevronLeft size={20} />
               </button>
               <button
-                onClick={() => setCurrentLifestyleSlide((prev) => (prev + 1) % lifestyleContent.length)}
+                onClick={nextLifestyleSlide}
                 className="bg-gray-200 hover:bg-gray-300 w-12 h-12 rounded-full flex items-center justify-center transition-colors"
               >
                 <ChevronRight size={20} />
