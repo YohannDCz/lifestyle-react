@@ -17,6 +17,105 @@ const Index = () => {
     { name: "HEALTH", colors: "from-cyan-400 to-cyan-800" },
   ];
 
+  const categoryContent = {
+    SLEEP: {
+      title: "Rejuvenate",
+      color: "bg-blue-400",
+      borderColor: "border-blue-400",
+      content: [
+        "Rejuvenate your body and mind by prioritizing restful sleep and delving into the fascinating realm of dreams. Quality sleep restores your energy, boosts cognitive function, and supports emotional balance, creating the foundation for everything you do.",
+        "Beyond just resting, explore lucid dreaming to unlock your subconscious creativity and navigate the dream world with intention. Establish a bedtime ritual that calms the body and signals the mind to unwind.",
+        "From optimizing your sleep environment to embracing mindfulness techniques that prepare you for slumber, rejuvenation starts with giving yourself permission to rest fully and deeply."
+      ]
+    },
+    MIND: {
+      title: "Refocus",
+      color: "bg-purple-400",
+      borderColor: "border-purple-400",
+      content: [
+        "Refocus your mental energy through the practice of meditation. In a world filled with distractions, finding stillness is a superpower. Meditation helps quiet the mind, sharpening your ability to concentrate and bringing your attention to the present moment.",
+        "By practicing daily, you cultivate resilience to stress and a greater capacity for emotional regulation. Begin with guided meditations that take you on a journey of calm and clarity.",
+        "Whether it's visualizing the vastness of the universe or simply focusing on your breath, meditation reconnects you with your inner self and paves the way for purposeful living."
+      ]
+    },
+    MENTAL: {
+      title: "Rebalance",
+      color: "bg-pink-400",
+      borderColor: "border-pink-400",
+      content: [
+        "Rebalance your emotional and mental well-being by fostering awareness of your thoughts and feelings. Life's challenges can often leave you feeling overwhelmed, but building a toolkit of coping strategies helps you navigate with confidence.",
+        "Techniques like journaling, gratitude exercises, and mindfulness can transform negative thought patterns into constructive energy. By addressing stress and anxiety, you create space for inner peace and emotional stability.",
+        "Rebalancing is about understanding yourself deeply, embracing your vulnerabilities, and strengthening your ability to adapt and grow through life's complexities."
+      ]
+    },
+    SOUL: {
+      title: "Reconnect",
+      color: "bg-red-400",
+      borderColor: "border-red-400",
+      content: [
+        "Reconnect with the people who matter most and nurture meaningful relationships. Human connection is a powerful source of joy, support, and growth. Begin by actively listening to others and expressing empathy, ensuring that your interactions are authentic and valuable.",
+        "Strengthen bonds by dedicating time to loved ones and creating moments of shared joy. Explore ways to deepen intimacy, improve communication, and resolve conflicts constructively.",
+        "Relationships thrive when built on trust, understanding, and love. Reconnecting allows you to grow not only as an individual but as part of a network of mutual care and encouragement."
+      ]
+    },
+    BODY: {
+      title: "Reenergize",
+      color: "bg-orange-400",
+      borderColor: "border-orange-400",
+      content: [
+        "Reenergize your body with regular physical activity and a commitment to self-discipline. Physical fitness is not just about appearance but about building strength, resilience, and vitality.",
+        "Whether it's through weightlifting, running, yoga, or martial arts, find a routine that challenges and excites you. Proper nutrition and hydration play an equally important role in sustaining your energy levels.",
+        "Monitor your progress, celebrate milestones, and push past limits to uncover your potential. Reenergizing transforms your body into a vessel of strength and endurance, empowering you to approach life's challenges with vigor and confidence."
+      ]
+    },
+    BRAIN: {
+      title: "Reinvent",
+      color: "bg-yellow-400",
+      borderColor: "border-yellow-400",
+      content: [
+        "Reinvent yourself by embracing a lifelong journey of learning and exploration. Each day is an opportunity to expand your knowledge, develop new skills, and redefine what's possible.",
+        "Dive into books, courses, and experiences that challenge your understanding and spark your curiosity. Experiment with different tools like mind mapping, memory techniques, or time management strategies to optimize your learning.",
+        "Reinvention is about staying open to change, breaking old patterns, and becoming the best version of yourself. In doing so, you set the stage for a future rich with innovation, creativity, and personal growth."
+      ]
+    },
+    FOOD: {
+      title: "Refuel",
+      color: "bg-green-400",
+      borderColor: "border-green-400",
+      content: [
+        "Refuel your body by embracing the power of mindful nourishment. Food is not just fuel; it is the foundation of your energy, vitality, and overall well-being. Prioritize whole, nutrient-dense ingredients that rejuvenate your body and enhance your mental clarity.",
+        "Make each meal an intentional act of self-care, choosing foods that support both short-term energy and long-term health. Explore cooking as an art form, experimenting with vibrant flavors, textures, and cuisines to create meals that excite and satisfy.",
+        "Cultivate an awareness of how food impacts your physical and emotional state, turning every bite into an opportunity to recharge. By refueling with purpose, you empower yourself to thrive in every aspect of life."
+      ]
+    },
+    HEALTH: {
+      title: "Restore",
+      color: "bg-cyan-400",
+      borderColor: "border-cyan-400",
+      content: [
+        "Restore balance and harmony to your overall well-being by focusing on your health. True health is a dynamic interplay between physical, mental, and emotional wellness. Regular health checkups and preventive care are key to staying ahead of potential challenges.",
+        "Learn to listen to your body's signals, whether it's through physical symptoms, energy levels, or mood changes. Practice stress management techniques like yoga, breathwork, and relaxation exercises to maintain equilibrium.",
+        "Commit to a lifestyle that supports longevity—adequate hydration, a nutrient-rich diet, quality sleep, and consistent movement. By making health a priority, you lay the foundation for a vibrant, fulfilling life where you can thrive at your fullest potential."
+      ]
+    }
+  };
+
+  const currentContent = categoryContent[activeCategory];
+  const totalSlides = currentContent.content.length;
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % totalSlides);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
+  };
+
+  const handleCategoryHover = (category) => {
+    setActiveCategory(category);
+    setCurrentSlide(0);
+  };
+
   const tabs = [
     "Growth Tracking",
     "Expert-led programs",
