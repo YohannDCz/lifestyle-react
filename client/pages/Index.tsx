@@ -671,7 +671,7 @@ const Index = () => {
                     justifyContent: "space-between",
                   }}
                 >
-                  <p className="text-lg font-semibold mb-8 leading-relaxed">
+                  <p className="text-lg font-semibold leading-relaxed" style={{ marginBottom: "32px" }}>
                     "{testimonial.text}"
                   </p>
                   <p className="text-sm text-gray-600">{testimonial.author}</p>
@@ -755,8 +755,9 @@ const Index = () => {
       {/* Pricing Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-5xl md:text-6xl font-semibold text-center mb-16">
-            Our plans, made with love
+          <h2 className="text-5xl md:text-6xl font-semibold text-center mb-16" style={{ lineHeight: "70px" }}>
+            Our plans, <br />
+            made with love
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -770,7 +771,7 @@ const Index = () => {
                   <h3 className="text-2xl font-semibold">{plan.name}</h3>
                 </div>
 
-                <div style={{ display: "grid", flexDirection: "column" }}>
+                <div style={{ display: "flex", flexDirection: "column" }}>
                   <div className="mb-8">
                     <div
                       className="flex items-end mb-6"
