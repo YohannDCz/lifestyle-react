@@ -125,6 +125,39 @@ const Index = () => {
     "Mental Reset",
   ];
 
+  const lifestyleContent = [
+    {
+      title: "Track your progress",
+      subtitle: "Growth Tracking",
+      description: "Explore the growth tracker as you make more and more improvements throughout the entire lifestyle rehabilitation process.",
+      image: "https://api.builder.io/api/v1/image/assets/TEMP/980bff91973aff50ef58da5eecca8cb33f48718f?width=2640"
+    },
+    {
+      title: "Masterclasses from the top",
+      subtitle: "Expert-led Programs",
+      description: "Access curated courses and guidance from world-class experts in their respective fields.",
+      image: "https://api.builder.io/api/v1/image/assets/TEMP/980bff91973aff50ef58da5eecca8cb33f48718f?width=2640"
+    },
+    {
+      title: "Intelligence is yours",
+      subtitle: "AI Guidance",
+      description: "Receive personalized insights and recommendations through AI-driven tools to accelerate your journey.",
+      image: "https://api.builder.io/api/v1/image/assets/TEMP/980bff91973aff50ef58da5eecca8cb33f48718f?width=2640"
+    },
+    {
+      title: "Pathway to lucid dreaming",
+      subtitle: "Dream Genesis",
+      description: "Explore the art of lucid dreaming and unlock the creative potential of your subconscious mind.",
+      image: "https://api.builder.io/api/v1/image/assets/TEMP/980bff91973aff50ef58da5eecca8cb33f48718f?width=2640"
+    },
+    {
+      title: "Restart all over",
+      subtitle: "Mind Reset",
+      description: "Clear your mind and begin fresh with powerful techniques to reset your mental state and approach life with renewed clarity.",
+      image: "https://api.builder.io/api/v1/image/assets/TEMP/980bff91973aff50ef58da5eecca8cb33f48718f?width=2640"
+    }
+  ];
+
   const sleepArticles = [
     {
       title: "How to make the dreams last",
