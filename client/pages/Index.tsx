@@ -1932,7 +1932,7 @@ const Index = () => {
           backgroundImage: `url('https://api.builder.io/api/v1/image/assets/TEMP/6b51dae713ae449e455c96ca2bde037b456c8c18?width=2880')`,
         }}
       >
-        <div className="absolute inset-0 bg-purple-900/80"></div>
+        <div className="absolute bg-purple-900/80" style={{ top: 0, right: 0, bottom: 0 }}></div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 text-white">
           <div className="grid lg:grid-cols-4 gap-12">
             <div className="lg:col-span-2">
