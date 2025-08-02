@@ -844,7 +844,7 @@ const Index = () => {
       {/* Global Hover Menu Overlay */}
       {showHoverMenu && hoveredCategory && (
         <div
-          className="hover-menu-overlay fixed inset-0 z-50 bg-black"
+          className="hover-menu-overlay absolute left-0 right-0 z-50 bg-black"
           style={{
             top: "120px", // Account for navigation bars
             height: "calc(100vh - 120px)",
