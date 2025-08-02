@@ -1559,7 +1559,7 @@ const Index = () => {
                   <div className="text-sm font-semibold text-gray-600 mb-2">
                     {article.category}
                   </div>
-                  <h4 className="font-semibold text-lg">{article.title}</h4>
+                  <h4 className="font-semibold text-lg" style={{ height: "3.5rem", lineHeight: "1.75rem" }}>{article.title}</h4>
                 </div>
               ))}
             </div>
