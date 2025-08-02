@@ -917,9 +917,12 @@ const Index = () => {
               </div>
 
               <div className="mt-auto">
-                <div className={`bg-gradient-to-r ${categoryPills.find(pill => pill.name === hoveredCategory)?.colors.replace('from-blue-400 to-blue-800', 'from-gray-400 to-gray-800').replace('from-purple-400 to-purple-800', 'from-gray-400 to-gray-800').replace('from-pink-400 to-pink-800', 'from-gray-400 to-gray-800').replace('from-red-400 to-red-800', 'from-gray-400 to-gray-800').replace('from-orange-400 to-orange-800', 'from-gray-400 to-gray-800').replace('from-yellow-400 to-yellow-800', 'from-gray-400 to-gray-800').replace('from-green-400 to-green-800', 'from-gray-400 to-gray-800').replace('from-cyan-400 to-cyan-800', 'from-gray-400 to-gray-800')} text-white px-6 py-4 rounded-full text-lg font-semibold inline-block`}>
+                <button
+                  onClick={() => navigate(`/category/${hoveredCategory?.toLowerCase()}`)}
+                  className={`bg-gradient-to-r ${categoryPills.find(pill => pill.name === hoveredCategory)?.colors.replace('from-blue-400 to-blue-800', 'from-gray-400 to-gray-800').replace('from-purple-400 to-purple-800', 'from-gray-400 to-gray-800').replace('from-pink-400 to-pink-800', 'from-gray-400 to-gray-800').replace('from-red-400 to-red-800', 'from-gray-400 to-gray-800').replace('from-orange-400 to-orange-800', 'from-gray-400 to-gray-800').replace('from-yellow-400 to-yellow-800', 'from-gray-400 to-gray-800').replace('from-green-400 to-green-800', 'from-gray-400 to-gray-800').replace('from-cyan-400 to-cyan-800', 'from-gray-400 to-gray-800')} text-white px-6 py-4 rounded-full text-lg font-semibold inline-block hover:scale-105 transition-transform duration-200 cursor-pointer`}
+                >
                   Explore {hoveredCategory}
-                </div>
+                </button>
               </div>
             </div>
 
