@@ -40,9 +40,9 @@ export default function CategoryPage() {
       subCategories: [
         { name: "Mindfulness", isActive: true },
         { name: "Visualization", isActive: false },
-        { name: "Meditation", isActive: false },
-        { name: "Focus", isActive: false },
-        { name: "Awareness", isActive: false }
+        { name: "Inner Peace", isActive: false },
+        { name: "Focused Mind", isActive: false },
+        { name: "Guided Meditation", isActive: false }
       ]
     },
     MENTAL: {
@@ -57,9 +57,9 @@ export default function CategoryPage() {
       subCategories: [
         { name: "Emotional Balance", isActive: true },
         { name: "Anxiety Relief", isActive: false },
-        { name: "Stress Management", isActive: false },
-        { name: "Resilience", isActive: false },
-        { name: "Therapy", isActive: false }
+        { name: "Positive Thinking", isActive: false },
+        { name: "Cognitive Reset", isActive: false },
+        { name: "Inner Strength", isActive: false }
       ]
     },
     SOUL: {
@@ -72,11 +72,11 @@ export default function CategoryPage() {
         description: "Connect with your inner self through spiritual practices, personal growth exercises, and soul-nourishing activities designed to bring meaning and purpose to your life."
       },
       subCategories: [
-        { name: "Spirituality", isActive: true },
-        { name: "Inner Peace", isActive: false },
-        { name: "Self Love", isActive: false },
-        { name: "Purpose", isActive: false },
-        { name: "Gratitude", isActive: false }
+        { name: "Social Dynamics", isActive: true },
+        { name: "Soulmate", isActive: false },
+        { name: "Sexuality", isActive: false },
+        { name: "Friendship", isActive: false },
+        { name: "Family", isActive: false }
       ]
     },
     BODY: {
@@ -89,11 +89,11 @@ export default function CategoryPage() {
         description: "Take care of your physical health with workout routines, nutrition guidance, and wellness practices designed to keep your body strong and healthy."
       },
       subCategories: [
-        { name: "Fitness", isActive: true },
-        { name: "Nutrition", isActive: false },
-        { name: "Movement", isActive: false },
+        { name: "Strength", isActive: true },
+        { name: "Flexibility", isActive: false },
+        { name: "Cardio", isActive: false },
         { name: "Recovery", isActive: false },
-        { name: "Strength", isActive: false }
+        { name: "Sports", isActive: false }
       ]
     },
     BRAIN: {
@@ -106,11 +106,11 @@ export default function CategoryPage() {
         description: "Enhance your cognitive abilities with brain training exercises, memory improvement techniques, and mental agility practices designed to optimize your brain function."
       },
       subCategories: [
-        { name: "Memory", isActive: true },
-        { name: "Focus", isActive: false },
-        { name: "Learning", isActive: false },
-        { name: "Creativity", isActive: false },
-        { name: "Logic", isActive: false }
+        { name: "Mnemonics", isActive: true },
+        { name: "MindMap", isActive: false },
+        { name: "Speed Reading", isActive: false },
+        { name: "GPTpedia", isActive: false },
+        { name: "Tools", isActive: false }
       ]
     },
     FOOD: {
@@ -124,10 +124,10 @@ export default function CategoryPage() {
       },
       subCategories: [
         { name: "Nutrition", isActive: true },
-        { name: "Recipes", isActive: false },
-        { name: "Mindful Eating", isActive: false },
-        { name: "Supplements", isActive: false },
-        { name: "Detox", isActive: false }
+        { name: "World Cuisine", isActive: false },
+        { name: "Special Diets", isActive: false },
+        { name: "Snacks", isActive: false },
+        { name: "Creative", isActive: false }
       ]
     },
     HEALTH: {
@@ -140,11 +140,11 @@ export default function CategoryPage() {
         description: "Take a comprehensive approach to your health with evidence-based practices, preventive care insights, and holistic wellness strategies for optimal living."
       },
       subCategories: [
-        { name: "Preventive Care", isActive: true },
-        { name: "Wellness", isActive: false },
-        { name: "Habits", isActive: false },
-        { name: "Lifestyle", isActive: false },
-        { name: "Science", isActive: false }
+        { name: "Wellness", isActive: true },
+        { name: "Prevention", isActive: false },
+        { name: "Recovery", isActive: false },
+        { name: "Balance", isActive: false },
+        { name: "Vitality", isActive: false }
       ]
     }
   };
