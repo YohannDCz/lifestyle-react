@@ -152,52 +152,127 @@ export default function CategoryPage() {
   const currentCategory = category?.toUpperCase() as keyof typeof categoryConfig;
   const config = categoryConfig[currentCategory] || categoryConfig.SLEEP;
 
-  // Articles mockup data
-  const articles = [
-    {
-      title: "How to make the dreams last",
-      category: "Lucid Dreams",
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/ea99e73276d1abd9cd94db39da6a337169268ceb?width=640"
-    },
-    {
-      title: "What is your sleep type?",
-      category: "Sleep types", 
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/58d76ffbf8416d628119e44317b9a1b20e7cb54f?width=640"
-    },
-    {
-      title: "How to have a clean sleep at night",
-      category: "Sleep quality",
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/20b1ef112a92489372731f3b69b7512545024925?width=640"
-    },
-    {
-      title: "Have your own daily routine!",
-      category: "Daily routines",
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/e522cc4ae8fe3db303abab4412d69b57558f552a?width=640"
-    }
-  ];
+  // Dynamic content based on category
+  const getCategoryContent = () => {
+    const contentMap = {
+      SLEEP: {
+        articles: [
+          { title: "How to make the dreams last", category: "Lucid Dreams", image: "https://api.builder.io/api/v1/image/assets/TEMP/ea99e73276d1abd9cd94db39da6a337169268ceb?width=640" },
+          { title: "What is your sleep type?", category: "Sleep Types", image: "https://api.builder.io/api/v1/image/assets/TEMP/58d76ffbf8416d628119e44317b9a1b20e7cb54f?width=640" },
+          { title: "How to have a clean sleep at night", category: "Sleep Quality", image: "https://api.builder.io/api/v1/image/assets/TEMP/20b1ef112a92489372731f3b69b7512545024925?width=640" },
+          { title: "Have your own daily routine!", category: "Daily Routines", image: "https://api.builder.io/api/v1/image/assets/TEMP/e522cc4ae8fe3db303abab4412d69b57558f552a?width=640" }
+        ],
+        popular: [
+          { title: "The Science of Sleep Cycles", category: "Sleep Science", image: "https://api.builder.io/api/v1/image/assets/TEMP/ea99e73276d1abd9cd94db39da6a337169268ceb?width=640" },
+          { title: "REM Sleep and Dreaming", category: "Sleep Types", image: "https://api.builder.io/api/v1/image/assets/TEMP/58d76ffbf8416d628119e44317b9a1b20e7cb54f?width=640" },
+          { title: "Creating the Perfect Sleep Environment", category: "Sleep Quality", image: "https://api.builder.io/api/v1/image/assets/TEMP/20b1ef112a92489372731f3b69b7512545024925?width=640" },
+          { title: "Sleep Meditation Techniques", category: "Technology", image: "https://api.builder.io/api/v1/image/assets/TEMP/e522cc4ae8fe3db303abab4412d69b57558f552a?width=640" }
+        ]
+      },
+      MIND: {
+        articles: [
+          { title: "How to become mindful in a month", category: "Mindfulness", image: "https://api.builder.io/api/v1/image/assets/TEMP/e24ace208c1b70cfb4056da83bec83a5bfd83980?width=640" },
+          { title: "Visualize the entire universe with the power of meditation", category: "Visualization", image: "https://api.builder.io/api/v1/image/assets/TEMP/6fd9dffe05b2445c6c01f9b87871de85a43a3c1c?width=640" },
+          { title: "Develop your self love", category: "Meditation", image: "https://api.builder.io/api/v1/image/assets/TEMP/4b3011cc2d2adcb9622b0569f304355c6f3c65e4?width=640" },
+          { title: "How to leverage the true power of your mind", category: "Focus", image: "https://api.builder.io/api/v1/image/assets/TEMP/a9ed354e828f49cccb22a67a888a73248e13aba0?width=640" }
+        ],
+        popular: [
+          { title: "Daily Meditation Practice", category: "Mindfulness", image: "https://api.builder.io/api/v1/image/assets/TEMP/e24ace208c1b70cfb4056da83bec83a5bfd83980?width=640" },
+          { title: "Advanced Visualization Techniques", category: "Visualization", image: "https://api.builder.io/api/v1/image/assets/TEMP/6fd9dffe05b2445c6c01f9b87871de85a43a3c1c?width=640" },
+          { title: "Mindful Breathing Exercises", category: "Meditation", image: "https://api.builder.io/api/v1/image/assets/TEMP/4b3011cc2d2adcb9622b0569f304355c6f3c65e4?width=640" },
+          { title: "Concentration Training Methods", category: "Focus", image: "https://api.builder.io/api/v1/image/assets/TEMP/a9ed354e828f49cccb22a67a888a73248e13aba0?width=640" }
+        ]
+      },
+      MENTAL: {
+        articles: [
+          { title: "Building Emotional Resilience", category: "Emotional Balance", image: "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484" },
+          { title: "Managing Daily Stress", category: "Anxiety Relief", image: "https://api.builder.io/api/v1/image/assets/TEMP/58d76ffbf8416d628119e44317b9a1b20e7cb54f?width=640" },
+          { title: "Cognitive Behavioral Techniques", category: "Stress Management", image: "https://api.builder.io/api/v1/image/assets/TEMP/20b1ef112a92489372731f3b69b7512545024925?width=640" },
+          { title: "Building Mental Strength", category: "Resilience", image: "https://api.builder.io/api/v1/image/assets/TEMP/e522cc4ae8fe3db303abab4412d69b57558f552a?width=640" }
+        ],
+        popular: [
+          { title: "Understanding Anxiety Triggers", category: "Anxiety Relief", image: "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484" },
+          { title: "Emotional Regulation Strategies", category: "Emotional Balance", image: "https://api.builder.io/api/v1/image/assets/TEMP/58d76ffbf8416d628119e44317b9a1b20e7cb54f?width=640" },
+          { title: "Mindful Stress Relief", category: "Stress Management", image: "https://api.builder.io/api/v1/image/assets/TEMP/20b1ef112a92489372731f3b69b7512545024925?width=640" },
+          { title: "Therapeutic Approaches", category: "Therapy", image: "https://api.builder.io/api/v1/image/assets/TEMP/e522cc4ae8fe3db303abab4412d69b57558f552a?width=640" }
+        ]
+      },
+      SOUL: {
+        articles: [
+          { title: "Connecting with Your Inner Self", category: "Spirituality", image: "https://api.builder.io/api/v1/image/assets/TEMP/4b3011cc2d2adcb9622b0569f304355c6f3c65e4?width=640" },
+          { title: "Finding Peace Within", category: "Inner Peace", image: "https://api.builder.io/api/v1/image/assets/TEMP/6fd9dffe05b2445c6c01f9b87871de85a43a3c1c?width=640" },
+          { title: "Self-Love Journey", category: "Self Love", image: "https://api.builder.io/api/v1/image/assets/TEMP/e24ace208c1b70cfb4056da83bec83a5bfd83980?width=640" },
+          { title: "Discovering Your Life Purpose", category: "Purpose", image: "https://api.builder.io/api/v1/image/assets/TEMP/a9ed354e828f49cccb22a67a888a73248e13aba0?width=640" }
+        ],
+        popular: [
+          { title: "Spiritual Awakening Guide", category: "Spirituality", image: "https://api.builder.io/api/v1/image/assets/TEMP/4b3011cc2d2adcb9622b0569f304355c6f3c65e4?width=640" },
+          { title: "Meditation for Inner Peace", category: "Inner Peace", image: "https://api.builder.io/api/v1/image/assets/TEMP/6fd9dffe05b2445c6c01f9b87871de85a43a3c1c?width=640" },
+          { title: "Gratitude Practice", category: "Gratitude", image: "https://api.builder.io/api/v1/image/assets/TEMP/e24ace208c1b70cfb4056da83bec83a5bfd83980?width=640" },
+          { title: "Purpose-Driven Living", category: "Purpose", image: "https://api.builder.io/api/v1/image/assets/TEMP/a9ed354e828f49cccb22a67a888a73248e13aba0?width=640" }
+        ]
+      },
+      BODY: {
+        articles: [
+          { title: "Full Body Workout Routine", category: "Fitness", image: "https://api.builder.io/api/v1/image/assets/TEMP/fd74e58271b720eeaf18a0bb7349b3c3c9ec26bf?width=640" },
+          { title: "Nutrition for Optimal Health", category: "Nutrition", image: "https://api.builder.io/api/v1/image/assets/TEMP/20b1ef112a92489372731f3b69b7512545024925?width=640" },
+          { title: "Movement and Mobility", category: "Movement", image: "https://api.builder.io/api/v1/image/assets/TEMP/58d76ffbf8416d628119e44317b9a1b20e7cb54f?width=640" },
+          { title: "Recovery and Rest", category: "Recovery", image: "https://api.builder.io/api/v1/image/assets/TEMP/ea99e73276d1abd9cd94db39da6a337169268ceb?width=640" }
+        ],
+        popular: [
+          { title: "Strength Training Basics", category: "Strength", image: "https://api.builder.io/api/v1/image/assets/TEMP/fd74e58271b720eeaf18a0bb7349b3c3c9ec26bf?width=640" },
+          { title: "Cardio for Heart Health", category: "Fitness", image: "https://api.builder.io/api/v1/image/assets/TEMP/20b1ef112a92489372731f3b69b7512545024925?width=640" },
+          { title: "Flexibility and Yoga", category: "Movement", image: "https://api.builder.io/api/v1/image/assets/TEMP/58d76ffbf8416d628119e44317b9a1b20e7cb54f?width=640" },
+          { title: "Sleep and Recovery", category: "Recovery", image: "https://api.builder.io/api/v1/image/assets/TEMP/ea99e73276d1abd9cd94db39da6a337169268ceb?width=640" }
+        ]
+      },
+      BRAIN: {
+        articles: [
+          { title: "Memory Enhancement Techniques", category: "Memory", image: "https://api.builder.io/api/v1/image/assets/TEMP/a9ed354e828f49cccb22a67a888a73248e13aba0?width=640" },
+          { title: "Concentration Training", category: "Focus", image: "https://api.builder.io/api/v1/image/assets/TEMP/6fd9dffe05b2445c6c01f9b87871de85a43a3c1c?width=640" },
+          { title: "Learning Optimization", category: "Learning", image: "https://api.builder.io/api/v1/image/assets/TEMP/e24ace208c1b70cfb4056da83bec83a5bfd83980?width=640" },
+          { title: "Creative Thinking Methods", category: "Creativity", image: "https://api.builder.io/api/v1/image/assets/TEMP/4b3011cc2d2adcb9622b0569f304355c6f3c65e4?width=640" }
+        ],
+        popular: [
+          { title: "Brain Training Exercises", category: "Memory", image: "https://api.builder.io/api/v1/image/assets/TEMP/a9ed354e828f49cccb22a67a888a73248e13aba0?width=640" },
+          { title: "Problem Solving Skills", category: "Logic", image: "https://api.builder.io/api/v1/image/assets/TEMP/6fd9dffe05b2445c6c01f9b87871de85a43a3c1c?width=640" },
+          { title: "Effective Study Methods", category: "Learning", image: "https://api.builder.io/api/v1/image/assets/TEMP/e24ace208c1b70cfb4056da83bec83a5bfd83980?width=640" },
+          { title: "Innovation and Creativity", category: "Creativity", image: "https://api.builder.io/api/v1/image/assets/TEMP/4b3011cc2d2adcb9622b0569f304355c6f3c65e4?width=640" }
+        ]
+      },
+      FOOD: {
+        articles: [
+          { title: "Understanding Macronutrients", category: "Nutrition", image: "https://api.builder.io/api/v1/image/assets/TEMP/20b1ef112a92489372731f3b69b7512545024925?width=640" },
+          { title: "Healthy Recipe Collections", category: "Recipes", image: "https://api.builder.io/api/v1/image/assets/TEMP/fd74e58271b720eeaf18a0bb7349b3c3c9ec26bf?width=640" },
+          { title: "Mindful Eating Practices", category: "Mindful Eating", image: "https://api.builder.io/api/v1/image/assets/TEMP/e24ace208c1b70cfb4056da83bec83a5bfd83980?width=640" },
+          { title: "Essential Supplements Guide", category: "Supplements", image: "https://api.builder.io/api/v1/image/assets/TEMP/a9ed354e828f49cccb22a67a888a73248e13aba0?width=640" }
+        ],
+        popular: [
+          { title: "Plant-Based Nutrition", category: "Nutrition", image: "https://api.builder.io/api/v1/image/assets/TEMP/20b1ef112a92489372731f3b69b7512545024925?width=640" },
+          { title: "Quick Healthy Meals", category: "Recipes", image: "https://api.builder.io/api/v1/image/assets/TEMP/fd74e58271b720eeaf18a0bb7349b3c3c9ec26bf?width=640" },
+          { title: "Natural Detox Methods", category: "Detox", image: "https://api.builder.io/api/v1/image/assets/TEMP/e24ace208c1b70cfb4056da83bec83a5bfd83980?width=640" },
+          { title: "Intuitive Eating", category: "Mindful Eating", image: "https://api.builder.io/api/v1/image/assets/TEMP/a9ed354e828f49cccb22a67a888a73248e13aba0?width=640" }
+        ]
+      },
+      HEALTH: {
+        articles: [
+          { title: "Preventive Health Screening", category: "Preventive Care", image: "https://api.builder.io/api/v1/image/assets/TEMP/58d76ffbf8416d628119e44317b9a1b20e7cb54f?width=640" },
+          { title: "Holistic Wellness Approach", category: "Wellness", image: "https://api.builder.io/api/v1/image/assets/TEMP/4b3011cc2d2adcb9622b0569f304355c6f3c65e4?width=640" },
+          { title: "Building Healthy Habits", category: "Habits", image: "https://api.builder.io/api/v1/image/assets/TEMP/e24ace208c1b70cfb4056da83bec83a5bfd83980?width=640" },
+          { title: "Evidence-Based Health", category: "Science", image: "https://api.builder.io/api/v1/image/assets/TEMP/a9ed354e828f49cccb22a67a888a73248e13aba0?width=640" }
+        ],
+        popular: [
+          { title: "Health Risk Assessment", category: "Preventive Care", image: "https://api.builder.io/api/v1/image/assets/TEMP/58d76ffbf8416d628119e44317b9a1b20e7cb54f?width=640" },
+          { title: "Lifestyle Medicine", category: "Lifestyle", image: "https://api.builder.io/api/v1/image/assets/TEMP/4b3011cc2d2adcb9622b0569f304355c6f3c65e4?width=640" },
+          { title: "Wellness Technology", category: "Science", image: "https://api.builder.io/api/v1/image/assets/TEMP/e24ace208c1b70cfb4056da83bec83a5bfd83980?width=640" },
+          { title: "Healthy Aging", category: "Wellness", image: "https://api.builder.io/api/v1/image/assets/TEMP/a9ed354e828f49cccb22a67a888a73248e13aba0?width=640" }
+        ]
+      }
+    };
+    return contentMap[currentCategory] || contentMap.SLEEP;
+  };
 
-  const popularArticles = [
-    {
-      title: "How to become mindful in a month",
-      category: "Mindfulness",
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/e24ace208c1b70cfb4056da83bec83a5bfd83980?width=640"
-    },
-    {
-      title: "Visualize the entire universe with the power of meditation",
-      category: "Visualization", 
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/6fd9dffe05b2445c6c01f9b87871de85a43a3c1c?width=640"
-    },
-    {
-      title: "Develop your self love",
-      category: "Inner peace",
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/4b3011cc2d2adcb9622b0569f304355c6f3c65e4?width=640"
-    },
-    {
-      title: "How to leverage the true power of your mind",
-      category: "Focused mind",
-      image: "https://api.builder.io/api/v1/image/assets/TEMP/a9ed354e828f49cccb22a67a888a73248e13aba0?width=640"
-    }
-  ];
+  const articles = getCategoryContent().articles;
+  const popularArticles = getCategoryContent().popular;
 
   useEffect(() => {
     if (config.subCategories.length > 0) {
