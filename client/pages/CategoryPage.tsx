@@ -286,23 +286,63 @@ export default function CategoryPage() {
       const sleepContent = {
         'Lucid Dreams': {
           title: 'Unlock the World of Lucid Dreams',
-          description: 'Embark on a journey into the fascinating realm of lucid dreaming with our dedicated app. Designed to guide you toward heightened awareness during sleep, it offers guided meditations, relaxation techniques, soothing soundscapes, and immersive sessions to help you take control of your dreams.'
+          description: 'Embark on a journey into the fascinating realm of lucid dreaming with our dedicated app. Designed to guide you toward heightened awareness during sleep, it offers guided meditations, relaxation techniques, soothing soundscapes, and immersive sessions to help you take control of your dreams.',
+          section2: {
+            title: 'Master Your Dreams, Master Your Mind',
+            description: 'Our innovative app accompanies you in learning lucid dreaming techniques. Through interactive tools, practical exercises, and personalized advice, you\'ll develop the ability to recognize and control your dreams. Elevate your nocturnal consciousness and explore the depths of your imagination.'
+          },
+          section3: {
+            title: 'Consciously Journey Through Your Dreams',
+            description: 'Gift yourself a unique dream experience with our app dedicated to lucid dreaming. It offers structured programs, reality check reminders, and sleep cycle analyses to promote the emergence of lucid dreams. Awaken your mind during the night and discover a world where your dreams become reality.'
+          }
         },
         'Sleep Types': {
           title: 'Understand Your Sleep Patterns',
-          description: 'Discover the different types of sleep and how they affect your daily life. Learn to identify your natural sleep chronotype, optimize your sleep schedule, and work with your body\'s natural rhythms for better rest and recovery.'
+          description: 'Discover the different types of sleep and how they affect your daily life. Learn to identify your natural sleep chronotype, optimize your sleep schedule, and work with your body\'s natural rhythms for better rest and recovery.',
+          section2: {
+            title: 'Discover Your Chronotype',
+            description: 'Learn about the science of circadian rhythms and how your genetic makeup influences your natural sleep-wake cycle. Understanding whether you\'re a morning lark, night owl, or somewhere in between can revolutionize your sleep quality and daily energy levels.'
+          },
+          section3: {
+            title: 'Optimize Your Sleep Schedule',
+            description: 'Create a personalized sleep schedule that works with your natural tendencies rather than against them. Learn practical strategies for adjusting your routine, managing shift work, and overcoming jet lag while honoring your unique sleep type.'
+          }
         },
         'Sleep Quality': {
           title: 'Optimize Your Sleep Environment',
-          description: 'Transform your bedroom into a sanctuary for restorative sleep. Explore evidence-based strategies for improving sleep quality, from temperature and lighting control to creating the perfect pre-sleep routine that signals your body it\'s time to rest.'
+          description: 'Transform your bedroom into a sanctuary for restorative sleep. Explore evidence-based strategies for improving sleep quality, from temperature and lighting control to creating the perfect pre-sleep routine that signals your body it\'s time to rest.',
+          section2: {
+            title: 'Create the Perfect Sleep Sanctuary',
+            description: 'Design your ideal sleep environment with optimal temperature, lighting, and sound conditions. Learn about sleep-promoting materials, colors, and arrangements that support deep, restorative rest and help you wake up refreshed.'
+          },
+          section3: {
+            title: 'Master Your Pre-Sleep Routine',
+            description: 'Develop powerful evening rituals that prepare your mind and body for quality sleep. Discover relaxation techniques, breathing exercises, and mindfulness practices that help you transition from the day\'s stress into peaceful slumber.'
+          }
         },
         'Daily Routines': {
           title: 'Build Healthy Sleep Habits',
-          description: 'Establish powerful daily routines that support better sleep. Learn how your daytime activities, exercise timing, meal scheduling, and evening rituals all contribute to achieving deeper, more restorative sleep every night.'
+          description: 'Establish powerful daily routines that support better sleep. Learn how your daytime activities, exercise timing, meal scheduling, and evening rituals all contribute to achieving deeper, more restorative sleep every night.',
+          section2: {
+            title: 'Design Your Daily Sleep Foundation',
+            description: 'Create a comprehensive daily routine that sets you up for sleep success. From morning light exposure to afternoon exercise timing, learn how every part of your day influences your nighttime rest quality.'
+          },
+          section3: {
+            title: 'Evening Rituals for Better Sleep',
+            description: 'Develop consistent evening practices that signal to your body it\'s time to wind down. Master the art of creating boundaries between day and night activities, and establish calming rituals that promote natural sleepiness.'
+          }
         },
         'Technology': {
           title: 'Leverage Sleep Technology',
-          description: 'Discover how modern technology can enhance your sleep experience. From sleep tracking apps and smart devices to guided meditations and soundscapes, learn to use technology as a tool for better sleep rather than a distraction.'
+          description: 'Discover how modern technology can enhance your sleep experience. From sleep tracking apps and smart devices to guided meditations and soundscapes, learn to use technology as a tool for better sleep rather than a distraction.',
+          section2: {
+            title: 'Smart Sleep Tracking Solutions',
+            description: 'Explore the latest sleep monitoring technology and learn how to interpret your sleep data meaningfully. Understand the benefits and limitations of wearables, smartphone apps, and smart mattresses in optimizing your rest.'
+          },
+          section3: {
+            title: 'Digital Tools for Sleep Enhancement',
+            description: 'Harness the power of sleep apps, white noise machines, and smart lighting systems to create your perfect sleep environment. Learn to balance the benefits of sleep technology with healthy digital boundaries for optimal rest.'
+          }
         }
       };
       return sleepContent[selectedSubCategory] || sleepContent['Lucid Dreams'];
@@ -316,7 +356,15 @@ export default function CategoryPage() {
              currentCategory === 'BRAIN' ? 'Enhance Cognitive Function' :
              currentCategory === 'FOOD' ? 'Nourish Your Body Mindfully' :
              currentCategory === 'HEALTH' ? 'Optimize Your Well-being' : 'Unlock the World of Lucid Dreams',
-      description: 'Comprehensive content and resources for your wellness journey.'
+      description: 'Comprehensive content and resources for your wellness journey.',
+      section2: {
+        title: 'Default Section 2',
+        description: 'Default content for section 2.'
+      },
+      section3: {
+        title: 'Default Section 3',
+        description: 'Default content for section 3.'
+      }
     };
   };
 
