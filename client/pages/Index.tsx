@@ -869,11 +869,11 @@ const Index = () => {
               <h2 className="text-white text-2xl font-semibold mb-8">
                 Top articles
               </h2>
-              <div className="grid grid-cols-3 gap-6 mb-8">
+              <div className="flex gap-6 mb-8">
                 {categoryMenuContent[hoveredCategory]?.articles
                   .slice(0, 3)
                   .map((article, index) => (
-                    <div key={index} className="relative">
+                    <div key={index} className="w-60">
                       <div className={`p-1 rounded-2xl bg-gradient-to-r ${categoryMenuContent[hoveredCategory].gradient}`}>
                         <img
                           src={article.image}
@@ -881,9 +881,24 @@ const Index = () => {
                           className="w-full h-40 object-cover rounded-xl"
                         />
                       </div>
-                      <div className="absolute top-4 right-4">
+                      <div className="flex items-start justify-between mt-4">
+                        <h3
+                          className="text-white text-lg font-semibold flex-1"
+                          style={{
+                            height: "3.5rem",
+                            lineHeight: "1.75rem",
+                            display: "-webkit-box",
+                            WebkitLineClamp: 2,
+                            WebkitBoxOrient: "vertical",
+                            overflow: "hidden",
+                            textOverflow: "ellipsis",
+                            paddingRight: "0.75rem"
+                          }}
+                        >
+                          {article.title}
+                        </h3>
                         <div
-                          className={`w-10 h-10 rounded-full bg-gradient-to-r ${categoryMenuContent[hoveredCategory].gradient} flex items-center justify-center`}
+                          className={`w-10 h-10 rounded-full bg-gradient-to-r ${categoryMenuContent[hoveredCategory].gradient} flex items-center justify-center flex-shrink-0`}
                         >
                           <svg
                             width="24"
@@ -899,21 +914,6 @@ const Index = () => {
                           </svg>
                         </div>
                       </div>
-                      <h3
-                        className="text-white text-lg font-semibold mt-4"
-                        style={{
-                          height: "3.5rem",
-                          lineHeight: "1.75rem",
-                          display: "-webkit-box",
-                          WebkitLineClamp: 2,
-                          WebkitBoxOrient: "vertical",
-                          overflow: "hidden",
-                          textOverflow: "ellipsis",
-                          paddingRight: "3rem"
-                        }}
-                      >
-                        {article.title}
-                      </h3>
                     </div>
                   ))}
               </div>
