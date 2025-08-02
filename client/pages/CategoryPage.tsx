@@ -467,7 +467,7 @@ export default function CategoryPage() {
 
           {/* Sub-category Pills */}
           <div className="px-6 lg:px-24 flex-shrink-0">
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-3 pb-4">
               {config.subCategories.map((subCat) => (
                 <button
                   key={subCat.name}
@@ -702,7 +702,7 @@ export default function CategoryPage() {
               <a href="#" className="text-white underline hover:text-gray-300">CA Privacy Notice</a>
             </div>
             <div className="flex items-center gap-4 border-4 border-white rounded-full px-6 py-3">
-              <span className="text-white text-xl">����</span>
+              <span className="text-white text-xl">🌐</span>
               <span className="text-white text-xl">English</span>
               <ChevronRight className="text-white transform rotate-90" size={24} />
             </div>
