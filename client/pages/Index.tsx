@@ -456,8 +456,20 @@ const Index = () => {
               {categoryPills.map((pill, index) => (
                 <div
                   key={index}
-                  className={`bg-gradient-to-r ${pill.colors} rounded-xl flex-1 text-center`}
+                  className={`bg-gradient-to-r ${pill.colors} rounded-xl flex-1 text-center cursor-pointer transition-transform duration-200 hover:scale-105`}
                   style={{ height: "46px", padding: "9px 0" }}
+                  onMouseEnter={() => {
+                    setHoveredCategory(pill.name);
+                    setShowHoverMenu(true);
+                  }}
+                  onMouseLeave={() => {
+                    setTimeout(() => {
+                      if (!document.querySelector('.fixed.inset-0:hover')) {
+                        setShowHoverMenu(false);
+                        setHoveredCategory(null);
+                      }
+                    }, 100);
+                  }}
                 >
                   <span className="text-white font-semibold text-lg drop-shadow-lg">
                     {pill.name}
