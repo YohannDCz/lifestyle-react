@@ -874,12 +874,15 @@ const Index = () => {
                   .slice(0, 3)
                   .map((article, index) => (
                     <div key={index} className="w-60">
-                      <div className={`p-1 rounded-2xl bg-gradient-to-r ${categoryMenuContent[hoveredCategory].gradient}`}>
+                      <div className="relative">
                         <img
                           src={article.image}
                           alt={article.title}
-                          className="w-full h-40 object-cover rounded-xl"
+                          className="w-full h-40 object-cover rounded-2xl relative z-10"
                         />
+                        <div className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${categoryMenuContent[hoveredCategory].gradient} p-1`}>
+                          <div className="w-full h-full bg-transparent rounded-xl"></div>
+                        </div>
                       </div>
                       <div className="flex items-start justify-between mt-4">
                         <h3
