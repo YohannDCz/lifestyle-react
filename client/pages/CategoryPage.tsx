@@ -533,12 +533,10 @@ export default function CategoryPage() {
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="flex-1">
               <h3 className="text-4xl font-bold text-white mb-6">
-                Consciously Journey Through Your Dreams
+                {getSubCategoryContent().section3.title}
               </h3>
               <p className="text-xl text-white leading-relaxed">
-                Gift yourself a unique dream experience with our app dedicated to lucid dreaming. It offers structured programs,
-                reality check reminders, and sleep cycle analyses to promote the emergence of lucid dreams. Awaken your mind
-                during the night and discover a world where your dreams become reality.
+                {getSubCategoryContent().section3.description}
               </p>
             </div>
             <img
