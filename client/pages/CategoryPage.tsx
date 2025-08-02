@@ -65,7 +65,7 @@ export default function CategoryPage() {
     SOUL: {
       title: "SOUL",
       gradient: "from-red-400 to-red-800",
-      background: "linear-gradient(99deg, #F87171 3.67%, #DC2626 91.7%)",
+      background: "linear-gradient(99deg, rgba(248, 113, 113, 0.85) 3.67%, rgba(220, 38, 38, 0.85) 91.7%)",
       hero: {
         title: "Nourish your soul",
         subtitle: "Spiritual practices for inner peace",
@@ -82,7 +82,7 @@ export default function CategoryPage() {
     BODY: {
       title: "BODY",
       gradient: "from-orange-400 to-orange-800",
-      background: "linear-gradient(99deg, #FB923C 3.67%, #EA580C 91.7%)",
+      background: "linear-gradient(99deg, rgba(251, 146, 60, 0.85) 3.67%, rgba(234, 88, 12, 0.85) 91.7%)",
       hero: {
         title: "Strengthen your body",
         subtitle: "Physical wellness and fitness guidance",
@@ -99,7 +99,7 @@ export default function CategoryPage() {
     BRAIN: {
       title: "BRAIN",
       gradient: "from-yellow-400 to-yellow-800",
-      background: "linear-gradient(99deg, #FBBF24 3.67%, #D97706 91.7%)",
+      background: "linear-gradient(99deg, rgba(251, 191, 36, 0.85) 3.67%, rgba(217, 119, 6, 0.85) 91.7%)",
       hero: {
         title: "Train your brain",
         subtitle: "Cognitive enhancement and brain training",
@@ -116,7 +116,7 @@ export default function CategoryPage() {
     FOOD: {
       title: "FOOD",
       gradient: "from-green-400 to-green-800",
-      background: "linear-gradient(99deg, #4ADE80 3.67%, #166534 91.7%)",
+      background: "linear-gradient(99deg, rgba(74, 222, 128, 0.85) 3.67%, rgba(22, 101, 52, 0.85) 91.7%)",
       hero: {
         title: "Nourish with food",
         subtitle: "Nutrition and mindful eating practices",
@@ -133,7 +133,7 @@ export default function CategoryPage() {
     HEALTH: {
       title: "HEALTH",
       gradient: "from-cyan-400 to-cyan-800",
-      background: "linear-gradient(99deg, #22D3EE 3.67%, #0E7490 91.7%)",
+      background: "linear-gradient(99deg, rgba(34, 211, 238, 0.85) 3.67%, rgba(14, 116, 144, 0.85) 91.7%)",
       hero: {
         title: "Optimize your health",
         subtitle: "Holistic health and wellness practices",
