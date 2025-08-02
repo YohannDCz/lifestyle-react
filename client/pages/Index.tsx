@@ -919,39 +919,21 @@ const Index = () => {
               </div>
 
               {categoryMenuContent[hoveredCategory]?.articles.length > 3 && (
-                <div className="grid grid-cols-1 gap-6">
-                  <div className="relative">
-                    <div className={`p-1 rounded-2xl bg-gradient-to-r ${categoryMenuContent[hoveredCategory].gradient} w-60`}>
-                      <img
-                        src={
-                          categoryMenuContent[hoveredCategory].articles[3].image
-                        }
-                        alt={
-                          categoryMenuContent[hoveredCategory].articles[3].title
-                        }
-                        className="w-full h-40 object-cover rounded-xl"
-                      />
-                    </div>
-                    <div className="absolute top-4 right-4">
-                      <div
-                        className={`w-10 h-10 rounded-full bg-gradient-to-r ${categoryMenuContent[hoveredCategory].gradient} flex items-center justify-center`}
-                      >
-                        <svg
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M14.43 5.93L20.5 12L14.43 18.07L13.02 16.66L17.17 12.5H3.5V11.5H17.17L13.02 7.34L14.43 5.93Z"
-                            fill="white"
-                          />
-                        </svg>
-                      </div>
-                    </div>
+                <div className="w-60">
+                  <div className={`p-1 rounded-2xl bg-gradient-to-r ${categoryMenuContent[hoveredCategory].gradient}`}>
+                    <img
+                      src={
+                        categoryMenuContent[hoveredCategory].articles[3].image
+                      }
+                      alt={
+                        categoryMenuContent[hoveredCategory].articles[3].title
+                      }
+                      className="w-full h-40 object-cover rounded-xl"
+                    />
+                  </div>
+                  <div className="flex items-start justify-between mt-4">
                     <h3
-                      className="text-white text-lg font-semibold mt-4"
+                      className="text-white text-lg font-semibold flex-1"
                       style={{
                         height: "3.5rem",
                         lineHeight: "1.75rem",
@@ -960,11 +942,27 @@ const Index = () => {
                         WebkitBoxOrient: "vertical",
                         overflow: "hidden",
                         textOverflow: "ellipsis",
-                        paddingRight: "3rem"
+                        paddingRight: "0.75rem"
                       }}
                     >
                       {categoryMenuContent[hoveredCategory].articles[3].title}
                     </h3>
+                    <div
+                      className={`w-10 h-10 rounded-full bg-gradient-to-r ${categoryMenuContent[hoveredCategory].gradient} flex items-center justify-center flex-shrink-0`}
+                    >
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M14.43 5.93L20.5 12L14.43 18.07L13.02 16.66L17.17 12.5H3.5V11.5H17.17L13.02 7.34L14.43 5.93Z"
+                          fill="white"
+                        />
+                      </svg>
+                    </div>
                   </div>
                 </div>
               )}
