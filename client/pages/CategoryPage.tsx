@@ -415,71 +415,73 @@ export default function CategoryPage() {
           ))}
         </div>
 
-        {/* Hero Section */}
-        <div className="flex-1 flex flex-col lg:flex-row items-center justify-between px-6 lg:px-24 py-8 gap-8 min-h-0 overflow-y-auto">
-          <div className="flex-1 max-w-2xl flex flex-col justify-center">
-            <h1 className="text-3xl lg:text-4xl font-bold text-white mb-4">
-              {config.hero.title}
-            </h1>
-            <h2 className="text-lg lg:text-xl font-semibold text-white mb-6">
-              {config.hero.subtitle}
-            </h2>
-            <p className="text-base lg:text-lg text-white mb-8 leading-relaxed">
-              {config.hero.description}
-            </p>
+        <div className="flex flex-col">
+          {/* Hero Section */}
+          <div className="flex-1 flex flex-col lg:flex-row items-center justify-between px-6 lg:px-24 py-8 gap-8 min-h-0 overflow-y-auto">
+            <div className="flex-1 max-w-2xl flex flex-col justify-center">
+              <h1 className="text-3xl lg:text-4xl font-bold text-white mb-4">
+                {config.hero.title}
+              </h1>
+              <h2 className="text-lg lg:text-xl font-semibold text-white mb-6">
+                {config.hero.subtitle}
+              </h2>
+              <p className="text-base lg:text-lg text-white mb-8 leading-relaxed">
+                {config.hero.description}
+              </p>
 
-            {/* Audio Player */}
-            <div className="bg-white rounded-2xl p-4 w-[500px] mr-auto mb-8">
-              <div className="flex items-center gap-4 mb-3">
-                <button className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
-                  <Play className="w-5 h-5 text-white ml-1" fill="white" />
-                </button>
-                <span className="text-sm text-gray-600">Alone time</span>
-              </div>
-              <div className="flex items-center gap-4">
-                <span className="text-xs text-gray-400">0:00</span>
-                <div className="flex-1 h-2 bg-gray-200 rounded-full relative">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full absolute left-0 top-0"></div>
+              {/* Audio Player */}
+              <div className="bg-white rounded-2xl p-4 w-[500px] mr-auto mb-8">
+                <div className="flex items-center gap-4 mb-3">
+                  <button className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
+                    <Play className="w-5 h-5 text-white ml-1" fill="white" />
+                  </button>
+                  <span className="text-sm text-gray-600">Alone time</span>
                 </div>
-                <span className="text-xs text-gray-400">4:34</span>
+                <div className="flex items-center gap-4">
+                  <span className="text-xs text-gray-400">0:00</span>
+                  <div className="flex-1 h-2 bg-gray-200 rounded-full relative">
+                    <div className="w-2 h-2 bg-blue-600 rounded-full absolute left-0 top-0"></div>
+                  </div>
+                  <span className="text-xs text-gray-400">4:34</span>
+                </div>
               </div>
-            </div>
 
-            <button className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-blue-700 transition-colors mr-auto">
-              Try Lifestyle
-            </button>
-          </div>
-
-          {/* Phone Mockup */}
-          <div className="flex-shrink-0">
-            <div className="relative w-[300px] h-80 bg-black rounded-3xl p-2">
-              <div className="w-full h-full bg-gradient-to-br from-orange-400 to-purple-600 rounded-2xl overflow-hidden">
-                <img
-                  src="https://api.builder.io/api/v1/image/assets/TEMP/25a7cbb0066f516134cbed838dae9c33fc7224ce?width=668"
-                  alt="Phone interface"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Sub-category Pills */}
-        <div className="px-6 lg:px-24 pb-6 flex-shrink-0">
-          <div className="flex flex-wrap gap-3">
-            {config.subCategories.map((subCat) => (
-              <button
-                key={subCat.name}
-                onClick={() => setSelectedSubCategory(subCat.name)}
-                className={`px-4 py-2 rounded-full font-semibold text-base transition-colors hover:scale-105 transform duration-200 ${
-                  selectedSubCategory === subCat.name
-                    ? "bg-white text-black border-2 border-black"
-                    : "bg-black text-white hover:bg-gray-800"
-                }`}
-              >
-                {subCat.name}
+              <button className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-blue-700 transition-colors mr-auto">
+                Try Lifestyle
               </button>
-            ))}
+            </div>
+
+            {/* Phone Mockup */}
+            <div className="flex-shrink-0">
+              <div className="relative w-[300px] h-80 bg-black rounded-3xl p-2">
+                <div className="w-full h-full bg-gradient-to-br from-orange-400 to-purple-600 rounded-2xl overflow-hidden">
+                  <img
+                    src="https://api.builder.io/api/v1/image/assets/TEMP/25a7cbb0066f516134cbed838dae9c33fc7224ce?width=668"
+                    alt="Phone interface"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Sub-category Pills */}
+          <div className="px-6 lg:px-24 flex-shrink-0">
+            <div className="flex flex-wrap gap-3">
+              {config.subCategories.map((subCat) => (
+                <button
+                  key={subCat.name}
+                  onClick={() => setSelectedSubCategory(subCat.name)}
+                  className={`px-4 py-2 rounded-full font-semibold text-base transition-colors hover:scale-105 transform duration-200 ${
+                    selectedSubCategory === subCat.name
+                      ? "bg-white text-black border-2 border-black"
+                      : "bg-black text-white hover:bg-gray-800"
+                  }`}
+                >
+                  {subCat.name}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </div>
