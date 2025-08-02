@@ -6,6 +6,8 @@ const Index = () => {
   const [activeCategory, setActiveCategory] = useState("SLEEP");
   const [currentSlide, setCurrentSlide] = useState(0);
   const [currentLifestyleSlide, setCurrentLifestyleSlide] = useState(0);
+  const [hoveredCategory, setHoveredCategory] = useState(null);
+  const [showHoverMenu, setShowHoverMenu] = useState(false);
 
   const categoryPills = [
     { name: "SLEEP", colors: "from-blue-400 to-blue-800" },
@@ -26,8 +28,8 @@ const Index = () => {
       content: [
         "Rejuvenate your body and mind by prioritizing restful sleep and delving into the fascinating realm of dreams. Quality sleep restores your energy, boosts cognitive function, and supports emotional balance, creating the foundation for everything you do.",
         "Beyond just resting, explore lucid dreaming to unlock your subconscious creativity and navigate the dream world with intention. Establish a bedtime ritual that calms the body and signals the mind to unwind.",
-        "From optimizing your sleep environment to embracing mindfulness techniques that prepare you for slumber, rejuvenation starts with giving yourself permission to rest fully and deeply.",
-      ],
+        "From optimizing your sleep environment to embracing mindfulness techniques that prepare you for slumber, rejuvenation starts with giving yourself permission to rest fully and deeply."
+      ]
     },
     MIND: {
       title: "Refocus",
@@ -36,8 +38,8 @@ const Index = () => {
       content: [
         "Refocus your mental energy through the practice of meditation. In a world filled with distractions, finding stillness is a superpower. Meditation helps quiet the mind, sharpening your ability to concentrate and bringing your attention to the present moment.",
         "By practicing daily, you cultivate resilience to stress and a greater capacity for emotional regulation. Begin with guided meditations that take you on a journey of calm and clarity.",
-        "Whether it's visualizing the vastness of the universe or simply focusing on your breath, meditation reconnects you with your inner self and paves the way for purposeful living.",
-      ],
+        "Whether it's visualizing the vastness of the universe or simply focusing on your breath, meditation reconnects you with your inner self and paves the way for purposeful living."
+      ]
     },
     MENTAL: {
       title: "Rebalance",
@@ -46,8 +48,8 @@ const Index = () => {
       content: [
         "Rebalance your emotional and mental well-being by fostering awareness of your thoughts and feelings. Life's challenges can often leave you feeling overwhelmed, but building a toolkit of coping strategies helps you navigate with confidence.",
         "Techniques like journaling, gratitude exercises, and mindfulness can transform negative thought patterns into constructive energy. By addressing stress and anxiety, you create space for inner peace and emotional stability.",
-        "Rebalancing is about understanding yourself deeply, embracing your vulnerabilities, and strengthening your ability to adapt and grow through life's complexities.",
-      ],
+        "Rebalancing is about understanding yourself deeply, embracing your vulnerabilities, and strengthening your ability to adapt and grow through life's complexities."
+      ]
     },
     SOUL: {
       title: "Reconnect",
@@ -56,8 +58,8 @@ const Index = () => {
       content: [
         "Reconnect with the people who matter most and nurture meaningful relationships. Human connection is a powerful source of joy, support, and growth. Begin by actively listening to others and expressing empathy, ensuring that your interactions are authentic and valuable.",
         "Strengthen bonds by dedicating time to loved ones and creating moments of shared joy. Explore ways to deepen intimacy, improve communication, and resolve conflicts constructively.",
-        "Relationships thrive when built on trust, understanding, and love. Reconnecting allows you to grow not only as an individual but as part of a network of mutual care and encouragement.",
-      ],
+        "Relationships thrive when built on trust, understanding, and love. Reconnecting allows you to grow not only as an individual but as part of a network of mutual care and encouragement."
+      ]
     },
     BODY: {
       title: "Reenergize",
@@ -66,8 +68,8 @@ const Index = () => {
       content: [
         "Reenergize your body with regular physical activity and a commitment to self-discipline. Physical fitness is not just about appearance but about building strength, resilience, and vitality.",
         "Whether it's through weightlifting, running, yoga, or martial arts, find a routine that challenges and excites you. Proper nutrition and hydration play an equally important role in sustaining your energy levels.",
-        "Monitor your progress, celebrate milestones, and push past limits to uncover your potential. Reenergizing transforms your body into a vessel of strength and endurance, empowering you to approach life's challenges with vigor and confidence.",
-      ],
+        "Monitor your progress, celebrate milestones, and push past limits to uncover your potential. Reenergizing transforms your body into a vessel of strength and endurance, empowering you to approach life's challenges with vigor and confidence."
+      ]
     },
     BRAIN: {
       title: "Reinvent",
@@ -76,8 +78,8 @@ const Index = () => {
       content: [
         "Reinvent yourself by embracing a lifelong journey of learning and exploration. Each day is an opportunity to expand your knowledge, develop new skills, and redefine what's possible.",
         "Dive into books, courses, and experiences that challenge your understanding and spark your curiosity. Experiment with different tools like mind mapping, memory techniques, or time management strategies to optimize your learning.",
-        "Reinvention is about staying open to change, breaking old patterns, and becoming the best version of yourself. In doing so, you set the stage for a future rich with innovation, creativity, and personal growth.",
-      ],
+        "Reinvention is about staying open to change, breaking old patterns, and becoming the best version of yourself. In doing so, you set the stage for a future rich with innovation, creativity, and personal growth."
+      ]
     },
     FOOD: {
       title: "Refuel",
@@ -86,8 +88,8 @@ const Index = () => {
       content: [
         "Refuel your body by embracing the power of mindful nourishment. Food is not just fuel; it is the foundation of your energy, vitality, and overall well-being. Prioritize whole, nutrient-dense ingredients that rejuvenate your body and enhance your mental clarity.",
         "Make each meal an intentional act of self-care, choosing foods that support both short-term energy and long-term health. Explore cooking as an art form, experimenting with vibrant flavors, textures, and cuisines to create meals that excite and satisfy.",
-        "Cultivate an awareness of how food impacts your physical and emotional state, turning every bite into an opportunity to recharge. By refueling with purpose, you empower yourself to thrive in every aspect of life.",
-      ],
+        "Cultivate an awareness of how food impacts your physical and emotional state, turning every bite into an opportunity to recharge. By refueling with purpose, you empower yourself to thrive in every aspect of life."
+      ]
     },
     HEALTH: {
       title: "Restore",
@@ -96,9 +98,9 @@ const Index = () => {
       content: [
         "Restore balance and harmony to your overall well-being by focusing on your health. True health is a dynamic interplay between physical, mental, and emotional wellness. Regular health checkups and preventive care are key to staying ahead of potential challenges.",
         "Learn to listen to your body's signals, whether it's through physical symptoms, energy levels, or mood changes. Practice stress management techniques like yoga, breathwork, and relaxation exercises to maintain equilibrium.",
-        "Commit to a lifestyle that supports longevity—adequate hydration, a nutrient-rich diet, quality sleep, and consistent movement. By making health a priority, you lay the foundation for a vibrant, fulfilling life where you can thrive at your fullest potential.",
-      ],
-    },
+        "Commit to a lifestyle that supports longevity—adequate hydration, a nutrient-rich diet, quality sleep, and consistent movement. By making health a priority, you lay the foundation for a vibrant, fulfilling life where you can thrive at your fullest potential."
+      ]
+    }
   };
 
   const currentContent = categoryContent[activeCategory];
@@ -124,10 +126,7 @@ const Index = () => {
   };
 
   const prevLifestyleSlide = () => {
-    const prevIndex =
-      currentLifestyleSlide === 0
-        ? lifestyleContent.length - 1
-        : currentLifestyleSlide - 1;
+    const prevIndex = currentLifestyleSlide === 0 ? lifestyleContent.length - 1 : currentLifestyleSlide - 1;
     setCurrentLifestyleSlide(prevIndex);
     setActiveTab(tabs[prevIndex]);
   };
@@ -144,43 +143,33 @@ const Index = () => {
     {
       title: "Track your progress",
       subtitle: "Growth Tracking",
-      description:
-        "Explore the growth tracker as you make more and more improvements throughout the entire lifestyle rehabilitation process.",
-      image:
-        "https://api.builder.io/api/v1/image/assets/TEMP/980bff91973aff50ef58da5eecca8cb33f48718f?width=2640",
+      description: "Explore the growth tracker as you make more and more improvements throughout the entire lifestyle rehabilitation process.",
+      image: "https://api.builder.io/api/v1/image/assets/TEMP/980bff91973aff50ef58da5eecca8cb33f48718f?width=2640"
     },
     {
       title: "Masterclasses from the top",
       subtitle: "Expert-led Programs",
-      description:
-        "Access curated courses and guidance from world-class experts in their respective fields.",
-      image:
-        "https://api.builder.io/api/v1/image/assets/TEMP/980bff91973aff50ef58da5eecca8cb33f48718f?width=2640",
+      description: "Access curated courses and guidance from world-class experts in their respective fields.",
+      image: "https://api.builder.io/api/v1/image/assets/TEMP/980bff91973aff50ef58da5eecca8cb33f48718f?width=2640"
     },
     {
       title: "Intelligence is yours",
       subtitle: "AI Guidance",
-      description:
-        "Receive personalized insights and recommendations through AI-driven tools to accelerate your journey.",
-      image:
-        "https://api.builder.io/api/v1/image/assets/TEMP/980bff91973aff50ef58da5eecca8cb33f48718f?width=2640",
+      description: "Receive personalized insights and recommendations through AI-driven tools to accelerate your journey.",
+      image: "https://api.builder.io/api/v1/image/assets/TEMP/980bff91973aff50ef58da5eecca8cb33f48718f?width=2640"
     },
     {
       title: "Pathway to lucid dreaming",
       subtitle: "Dream Genesis",
-      description:
-        "Explore the art of lucid dreaming and unlock the creative potential of your subconscious mind.",
-      image:
-        "https://api.builder.io/api/v1/image/assets/TEMP/980bff91973aff50ef58da5eecca8cb33f48718f?width=2640",
+      description: "Explore the art of lucid dreaming and unlock the creative potential of your subconscious mind.",
+      image: "https://api.builder.io/api/v1/image/assets/TEMP/980bff91973aff50ef58da5eecca8cb33f48718f?width=2640"
     },
     {
       title: "Restart all over",
       subtitle: "Mind Reset",
-      description:
-        "Clear your mind and begin fresh with powerful techniques to reset your mental state and approach life with renewed clarity.",
-      image:
-        "https://api.builder.io/api/v1/image/assets/TEMP/980bff91973aff50ef58da5eecca8cb33f48718f?width=2640",
-    },
+      description: "Clear your mind and begin fresh with powerful techniques to reset your mental state and approach life with renewed clarity.",
+      image: "https://api.builder.io/api/v1/image/assets/TEMP/980bff91973aff50ef58da5eecca8cb33f48718f?width=2640"
+    }
   ];
 
   const sleepArticles = [
@@ -436,20 +425,11 @@ const Index = () => {
             brain, and balanced diet & relationships.
           </p>
 
-          <div
-            className="flex flex-col sm:flex-row gap-6 justify-start items-center"
-            style={{ paddingTop: "12px" }}
-          >
-            <button
-              className="bg-gradient-to-r from-cyan-400 to-white text-black px-12 py-6 rounded-full text-xl font-medium"
-              style={{ width: "190px" }}
-            >
+          <div className="flex flex-col sm:flex-row gap-6 justify-start items-center" style={{ paddingTop: "12px" }}>
+            <button className="bg-gradient-to-r from-cyan-400 to-white text-black px-12 py-6 rounded-full text-xl font-medium" style={{ width: "190px" }}>
               Plus Plan
             </button>
-            <button
-              className="bg-gradient-to-r from-purple-400 to-white text-black px-12 py-6 rounded-full text-xl font-medium"
-              style={{ width: "190px" }}
-            >
+            <button className="bg-gradient-to-r from-purple-400 to-white text-black px-12 py-6 rounded-full text-xl font-medium" style={{ width: "190px" }}>
               Pro Plan
             </button>
           </div>
@@ -493,21 +473,12 @@ const Index = () => {
           <div className="relative max-w-4xl mx-auto mb-16">
             <div className="relative w-full aspect-square max-w-2xl mx-auto">
               {/* Main circle */}
-              <div
-                className="absolute inset-0 rounded-full border-4 border-white/30"
-                style={{ width: "672px" }}
-              ></div>
+              <div className="absolute inset-0 rounded-full border-4 border-white/30" style={{ width: "672px" }}></div>
 
               {/* Center content */}
               <div className="absolute inset-1/4 bg-white rounded-full flex flex-col items-center justify-center text-black">
-                <div
-                  className="flex flex-col px-8 relative w-full h-full"
-                  style={{ gap: "12px" }}
-                >
-                  <div
-                    className={`${currentContent.color} text-black px-5 py-2 rounded-full text-lg font-medium`}
-                    style={{ margin: "16px auto 0" }}
-                  >
+                <div className="flex flex-col px-8 relative w-full h-full" style={{ gap: "12px" }}>
+                  <div className={`${currentContent.color} text-black px-5 py-2 rounded-full text-lg font-medium`} style={{ margin: "16px auto 0" }}>
                     {activeCategory}
                   </div>
 
@@ -516,25 +487,23 @@ const Index = () => {
                     <div className="relative h-48">
                       <div
                         className="flex transition-transform duration-300 ease-in-out h-full"
-                        style={{
-                          transform: `translateX(-${currentSlide * 100}%)`,
-                        }}
+                        style={{ transform: `translateX(-${currentSlide * 100}%)` }}
                       >
                         {currentContent.content.map((text, index) => (
-                          <div
-                            key={index}
-                            className="w-full flex-shrink-0 flex flex-col justify-center"
-                          >
+                          <div key={index} className="w-full flex-shrink-0 flex flex-col justify-center">
                             <p className="text-sm leading-relaxed text-black text-center">
                               <span style={{ color: "rgba(0, 0, 0, 1)" }}>
                                 {index === 0 && (
                                   <>
                                     <em style={{ color: "rgba(0, 0, 0, 1)" }}>
                                       <b>{currentContent.title}</b>
-                                    </em>{" "}
+                                    </em>
+                                    {" "}
                                   </>
                                 )}
-                                <span style={{ width: "100%" }}>{text}</span>
+                                <span style={{ width: "100%" }}>
+                                  {text}
+                                </span>
                               </span>
                             </p>
                           </div>
@@ -549,9 +518,7 @@ const Index = () => {
                           key={index}
                           onClick={() => setCurrentSlide(index)}
                           className={`w-2 h-2 rounded-full transition-colors ${
-                            index === currentSlide
-                              ? "bg-gray-800"
-                              : "bg-gray-300"
+                            index === currentSlide ? 'bg-gray-800' : 'bg-gray-300'
                           }`}
                         />
                       ))}
@@ -598,9 +565,7 @@ const Index = () => {
                 }}
                 onMouseEnter={() => handleCategoryHover("MIND")}
               >
-                <span
-                  className={`bg-purple-400 text-black px-6 py-2 rounded-full text-lg transition-all duration-200 hover:scale-110 ${activeCategory === "MIND" ? "scale-110 shadow-lg" : ""}`}
-                >
+                <span className={`bg-purple-400 text-black px-6 py-2 rounded-full text-lg transition-all duration-200 hover:scale-110 ${activeCategory === "MIND" ? 'scale-110 shadow-lg' : ''}`}>
                   Mind
                 </span>
               </div>
@@ -614,9 +579,7 @@ const Index = () => {
                 }}
                 onMouseEnter={() => handleCategoryHover("MENTAL")}
               >
-                <span
-                  className={`bg-pink-400 text-black px-6 py-2 rounded-full text-lg transition-all duration-200 hover:scale-110 ${activeCategory === "MENTAL" ? "scale-110 shadow-lg" : ""}`}
-                >
+                <span className={`bg-pink-400 text-black px-6 py-2 rounded-full text-lg transition-all duration-200 hover:scale-110 ${activeCategory === "MENTAL" ? 'scale-110 shadow-lg' : ''}`}>
                   Mental
                 </span>
               </div>
@@ -630,9 +593,7 @@ const Index = () => {
                 }}
                 onMouseEnter={() => handleCategoryHover("SOUL")}
               >
-                <span
-                  className={`bg-red-400 text-black px-6 py-2 rounded-full text-lg transition-all duration-200 hover:scale-110 ${activeCategory === "SOUL" ? "scale-110 shadow-lg" : ""}`}
-                >
+                <span className={`bg-red-400 text-black px-6 py-2 rounded-full text-lg transition-all duration-200 hover:scale-110 ${activeCategory === "SOUL" ? 'scale-110 shadow-lg' : ''}`}>
                   Soul
                 </span>
               </div>
@@ -646,9 +607,7 @@ const Index = () => {
                 }}
                 onMouseEnter={() => handleCategoryHover("BODY")}
               >
-                <span
-                  className={`bg-orange-400 text-black px-6 py-2 rounded-full text-lg transition-all duration-200 hover:scale-110 ${activeCategory === "BODY" ? "scale-110 shadow-lg" : ""}`}
-                >
+                <span className={`bg-orange-400 text-black px-6 py-2 rounded-full text-lg transition-all duration-200 hover:scale-110 ${activeCategory === "BODY" ? 'scale-110 shadow-lg' : ''}`}>
                   Body
                 </span>
               </div>
@@ -662,9 +621,7 @@ const Index = () => {
                 }}
                 onMouseEnter={() => handleCategoryHover("BRAIN")}
               >
-                <span
-                  className={`bg-yellow-400 text-black px-6 py-2 rounded-full text-lg transition-all duration-200 hover:scale-110 ${activeCategory === "BRAIN" ? "scale-110 shadow-lg" : ""}`}
-                >
+                <span className={`bg-yellow-400 text-black px-6 py-2 rounded-full text-lg transition-all duration-200 hover:scale-110 ${activeCategory === "BRAIN" ? 'scale-110 shadow-lg' : ''}`}>
                   Brain
                 </span>
               </div>
@@ -678,9 +635,7 @@ const Index = () => {
                 }}
                 onMouseEnter={() => handleCategoryHover("FOOD")}
               >
-                <span
-                  className={`bg-green-400 text-black px-6 py-2 rounded-full text-lg transition-all duration-200 hover:scale-110 ${activeCategory === "FOOD" ? "scale-110 shadow-lg" : ""}`}
-                >
+                <span className={`bg-green-400 text-black px-6 py-2 rounded-full text-lg transition-all duration-200 hover:scale-110 ${activeCategory === "FOOD" ? 'scale-110 shadow-lg' : ''}`}>
                   Food
                 </span>
               </div>
@@ -694,9 +649,7 @@ const Index = () => {
                 }}
                 onMouseEnter={() => handleCategoryHover("HEALTH")}
               >
-                <span
-                  className={`bg-cyan-400 text-black px-6 py-2 rounded-full text-lg transition-all duration-200 hover:scale-110 ${activeCategory === "HEALTH" ? "scale-110 shadow-lg" : ""}`}
-                >
+                <span className={`bg-cyan-400 text-black px-6 py-2 rounded-full text-lg transition-all duration-200 hover:scale-110 ${activeCategory === "HEALTH" ? 'scale-110 shadow-lg' : ''}`}>
                   Health
                 </span>
               </div>
@@ -710,9 +663,7 @@ const Index = () => {
                 }}
                 onMouseEnter={() => handleCategoryHover("SLEEP")}
               >
-                <span
-                  className={`bg-blue-400 text-black px-6 py-2 rounded-full text-lg transition-all duration-200 hover:scale-110 ${activeCategory === "SLEEP" ? "scale-110 shadow-lg" : ""}`}
-                >
+                <span className={`bg-blue-400 text-black px-6 py-2 rounded-full text-lg transition-all duration-200 hover:scale-110 ${activeCategory === "SLEEP" ? 'scale-110 shadow-lg' : ''}`}>
                   Sleep
                 </span>
               </div>
@@ -753,9 +704,7 @@ const Index = () => {
           <div className="relative overflow-hidden">
             <div
               className="flex transition-transform duration-500 ease-in-out"
-              style={{
-                transform: `translateX(-${currentLifestyleSlide * 100}%)`,
-              }}
+              style={{ transform: `translateX(-${currentLifestyleSlide * 100}%)` }}
             >
               {lifestyleContent.map((content, index) => (
                 <div key={index} className="w-full flex-shrink-0">
@@ -779,10 +728,7 @@ const Index = () => {
                             src="https://api.builder.io/api/v1/image/assets/TEMP/9a6fdc0a24d45f0be25d4882a43c7c88728a99cc?width=668"
                             alt="Phone mockup 2"
                             className="rounded-2xl absolute right-0 w-60"
-                            style={{
-                              left: "176px",
-                              border: "4px none rgb(0, 0, 0)",
-                            }}
+                            style={{ left: "176px", border: "4px none rgb(0, 0, 0)" }}
                           />
                         </div>
                       </div>
@@ -966,10 +912,7 @@ const Index = () => {
                     justifyContent: "space-between",
                   }}
                 >
-                  <p
-                    className="text-lg font-semibold leading-relaxed"
-                    style={{ marginBottom: "32px" }}
-                  >
+                  <p className="text-lg font-semibold leading-relaxed" style={{ marginBottom: "32px" }}>
                     "{testimonial.text}"
                   </p>
                   <div
@@ -1062,10 +1005,7 @@ const Index = () => {
       {/* Pricing Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <h2
-            className="text-5xl md:text-6xl font-semibold text-center mb-16"
-            style={{ lineHeight: "70px" }}
-          >
+          <h2 className="text-5xl md:text-6xl font-semibold text-center mb-16" style={{ lineHeight: "70px" }}>
             Our plans, <br />
             made with love
           </h2>
@@ -1123,12 +1063,7 @@ const Index = () => {
                           key={featureIndex}
                           className="flex items-center gap-3"
                           style={{
-                            marginTop:
-                              (plan.name === "Pro Plan" ||
-                                plan.name === "Max Plan") &&
-                              featureIndex === 0
-                                ? undefined
-                                : "12px",
+                            marginTop: (plan.name === "Pro Plan" || plan.name === "Max Plan") && featureIndex === 0 ? undefined : "12px",
                           }}
                         >
                           <Check className="w-5 h-5 text-green-500" />
@@ -1169,15 +1104,8 @@ const Index = () => {
                 <button
                   className={`w-full py-4 rounded-full font-medium`}
                   style={{
-                    backgroundColor:
-                      plan.name === "Plus Plan"
-                        ? "rgb(255, 255, 255)"
-                        : plan.buttonStyle.includes("bg-black")
-                          ? "rgb(0, 0, 0)"
-                          : "rgb(255, 255, 255)",
-                    color: plan.buttonStyle.includes("text-white")
-                      ? "rgb(255, 255, 255)"
-                      : "rgb(0, 0, 0)",
+                    backgroundColor: plan.name === "Plus Plan" ? "rgb(255, 255, 255)" : plan.buttonStyle.includes("bg-black") ? "rgb(0, 0, 0)" : "rgb(255, 255, 255)",
+                    color: plan.buttonStyle.includes("text-white") ? "rgb(255, 255, 255)" : "rgb(0, 0, 0)",
                     border: "1px none rgb(0, 0, 0)",
                   }}
                 >
