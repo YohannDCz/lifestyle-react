@@ -14,7 +14,7 @@ export default function CategoryPage() {
     SLEEP: {
       title: "SLEEP",
       gradient: "from-blue-400 to-blue-800",
-      background: "linear-gradient(99deg, #27A5FF 3.67%, #4327FF 91.7%)",
+      background: "linear-gradient(99deg, rgba(39, 165, 255, 0.85) 3.67%, rgba(67, 39, 255, 0.85) 91.7%)",
       hero: {
         title: "Put your mind to sleep",
         subtitle: "Drift off with sleep meditations, sleep music, and more",
