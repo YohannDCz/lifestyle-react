@@ -1073,12 +1073,12 @@ const Index = () => {
         </div>
 
         <div className="relative z-10 text-center text-white">
-          <h2 className="text-5xl md:text-6xl font-semibold mb-12">
+          <h2 className="text-5xl md:text-6xl font-semibold mb-16">
             See our star categories
           </h2>
 
           {/* Circular Category Interface */}
-          <div className="relative max-w-4xl mx-auto mb-16">
+          <div className="relative max-w-4xl mx-auto mb-8">
             <div className="relative w-full aspect-square max-w-2xl mx-auto">
               {/* Main circle */}
               <div
