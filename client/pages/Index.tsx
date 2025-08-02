@@ -1368,15 +1368,15 @@ const Index = () => {
           </div>
 
           {/* Carousel Container */}
-          <div className="relative overflow-hidden">
+          <div className="relative overflow-visible">
             <div
               className="flex transition-transform duration-500 ease-in-out"
               style={{
-                transform: `translateX(-${currentLifestyleSlide * 100}%)`,
+                transform: `translateX(-${currentLifestyleSlide * 85}%)`,
               }}
             >
               {lifestyleContent.map((content, index) => (
-                <div key={index} className="w-full flex-shrink-0">
+                <div key={index} className="flex-shrink-0" style={{ width: "85%" }}>
                   <div className="bg-gradient-to-r from-purple-100 via-pink-100 to-purple-100 rounded-3xl relative overflow-hidden flex flex-row px-12">
                     <img
                       src={content.image}
