@@ -909,15 +909,17 @@ const Index = () => {
               {categoryMenuContent[hoveredCategory]?.articles.length > 3 && (
                 <div className="grid grid-cols-1 gap-6">
                   <div className="relative">
-                    <img
-                      src={
-                        categoryMenuContent[hoveredCategory].articles[3].image
-                      }
-                      alt={
-                        categoryMenuContent[hoveredCategory].articles[3].title
-                      }
-                      className="w-60 h-40 object-cover rounded-2xl border border-gray-300"
-                    />
+                    <div className={`p-1 rounded-2xl bg-gradient-to-r ${categoryMenuContent[hoveredCategory].gradient} w-60`}>
+                      <img
+                        src={
+                          categoryMenuContent[hoveredCategory].articles[3].image
+                        }
+                        alt={
+                          categoryMenuContent[hoveredCategory].articles[3].title
+                        }
+                        className="w-full h-40 object-cover rounded-xl"
+                      />
+                    </div>
                     <div className="absolute bottom-4 right-4">
                       <div
                         className={`w-10 h-10 rounded-full bg-gradient-to-r ${categoryMenuContent[hoveredCategory].gradient} flex items-center justify-center`}
