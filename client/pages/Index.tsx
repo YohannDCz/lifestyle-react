@@ -1425,7 +1425,7 @@ const Index = () => {
             </div>
 
             {/* Navigation arrows */}
-            <div className="flex gap-2 justify-center items-center mt-6">
+            <div className="flex gap-2 justify-end items-center mt-6">
               <button
                 onClick={prevLifestyleSlide}
                 className="bg-gray-200 hover:bg-gray-300 w-12 h-12 rounded-full flex items-center justify-center transition-colors"
