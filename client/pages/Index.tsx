@@ -8,6 +8,7 @@ const Index = () => {
   const [currentLifestyleSlide, setCurrentLifestyleSlide] = useState(0);
   const [hoveredCategory, setHoveredCategory] = useState(null);
   const [showHoverMenu, setShowHoverMenu] = useState(false);
+  const [hoverTimeout, setHoverTimeout] = useState(null);
 
   const categoryPills = [
     { name: "SLEEP", colors: "from-blue-400 to-blue-800" },
