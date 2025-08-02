@@ -586,19 +586,7 @@ const Index = () => {
           height: "calc(100vh - 70px - 50px)",
         }}
       >
-        {/* Background Video */}
-        <iframe
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{
-            width: "100vw",
-            height: "100vh",
-            transform: "scale(1.2)",
-            pointerEvents: "none",
-          }}
-          src="https://www.youtube.com/embed/caiHvJbLC-w?autoplay=1&mute=1&loop=1&playlist=caiHvJbLC-w&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&start=18"
-          allow="autoplay; encrypted-media"
-          allowFullScreen
-        />
+
         {/* Dark overlay for better text readability */}
         <div className="absolute inset-0 bg-black/30 z-10"></div>
         <div
