@@ -253,15 +253,15 @@ export default function CategoryPage() {
         </div>
 
         {/* Hero Section */}
-        <div className="flex flex-col lg:flex-row items-center justify-between px-6 lg:px-24 py-16 gap-12">
-          <div className="flex-1 max-w-2xl">
-            <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6">
+        <div className="flex flex-col lg:flex-row items-center justify-between px-6 lg:px-24 py-16 gap-12 min-h-[600px]">
+          <div className="flex-1 max-w-2xl flex flex-col justify-center">
+            <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6 min-h-[120px] flex items-center">
               {config.hero.title}
             </h1>
-            <h2 className="text-2xl font-semibold text-white mb-8">
+            <h2 className="text-xl lg:text-2xl font-semibold text-white mb-8 min-h-[60px] flex items-center">
               {config.hero.subtitle}
             </h2>
-            <p className="text-xl text-white mb-12 leading-relaxed">
+            <p className="text-lg lg:text-xl text-white mb-12 leading-relaxed min-h-[150px] flex items-center">
               {config.hero.description}
             </p>
 
