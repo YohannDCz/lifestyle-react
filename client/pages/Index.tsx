@@ -1427,11 +1427,13 @@ const Index = () => {
               className="flex transition-transform duration-500 ease-in-out"
               style={{
                 transform: `translateX(-${currentLifestyleSlide * 82}%)`,
-                gap: "12px"
+                gap: "12px",
+                width: "100%",
+                margin: "0 32px"
               }}
             >
               {lifestyleContent.map((content, index) => (
-                <div key={index} className="flex-shrink-0" style={{ width: "80%" }}>
+                <div key={index} className="flex-shrink-0" style={{ width: "90%" }}>
                   <div className="bg-gradient-to-r from-purple-100 via-pink-100 to-purple-100 rounded-3xl relative overflow-hidden flex flex-row px-8">
                     <img
                       src={content.image}
@@ -1460,8 +1462,8 @@ const Index = () => {
                         </div>
                       </div>
                       <div className="flex gap-8 z-10 justify-center my-12 mr-6">
-                        <div className="relative w-[400px]"></div>
-                        <div className="flex flex-col justify-center items-start">
+                        <div className="relative w-[250px]"></div>
+                        <div className="flex flex-col justify-center items-start" style={{ width: "300px" }}>
                           <h3 className="text-4xl font-semibold mb-6">
                             {content.title}
                           </h3>
