@@ -460,16 +460,23 @@ const Index = () => {
                   className={`bg-gradient-to-r ${pill.colors} rounded-xl flex-1 text-center cursor-pointer transition-transform duration-200 hover:scale-105`}
                   style={{ height: "46px", padding: "9px 0" }}
                   onMouseEnter={() => {
+                    // Clear any existing timeout
+                    if (hoverTimeout) {
+                      clearTimeout(hoverTimeout);
+                      setHoverTimeout(null);
+                    }
                     setHoveredCategory(pill.name);
                     setShowHoverMenu(true);
                   }}
                   onMouseLeave={() => {
-                    setTimeout(() => {
+                    // Set a timeout to hide menu only if not hovering another pill
+                    const timeout = setTimeout(() => {
                       if (!document.querySelector('.hover-menu-overlay:hover')) {
                         setShowHoverMenu(false);
                         setHoveredCategory(null);
                       }
-                    }, 100);
+                    }, 150);
+                    setHoverTimeout(timeout);
                   }}
                 >
                   <span className="text-white font-semibold text-lg drop-shadow-lg">
