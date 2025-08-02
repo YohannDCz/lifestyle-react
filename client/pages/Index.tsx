@@ -523,11 +523,11 @@ const Index = () => {
                 {categoryMenuContent[hoveredCategory]?.items.map((item, index) => (
                   <div key={index} className="mb-4">
                     {index === 0 ? (
-                      <div className={`bg-gradient-to-r ${categoryMenuContent[hoveredCategory].gradient} text-white px-6 py-3 rounded-full text-lg font-semibold`}>
+                      <div className={`bg-gradient-to-r ${categoryMenuContent[hoveredCategory].gradient} text-white px-6 py-3 rounded-full text-lg font-semibold inline-block`}>
                         {item}
                       </div>
                     ) : (
-                      <div className="bg-white text-black px-6 py-3 rounded-full text-lg font-semibold border border-gray-200">
+                      <div className="bg-white text-black px-6 py-3 rounded-full text-lg font-semibold border border-gray-200 inline-block">
                         {item}
                       </div>
                     )}
@@ -536,7 +536,7 @@ const Index = () => {
               </div>
 
               <div className="mt-auto">
-                <div className="bg-gray-500 text-white px-6 py-4 rounded-full text-lg font-semibold">
+                <div className="bg-gray-500 text-white px-6 py-4 rounded-full text-lg font-semibold inline-block">
                   Explore {hoveredCategory}
                 </div>
               </div>
