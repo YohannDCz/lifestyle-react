@@ -429,7 +429,7 @@ export default function CategoryPage() {
             </p>
 
             {/* Audio Player */}
-            <div className="bg-white rounded-2xl p-4 mb-8">
+            <div className="bg-white rounded-2xl p-4 w-[500px] mr-auto mb-8">
               <div className="flex items-center gap-4 mb-3">
                 <button className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
                   <Play className="w-5 h-5 text-white ml-1" fill="white" />
