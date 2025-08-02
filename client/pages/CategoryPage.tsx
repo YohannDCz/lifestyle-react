@@ -240,11 +240,12 @@ export default function CategoryPage() {
             <button
               key={pill.name}
               onClick={() => navigate(`/category/${pill.name.toLowerCase()}`)}
-              className={`px-8 py-3 rounded-xl font-semibold text-lg transition-all duration-200 ${
+              className={`bg-gradient-to-r ${pill.colors} rounded-xl flex-1 text-center cursor-pointer transition-transform duration-200 hover:scale-105 font-semibold text-lg text-white drop-shadow-lg ${
                 pill.name === currentCategory
-                  ? "bg-white text-black border-2 border-black"
-                  : "bg-black text-white"
+                  ? "ring-4 ring-white ring-offset-2"
+                  : ""
               }`}
+              style={{ height: "46px", padding: "9px 0" }}
             >
               {pill.name}
             </button>
