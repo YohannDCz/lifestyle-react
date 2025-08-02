@@ -455,6 +455,13 @@ const Index = () => {
           <div className="max-w-7xl mx-auto px-6">
             <div
               className="flex flex-row gap-2 justify-between"
+              onMouseEnter={() => {
+                // Clear timeout when entering navigation area
+                if (hoverTimeout) {
+                  clearTimeout(hoverTimeout);
+                  setHoverTimeout(null);
+                }
+              }}
               onMouseLeave={() => {
                 // Only hide when leaving the entire navigation area
                 const timeout = setTimeout(() => {
