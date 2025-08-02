@@ -661,6 +661,104 @@ const Index = () => {
                 </button>
               </div>
 
+              {/* Hover Menu Overlay */}
+              {showHoverMenu && hoveredCategory && (
+                <div
+                  className="fixed inset-0 z-50 bg-black"
+                  style={{
+                    top: "120px", // Account for navigation bars
+                    height: "calc(100vh - 120px)"
+                  }}
+                  onMouseLeave={() => {
+                    setShowHoverMenu(false);
+                    setHoveredCategory(null);
+                  }}
+                >
+                  <div className="h-full flex">
+                    {/* Left Menu Section */}
+                    <div className="w-80 p-6 flex flex-col">
+                      <div className="mb-8">
+                        {categoryMenuContent[hoveredCategory]?.items.map((item, index) => (
+                          <div key={index} className="mb-4">
+                            {index === 0 ? (
+                              <div className={`bg-gradient-to-r ${categoryMenuContent[hoveredCategory].gradient} text-white px-6 py-3 rounded-full text-lg font-semibold`}>
+                                {item}
+                              </div>
+                            ) : (
+                              <div className="bg-white text-black px-6 py-3 rounded-full text-lg font-semibold border border-gray-200">
+                                {item}
+                              </div>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+
+                      <div className="mt-auto">
+                        <div className="bg-gray-500 text-white px-6 py-4 rounded-full text-lg font-semibold">
+                          Explore {hoveredCategory}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Center Articles Section */}
+                    <div className="flex-1 p-6">
+                      <h2 className="text-white text-2xl font-semibold mb-8">Top articles</h2>
+                      <div className="grid grid-cols-3 gap-6 mb-8">
+                        {categoryMenuContent[hoveredCategory]?.articles.slice(0, 3).map((article, index) => (
+                          <div key={index} className="relative">
+                            <img
+                              src={article.image}
+                              alt={article.title}
+                              className="w-full h-40 object-cover rounded-2xl border border-gray-300"
+                            />
+                            <div className="absolute bottom-4 right-4">
+                              <div className={`w-10 h-10 rounded-full bg-gradient-to-r ${categoryMenuContent[hoveredCategory].gradient} flex items-center justify-center`}>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M14.43 5.93L20.5 12L14.43 18.07L13.02 16.66L17.17 12.5H3.5V11.5H17.17L13.02 7.34L14.43 5.93Z" fill="white"/>
+                                </svg>
+                              </div>
+                            </div>
+                            <h3 className="text-white text-lg font-semibold mt-4">{article.title}</h3>
+                          </div>
+                        ))}
+                      </div>
+
+                      {categoryMenuContent[hoveredCategory]?.articles.length > 3 && (
+                        <div className="grid grid-cols-1 gap-6">
+                          <div className="relative">
+                            <img
+                              src={categoryMenuContent[hoveredCategory].articles[3].image}
+                              alt={categoryMenuContent[hoveredCategory].articles[3].title}
+                              className="w-60 h-40 object-cover rounded-2xl border border-gray-300"
+                            />
+                            <div className="absolute bottom-4 right-4">
+                              <div className={`w-10 h-10 rounded-full bg-gradient-to-r ${categoryMenuContent[hoveredCategory].gradient} flex items-center justify-center`}>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M14.43 5.93L20.5 12L14.43 18.07L13.02 16.66L17.17 12.5H3.5V11.5H17.17L13.02 7.34L14.43 5.93Z" fill="white"/>
+                                </svg>
+                              </div>
+                            </div>
+                            <h3 className="text-white text-lg font-semibold mt-4">{categoryMenuContent[hoveredCategory].articles[3].title}</h3>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Right Trending Section */}
+                    <div className="w-80 p-6">
+                      <h2 className="text-white text-2xl font-semibold mb-8">Trending</h2>
+                      <div className="space-y-4">
+                        {categoryMenuContent[hoveredCategory]?.trending.map((item, index) => (
+                          <div key={index} className="text-white text-lg underline cursor-pointer hover:text-gray-300 transition-colors">
+                            {item}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
               {/* Category pills around the circle - positioned in perfect 672px circle at 45-degree intervals starting with Mind */}
               {/* Mind - 0 degrees (top) */}
               <div
