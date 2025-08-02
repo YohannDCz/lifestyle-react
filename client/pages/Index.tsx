@@ -874,11 +874,13 @@ const Index = () => {
                   .slice(0, 3)
                   .map((article, index) => (
                     <div key={index} className="relative">
-                      <img
-                        src={article.image}
-                        alt={article.title}
-                        className="w-full h-40 object-cover rounded-2xl border border-gray-300"
-                      />
+                      <div className={`p-1 rounded-2xl bg-gradient-to-r ${categoryMenuContent[hoveredCategory].gradient}`}>
+                        <img
+                          src={article.image}
+                          alt={article.title}
+                          className="w-full h-40 object-cover rounded-xl"
+                        />
+                      </div>
                       <div className="absolute bottom-4 right-4">
                         <div
                           className={`w-10 h-10 rounded-full bg-gradient-to-r ${categoryMenuContent[hoveredCategory].gradient} flex items-center justify-center`}
