@@ -452,7 +452,7 @@ export default function CategoryPage() {
 
           {/* Phone Mockup */}
           <div className="flex-shrink-0">
-            <div className="relative w-64 h-80 bg-black rounded-3xl p-2">
+            <div className="relative w-[300px] h-80 bg-black rounded-3xl p-2">
               <div className="w-full h-full bg-gradient-to-br from-orange-400 to-purple-600 rounded-2xl overflow-hidden">
                 <img
                   src="https://api.builder.io/api/v1/image/assets/TEMP/25a7cbb0066f516134cbed838dae9c33fc7224ce?width=668"
