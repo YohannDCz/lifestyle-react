@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Star, Check, Globe } from "lucide-react";
+import { fetchArticlesBySection, fetchTrendingBySection, ArticleWithContent } from "../lib/articleService";
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState("Growth Tracking");
