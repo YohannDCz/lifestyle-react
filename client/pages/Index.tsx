@@ -1459,8 +1459,8 @@ const Index = () => {
                           />
                         </div>
                       </div>
-                      <div className="flex gap-12 z-10 justify-center my-12 mr-12">
-                        <div className="relative w-[500px]"></div>
+                      <div className="flex gap-8 z-10 justify-center my-12 mr-6">
+                        <div className="relative w-[400px]"></div>
                         <div className="flex flex-col justify-center items-start">
                           <h3 className="text-4xl font-semibold mb-6">
                             {content.title}
