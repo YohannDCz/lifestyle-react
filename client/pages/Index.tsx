@@ -1601,27 +1601,72 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-            {experts.map((expert, index) => (
-              <div key={index} className="relative group">
-                <div className="relative overflow-hidden rounded-3xl">
-                  <img
-                    src={expert.image}
-                    alt={expert.name}
-                    className="w-full h-96 object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                  <div className="absolute bottom-6 left-6 right-6 text-white">
-                    <h3 className="text-xl font-bold mb-2 text-center">
-                      {expert.name}
-                    </h3>
-                    <p className="text-sm leading-relaxed whitespace-pre-line text-center">
-                      {expert.description}
-                    </p>
+          <div className="overflow-hidden">
+            <div className="flex animate-marquee whitespace-nowrap">
+              {/* First set of experts */}
+              {experts.map((expert, index) => (
+                <div key={`first-${index}`} className="relative group mx-4 flex-shrink-0" style={{ width: "280px" }}>
+                  <div className="relative overflow-hidden rounded-3xl">
+                    <img
+                      src={expert.image}
+                      alt={expert.name}
+                      className="w-full h-96 object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                    <div className="absolute bottom-6 left-6 right-6 text-white">
+                      <h3 className="text-xl font-bold mb-2 text-center">
+                        {expert.name}
+                      </h3>
+                      <p className="text-sm leading-relaxed whitespace-pre-line text-center">
+                        {expert.description}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+              {/* Second set of experts for seamless loop */}
+              {experts.map((expert, index) => (
+                <div key={`second-${index}`} className="relative group mx-4 flex-shrink-0" style={{ width: "280px" }}>
+                  <div className="relative overflow-hidden rounded-3xl">
+                    <img
+                      src={expert.image}
+                      alt={expert.name}
+                      className="w-full h-96 object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                    <div className="absolute bottom-6 left-6 right-6 text-white">
+                      <h3 className="text-xl font-bold mb-2 text-center">
+                        {expert.name}
+                      </h3>
+                      <p className="text-sm leading-relaxed whitespace-pre-line text-center">
+                        {expert.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+              {/* Third set for extra smoothness */}
+              {experts.map((expert, index) => (
+                <div key={`third-${index}`} className="relative group mx-4 flex-shrink-0" style={{ width: "280px" }}>
+                  <div className="relative overflow-hidden rounded-3xl">
+                    <img
+                      src={expert.image}
+                      alt={expert.name}
+                      className="w-full h-96 object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                    <div className="absolute bottom-6 left-6 right-6 text-white">
+                      <h3 className="text-xl font-bold mb-2 text-center">
+                        {expert.name}
+                      </h3>
+                      <p className="text-sm leading-relaxed whitespace-pre-line text-center">
+                        {expert.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
           <div className="text-center">
