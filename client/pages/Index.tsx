@@ -104,7 +104,7 @@ const Index = () => {
       title: "FOOD",
       color: "bg-green-500",
       gradient: "from-green-400 to-green-800",
-      items: ["Nutrition", "World Cuisine"],
+      items: ["Nutrition", "World Cuisine", "Special Diets", "Snacks", "Creative"],
       articles: [
         { title: "Nutritional fundamentals", image: "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484" },
         { title: "Exploring world cuisines", image: "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484" },
