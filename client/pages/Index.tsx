@@ -872,7 +872,37 @@ const Index = () => {
                 setMenuLocked(false);
                 setHoveredCategory(null);
               }}
-              className={`absolute bottom-6 right-6 z-10 bg-gradient-to-r ${categoryPills.find(pill => pill.name === hoveredCategory)?.colors.replace('from-blue-400 to-blue-800', 'from-gray-400 to-gray-800').replace('from-purple-400 to-purple-800', 'from-gray-400 to-gray-800').replace('from-pink-400 to-pink-800', 'from-gray-400 to-gray-800').replace('from-red-400 to-red-800', 'from-gray-400 to-gray-800').replace('from-orange-400 to-orange-800', 'from-gray-400 to-gray-800').replace('from-yellow-400 to-yellow-800', 'from-gray-400 to-gray-800').replace('from-green-400 to-green-800', 'from-gray-400 to-gray-800').replace('from-cyan-400 to-cyan-800', 'from-gray-400 to-gray-800')} rounded-full flex items-center justify-center cursor-pointer transition-transform duration-200 hover:scale-105`}
+              className={`absolute bottom-6 right-6 z-10 bg-gradient-to-r ${categoryPills
+                .find((pill) => pill.name === hoveredCategory)
+                ?.colors.replace(
+                  "from-blue-400 to-blue-800",
+                  "from-gray-400 to-gray-800",
+                )
+                .replace(
+                  "from-purple-400 to-purple-800",
+                  "from-gray-400 to-gray-800",
+                )
+                .replace(
+                  "from-pink-400 to-pink-800",
+                  "from-gray-400 to-gray-800",
+                )
+                .replace("from-red-400 to-red-800", "from-gray-400 to-gray-800")
+                .replace(
+                  "from-orange-400 to-orange-800",
+                  "from-gray-400 to-gray-800",
+                )
+                .replace(
+                  "from-yellow-400 to-yellow-800",
+                  "from-gray-400 to-gray-800",
+                )
+                .replace(
+                  "from-green-400 to-green-800",
+                  "from-gray-400 to-gray-800",
+                )
+                .replace(
+                  "from-cyan-400 to-cyan-800",
+                  "from-gray-400 to-gray-800",
+                )} rounded-full flex items-center justify-center cursor-pointer transition-transform duration-200 hover:scale-105`}
               style={{ height: "46px", width: "46px" }}
             >
               <svg
@@ -918,8 +948,43 @@ const Index = () => {
 
               <div className="mt-auto">
                 <button
-                  onClick={() => navigate(`/category/${hoveredCategory?.toLowerCase()}`)}
-                  className={`bg-gradient-to-r ${categoryPills.find(pill => pill.name === hoveredCategory)?.colors.replace('from-blue-400 to-blue-800', 'from-gray-400 to-gray-800').replace('from-purple-400 to-purple-800', 'from-gray-400 to-gray-800').replace('from-pink-400 to-pink-800', 'from-gray-400 to-gray-800').replace('from-red-400 to-red-800', 'from-gray-400 to-gray-800').replace('from-orange-400 to-orange-800', 'from-gray-400 to-gray-800').replace('from-yellow-400 to-yellow-800', 'from-gray-400 to-gray-800').replace('from-green-400 to-green-800', 'from-gray-400 to-gray-800').replace('from-cyan-400 to-cyan-800', 'from-gray-400 to-gray-800')} text-white px-6 py-4 rounded-full text-lg font-semibold inline-block hover:scale-105 transition-transform duration-200 cursor-pointer`}
+                  onClick={() =>
+                    navigate(`/category/${hoveredCategory?.toLowerCase()}`)
+                  }
+                  className={`bg-gradient-to-r ${categoryPills
+                    .find((pill) => pill.name === hoveredCategory)
+                    ?.colors.replace(
+                      "from-blue-400 to-blue-800",
+                      "from-gray-400 to-gray-800",
+                    )
+                    .replace(
+                      "from-purple-400 to-purple-800",
+                      "from-gray-400 to-gray-800",
+                    )
+                    .replace(
+                      "from-pink-400 to-pink-800",
+                      "from-gray-400 to-gray-800",
+                    )
+                    .replace(
+                      "from-red-400 to-red-800",
+                      "from-gray-400 to-gray-800",
+                    )
+                    .replace(
+                      "from-orange-400 to-orange-800",
+                      "from-gray-400 to-gray-800",
+                    )
+                    .replace(
+                      "from-yellow-400 to-yellow-800",
+                      "from-gray-400 to-gray-800",
+                    )
+                    .replace(
+                      "from-green-400 to-green-800",
+                      "from-gray-400 to-gray-800",
+                    )
+                    .replace(
+                      "from-cyan-400 to-cyan-800",
+                      "from-gray-400 to-gray-800",
+                    )} text-white px-6 py-4 rounded-full text-lg font-semibold inline-block hover:scale-105 transition-transform duration-200 cursor-pointer`}
                 >
                   Explore {hoveredCategory}
                 </button>
@@ -936,7 +1001,9 @@ const Index = () => {
                   .slice(0, 3)
                   .map((article, index) => (
                     <div key={index} className="w-60">
-                      <div className={`p-1 rounded-2xl bg-gradient-to-r ${categoryMenuContent[hoveredCategory].gradient}`}>
+                      <div
+                        className={`p-1 rounded-2xl bg-gradient-to-r ${categoryMenuContent[hoveredCategory].gradient}`}
+                      >
                         <div className="bg-black rounded-xl overflow-hidden">
                           <img
                             src={article.image}
@@ -956,7 +1023,7 @@ const Index = () => {
                             WebkitBoxOrient: "vertical",
                             overflow: "hidden",
                             textOverflow: "ellipsis",
-                            paddingRight: "0.75rem"
+                            paddingRight: "0.75rem",
                           }}
                         >
                           {article.title}
@@ -985,14 +1052,18 @@ const Index = () => {
               {categoryMenuContent[hoveredCategory]?.articles.length > 3 && (
                 <div className="flex justify-start">
                   <div className="w-60">
-                    <div className={`p-1 rounded-2xl bg-gradient-to-r ${categoryMenuContent[hoveredCategory].gradient}`}>
+                    <div
+                      className={`p-1 rounded-2xl bg-gradient-to-r ${categoryMenuContent[hoveredCategory].gradient}`}
+                    >
                       <div className="bg-black rounded-xl overflow-hidden">
                         <img
                           src={
-                            categoryMenuContent[hoveredCategory].articles[3].image
+                            categoryMenuContent[hoveredCategory].articles[3]
+                              .image
                           }
                           alt={
-                            categoryMenuContent[hoveredCategory].articles[3].title
+                            categoryMenuContent[hoveredCategory].articles[3]
+                              .title
                           }
                           className="w-full h-40 object-cover"
                         />
@@ -1009,7 +1080,7 @@ const Index = () => {
                           WebkitBoxOrient: "vertical",
                           overflow: "hidden",
                           textOverflow: "ellipsis",
-                          paddingRight: "0.75rem"
+                          paddingRight: "0.75rem",
                         }}
                       >
                         {categoryMenuContent[hoveredCategory].articles[3].title}
@@ -1578,7 +1649,7 @@ const Index = () => {
                       WebkitLineClamp: 2,
                       WebkitBoxOrient: "vertical",
                       overflow: "hidden",
-                      textOverflow: "ellipsis"
+                      textOverflow: "ellipsis",
                     }}
                   >
                     {article.title}
@@ -1636,7 +1707,7 @@ const Index = () => {
                       WebkitLineClamp: 2,
                       WebkitBoxOrient: "vertical",
                       overflow: "hidden",
-                      textOverflow: "ellipsis"
+                      textOverflow: "ellipsis",
                     }}
                   >
                     {article.title}
