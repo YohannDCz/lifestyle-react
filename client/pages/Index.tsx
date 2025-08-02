@@ -498,6 +498,11 @@ const Index = () => {
             height: "calc(100vh - 120px)"
           }}
           onMouseLeave={() => {
+            // Clear any existing timeout
+            if (hoverTimeout) {
+              clearTimeout(hoverTimeout);
+              setHoverTimeout(null);
+            }
             setShowHoverMenu(false);
             setHoveredCategory(null);
           }}
