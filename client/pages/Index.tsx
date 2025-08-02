@@ -1437,7 +1437,7 @@ const Index = () => {
             <div
               className="flex transition-transform duration-500 ease-in-out"
               style={{
-                transform: `translateX(-${currentLifestyleSlide * 82}%)`,
+                transform: `translateX(-${currentLifestyleSlide * 90}%)`,
                 gap: "12px",
                 width: "100%",
                 marginRight: "32px",
