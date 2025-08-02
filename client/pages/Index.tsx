@@ -911,6 +911,19 @@ const Index = () => {
           height: "calc(100vh - 70px - 50px)",
         }}
       >
+        {/* Background Video */}
+        <iframe
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{
+            width: "100vw",
+            height: "100vh",
+            transform: "scale(1.2)",
+            pointerEvents: "none",
+          }}
+          src="https://www.youtube.com/embed/caiHvJbLC-w?autoplay=1&mute=1&loop=1&playlist=caiHvJbLC-w&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&start=20&end=264"
+          allow="autoplay; encrypted-media"
+          allowFullScreen
+        />
         {/* Dark overlay for better text readability */}
         <a
           href="https://youtu.be/caiHvJbLC-w?si=_T5PkpUrG4hyT_NS"
