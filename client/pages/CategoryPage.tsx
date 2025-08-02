@@ -418,7 +418,7 @@ export default function CategoryPage() {
         <div className="flex flex-col">
           {/* Hero Section */}
           <div className="flex-1 flex flex-col lg:flex-row items-center justify-between px-6 lg:px-24 py-8 gap-8 min-h-0 overflow-y-auto">
-            <div className="flex-1 max-w-2xl flex flex-col justify-center">
+            <div className="flex-1 max-w-2xl flex flex-col justify-center mt-8">
               <h1 className="text-3xl lg:text-4xl font-bold text-white mb-4">
                 {config.hero.title}
               </h1>
