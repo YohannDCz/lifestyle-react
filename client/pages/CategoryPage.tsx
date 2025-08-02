@@ -280,6 +280,46 @@ export default function CategoryPage() {
     }
   }, [category]);
 
+  // Dynamic content for subcategories
+  const getSubCategoryContent = () => {
+    if (currentCategory === 'SLEEP') {
+      const sleepContent = {
+        'Lucid Dreams': {
+          title: 'Unlock the World of Lucid Dreams',
+          description: 'Embark on a journey into the fascinating realm of lucid dreaming with our dedicated app. Designed to guide you toward heightened awareness during sleep, it offers guided meditations, relaxation techniques, soothing soundscapes, and immersive sessions to help you take control of your dreams.'
+        },
+        'Sleep Types': {
+          title: 'Understand Your Sleep Patterns',
+          description: 'Discover the different types of sleep and how they affect your daily life. Learn to identify your natural sleep chronotype, optimize your sleep schedule, and work with your body\'s natural rhythms for better rest and recovery.'
+        },
+        'Sleep Quality': {
+          title: 'Optimize Your Sleep Environment',
+          description: 'Transform your bedroom into a sanctuary for restorative sleep. Explore evidence-based strategies for improving sleep quality, from temperature and lighting control to creating the perfect pre-sleep routine that signals your body it\'s time to rest.'
+        },
+        'Daily Routines': {
+          title: 'Build Healthy Sleep Habits',
+          description: 'Establish powerful daily routines that support better sleep. Learn how your daytime activities, exercise timing, meal scheduling, and evening rituals all contribute to achieving deeper, more restorative sleep every night.'
+        },
+        'Technology': {
+          title: 'Leverage Sleep Technology',
+          description: 'Discover how modern technology can enhance your sleep experience. From sleep tracking apps and smart devices to guided meditations and soundscapes, learn to use technology as a tool for better sleep rather than a distraction.'
+        }
+      };
+      return sleepContent[selectedSubCategory] || sleepContent['Lucid Dreams'];
+    }
+    // Default content for other categories
+    return {
+      title: currentCategory === 'MIND' ? 'Discover Your Inner Potential' :
+             currentCategory === 'MENTAL' ? 'Build Mental Resilience' :
+             currentCategory === 'SOUL' ? 'Connect with Your Soul' :
+             currentCategory === 'BODY' ? 'Transform Your Physical Health' :
+             currentCategory === 'BRAIN' ? 'Enhance Cognitive Function' :
+             currentCategory === 'FOOD' ? 'Nourish Your Body Mindfully' :
+             currentCategory === 'HEALTH' ? 'Optimize Your Well-being' : 'Unlock the World of Lucid Dreams',
+      description: 'Comprehensive content and resources for your wellness journey.'
+    };
+  };
+
   const categoryPills = [
     { name: "SLEEP", colors: "from-blue-400 to-blue-800" },
     { name: "MIND", colors: "from-purple-400 to-purple-800" },
