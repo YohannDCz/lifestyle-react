@@ -322,8 +322,11 @@ export default function CategoryPage() {
 
       {/* Content Sections */}
       <div className="bg-white px-6 lg:px-24 py-20">
-        {/* Feature Sections */}
-        <div className="space-y-20 mb-20">
+        {/* Feature Sections with gradient background */}
+        <div
+          className="space-y-20 mb-20 px-6 lg:px-24 py-20 -mx-6 lg:-mx-24"
+          style={{ background: config.background }}
+        >
           {/* Section 1 */}
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="flex-1">
@@ -331,12 +334,12 @@ export default function CategoryPage() {
                 Unlock the World of Lucid Dreams
               </h3>
               <p className="text-xl text-white leading-relaxed">
-                Embark on a journey into the fascinating realm of lucid dreaming with our dedicated app. 
-                Designed to guide you toward heightened awareness during sleep, it offers guided meditations, 
+                Embark on a journey into the fascinating realm of lucid dreaming with our dedicated app.
+                Designed to guide you toward heightened awareness during sleep, it offers guided meditations,
                 relaxation techniques, soothing soundscapes, and immersive sessions to help you take control of your dreams.
               </p>
             </div>
-            <img 
+            <img
               src="https://api.builder.io/api/v1/image/assets/TEMP/9a1e701f6f94488ef701d75926439d7dbd80d143?width=1128"
               alt="Dream visualization"
               className="flex-shrink-0 w-full lg:w-96 h-64 object-cover rounded-3xl"
@@ -350,12 +353,12 @@ export default function CategoryPage() {
                 Master Your Dreams, Master Your Mind
               </h3>
               <p className="text-xl text-white leading-relaxed">
-                Our innovative app accompanies you in learning lucid dreaming techniques. Through interactive tools, 
-                practical exercises, and personalized advice, you'll develop the ability to recognize and control your dreams. 
+                Our innovative app accompanies you in learning lucid dreaming techniques. Through interactive tools,
+                practical exercises, and personalized advice, you'll develop the ability to recognize and control your dreams.
                 Elevate your nocturnal consciousness and explore the depths of your imagination.
               </p>
             </div>
-            <img 
+            <img
               src="https://api.builder.io/api/v1/image/assets/TEMP/3311da80a30f20b1fea8c4d496d0feb16d8e2c94?width=1128"
               alt="Mind mastery"
               className="flex-shrink-0 w-full lg:w-96 h-64 object-cover rounded-3xl"
@@ -369,12 +372,12 @@ export default function CategoryPage() {
                 Consciously Journey Through Your Dreams
               </h3>
               <p className="text-xl text-white leading-relaxed">
-                Gift yourself a unique dream experience with our app dedicated to lucid dreaming. It offers structured programs, 
-                reality check reminders, and sleep cycle analyses to promote the emergence of lucid dreams. Awaken your mind 
+                Gift yourself a unique dream experience with our app dedicated to lucid dreaming. It offers structured programs,
+                reality check reminders, and sleep cycle analyses to promote the emergence of lucid dreams. Awaken your mind
                 during the night and discover a world where your dreams become reality.
               </p>
             </div>
-            <img 
+            <img
               src="https://api.builder.io/api/v1/image/assets/TEMP/ee9fd97ab69df9e6977260a5b6a52de12677850c?width=1128"
               alt="Dream journey"
               className="flex-shrink-0 w-full lg:w-96 h-64 object-cover rounded-3xl"
