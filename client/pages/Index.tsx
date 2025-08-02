@@ -536,7 +536,7 @@ const Index = () => {
     },
   ];
 
-  const sleepArticles = [
+  const allSleepArticles = [
     {
       title: "How to make the dreams last",
       category: "Lucid Dreams",
@@ -561,7 +561,33 @@ const Index = () => {
       image:
         "https://api.builder.io/api/v1/image/assets/TEMP/d6e0ebad917a70f558053bd9d267119197182adf?width=640",
     },
+    {
+      title: "Understanding sleep cycles",
+      category: "Sleep science",
+      image:
+        "https://api.builder.io/api/v1/image/assets/TEMP/ea99e73276d1abd9cd94db39da6a337169268ceb?width=640",
+    },
+    {
+      title: "Best sleep positions for health",
+      category: "Sleep health",
+      image:
+        "https://api.builder.io/api/v1/image/assets/TEMP/58d76ffbf8416d628119e44317b9a1b20e7cb54f?width=640",
+    },
+    {
+      title: "Creating the perfect sleep environment",
+      category: "Sleep optimization",
+      image:
+        "https://api.builder.io/api/v1/image/assets/TEMP/20b1ef112a92489372731f3b69b7512545024925?width=640",
+    },
+    {
+      title: "Sleep tracking technology guide",
+      category: "Sleep tech",
+      image:
+        "https://api.builder.io/api/v1/image/assets/TEMP/d6e0ebad917a70f558053bd9d267119197182adf?width=640",
+    },
   ];
+
+  const sleepArticles = allSleepArticles.slice(sleepArticlesPage * 4, (sleepArticlesPage + 1) * 4);
 
   const mindArticles = [
     {
