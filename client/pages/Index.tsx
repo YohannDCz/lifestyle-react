@@ -1429,7 +1429,7 @@ const Index = () => {
                 transform: `translateX(-${currentLifestyleSlide * 82}%)`,
                 gap: "12px",
                 width: "100%",
-                margin: "0 32px"
+                marginRight: "32px"
               }}
             >
               {lifestyleContent.map((content, index) => (
