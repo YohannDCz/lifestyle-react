@@ -812,8 +812,10 @@ const Index = () => {
                       setShowHoverMenu(true);
                       setMenuLocked(true);
                     } else {
-                      // If menu is shown, just change category
-                      setHoveredCategory(pill.name);
+                      // If menu is shown, close it
+                      setShowHoverMenu(false);
+                      setMenuLocked(false);
+                      setHoveredCategory(null);
                     }
                   }}
                   onMouseEnter={() => {
