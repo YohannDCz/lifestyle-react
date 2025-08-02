@@ -924,15 +924,17 @@ const Index = () => {
                 <div className="flex justify-start">
                   <div className="w-60">
                     <div className={`p-1 rounded-2xl bg-gradient-to-r ${categoryMenuContent[hoveredCategory].gradient}`}>
-                      <img
-                        src={
-                          categoryMenuContent[hoveredCategory].articles[3].image
-                        }
-                        alt={
-                          categoryMenuContent[hoveredCategory].articles[3].title
-                        }
-                        className="w-full h-40 object-cover rounded-xl"
-                      />
+                      <div className="bg-black rounded-xl overflow-hidden">
+                        <img
+                          src={
+                            categoryMenuContent[hoveredCategory].articles[3].image
+                          }
+                          alt={
+                            categoryMenuContent[hoveredCategory].articles[3].title
+                          }
+                          className="w-full h-40 object-cover"
+                        />
+                      </div>
                     </div>
                     <div className="flex items-start justify-between mt-4">
                       <h3
