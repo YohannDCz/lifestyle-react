@@ -788,14 +788,16 @@ const Index = () => {
                 }
               }}
               onMouseLeave={() => {
-                // Only hide when leaving the entire navigation area
-                const timeout = setTimeout(() => {
-                  if (!document.querySelector(".hover-menu-overlay:hover")) {
-                    setShowHoverMenu(false);
-                    setHoveredCategory(null);
-                  }
-                }, 100);
-                setHoverTimeout(timeout);
+                // Only hide when leaving the entire navigation area and menu is not locked
+                if (!menuLocked) {
+                  const timeout = setTimeout(() => {
+                    if (!document.querySelector(".hover-menu-overlay:hover")) {
+                      setShowHoverMenu(false);
+                      setHoveredCategory(null);
+                    }
+                  }, 100);
+                  setHoverTimeout(timeout);
+                }
               }}
             >
               {categoryPills.map((pill, index) => (
