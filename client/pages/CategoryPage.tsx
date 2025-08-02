@@ -423,10 +423,10 @@ export default function CategoryPage() {
               <button
                 key={subCat.name}
                 onClick={() => setSelectedSubCategory(subCat.name)}
-                className={`px-6 py-3 rounded-full font-semibold text-lg transition-colors ${
-                  subCat.isActive || selectedSubCategory === subCat.name
-                    ? "bg-white text-black"
-                    : "bg-black text-white"
+                className={`px-6 py-3 rounded-full font-semibold text-lg transition-colors hover:scale-105 transform duration-200 ${
+                  selectedSubCategory === subCat.name
+                    ? "bg-white text-black border-2 border-black"
+                    : "bg-black text-white hover:bg-gray-800"
                 }`}
               >
                 {subCat.name}
