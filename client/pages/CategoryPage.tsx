@@ -397,11 +397,15 @@ export default function CategoryPage() {
       </div>
 
       {/* Content Sections */}
-      <div className="bg-white px-6 lg:px-24 py-20">
+      <div className={`${currentCategory === 'SLEEP' ? 'bg-white px-6 lg:px-24' : 'bg-white px-6 lg:px-24 py-20'}`}>
         {/* Feature Sections with gradient background */}
         <div
-          className="space-y-20 mb-20 px-6 lg:px-24 py-20 -mx-6 lg:-mx-24"
-          style={{ background: config.background }}
+          className={`space-y-20 mb-20 px-6 lg:px-24 py-20 -mx-6 lg:-mx-24 ${currentCategory === 'SLEEP' ? '-mt-20' : ''}`}
+          style={{
+            background: currentCategory === 'SLEEP'
+              ? 'linear-gradient(99deg, rgba(39, 165, 255, 0.7) 3.67%, rgba(67, 39, 255, 0.7) 91.7%)'
+              : config.background
+          }}
         >
           {/* Section 1 */}
           <div className="flex flex-col lg:flex-row items-center gap-12">
