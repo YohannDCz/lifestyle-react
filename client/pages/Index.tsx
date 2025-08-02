@@ -1481,7 +1481,15 @@ const Index = () => {
                   </div>
                   <h4
                     className="font-semibold text-lg"
-                    style={{ height: "3.5rem", lineHeight: "1.75rem" }}
+                    style={{
+                      height: "3.5rem",
+                      lineHeight: "1.75rem",
+                      display: "-webkit-box",
+                      WebkitLineClamp: 2,
+                      WebkitBoxOrient: "vertical",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis"
+                    }}
                   >
                     {article.title}
                   </h4>
@@ -1531,7 +1539,15 @@ const Index = () => {
                   </div>
                   <h4
                     className="font-semibold text-lg"
-                    style={{ height: "3.5rem", lineHeight: "1.75rem" }}
+                    style={{
+                      height: "3.5rem",
+                      lineHeight: "1.75rem",
+                      display: "-webkit-box",
+                      WebkitLineClamp: 2,
+                      WebkitBoxOrient: "vertical",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis"
+                    }}
                   >
                     {article.title}
                   </h4>
