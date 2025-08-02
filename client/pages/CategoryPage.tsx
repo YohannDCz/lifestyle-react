@@ -48,7 +48,7 @@ export default function CategoryPage() {
     MENTAL: {
       title: "MENTAL",
       gradient: "from-pink-400 to-pink-800",
-      background: "linear-gradient(99deg, #EC4899 3.67%, #BE185D 91.7%)",
+      background: "linear-gradient(99deg, rgba(236, 72, 153, 0.85) 3.67%, rgba(190, 24, 93, 0.85) 91.7%)",
       hero: {
         title: "Strengthen your mental health",
         subtitle: "Tools for emotional balance and resilience",
