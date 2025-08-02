@@ -719,7 +719,7 @@ export default function CategoryPage() {
           </div>
 
           {/* Section 3 */}
-          <div className="flex flex-col lg:flex-row items-center gap-12 w-[1000px]">
+          <div className="flex flex-col lg:flex-row items-center gap-12 w-[1000px] justify-center">
             <div className="flex-1">
               <h3 className="text-4xl font-bold text-white mb-6">
                 {getSubCategoryContent().section3.title}
