@@ -4,15 +4,15 @@
 
 @keyframes marquee {
   0% {
-    transform: translateX(0%);
+    transform: translateX(0);
   }
   100% {
-    transform: translateX(-33.333%);
+    transform: translateX(-1248px);
   }
 }
 
 .animate-marquee {
-  animation: marquee 20s linear infinite;
+  animation: marquee 15s linear infinite;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Righteous:wght@400&family=Shrikhand:wght@400&family=Roboto:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap");
