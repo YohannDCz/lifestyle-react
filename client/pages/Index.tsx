@@ -14,6 +14,7 @@ const Index = () => {
   const [hoveredCategory, setHoveredCategory] = useState(null);
   const [showHoverMenu, setShowHoverMenu] = useState(false);
   const [hoverTimeout, setHoverTimeout] = useState(null);
+  const [menuLocked, setMenuLocked] = useState(false);
   const [realArticles, setRealArticles] = useState<{
     [key: string]: ArticleWithContent[];
   }>({});
