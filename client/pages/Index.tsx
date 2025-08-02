@@ -1432,7 +1432,7 @@ const Index = () => {
             >
               {lifestyleContent.map((content, index) => (
                 <div key={index} className="flex-shrink-0" style={{ width: "80%" }}>
-                  <div className="bg-gradient-to-r from-purple-100 via-pink-100 to-purple-100 rounded-3xl relative overflow-hidden flex flex-row px-12">
+                  <div className="bg-gradient-to-r from-purple-100 via-pink-100 to-purple-100 rounded-3xl relative overflow-hidden flex flex-row px-8">
                     <img
                       src={content.image}
                       alt="Lifestyle tracking interface"
