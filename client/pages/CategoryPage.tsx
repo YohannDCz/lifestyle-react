@@ -394,11 +394,11 @@ export default function CategoryPage() {
 
       {/* Category Navigation */}
       <div
-        className="relative h-screen max-h-[1000px] flex flex-col overflow-hidden"
+        className="relative max-h-[1000px] flex flex-col overflow-hidden"
         style={{ background: config.background }}
       >
         {/* Navigation Pills */}
-        <div className="flex gap-2 px-6 py-4 flex-shrink-0">
+        <div className="flex gap-2 px-6 py-3 flex-shrink-0">
           {categoryPills.map((pill) => (
             <button
               key={pill.name}
