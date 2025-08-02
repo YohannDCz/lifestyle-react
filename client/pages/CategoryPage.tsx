@@ -31,7 +31,7 @@ export default function CategoryPage() {
     MIND: {
       title: "MIND",
       gradient: "from-purple-400 to-purple-800",
-      background: "linear-gradient(99deg, #8B5CF6 3.67%, #6366F1 91.7%)",
+      background: "linear-gradient(99deg, rgba(139, 92, 246, 0.85) 3.67%, rgba(99, 102, 241, 0.85) 91.7%)",
       hero: {
         title: "Cultivate your mind",
         subtitle: "Mindfulness practices for daily clarity",
