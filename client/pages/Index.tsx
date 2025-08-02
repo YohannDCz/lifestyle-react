@@ -848,13 +848,16 @@ const Index = () => {
             height: "calc(100vh - 120px)",
           }}
           onMouseLeave={() => {
-            // Clear any existing timeout
-            if (hoverTimeout) {
-              clearTimeout(hoverTimeout);
-              setHoverTimeout(null);
+            // Only close menu on mouse leave if not locked
+            if (!menuLocked) {
+              // Clear any existing timeout
+              if (hoverTimeout) {
+                clearTimeout(hoverTimeout);
+                setHoverTimeout(null);
+              }
+              setShowHoverMenu(false);
+              setHoveredCategory(null);
             }
-            setShowHoverMenu(false);
-            setHoveredCategory(null);
           }}
         >
           <div className="h-full flex">
