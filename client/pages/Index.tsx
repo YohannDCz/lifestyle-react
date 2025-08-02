@@ -881,7 +881,7 @@ const Index = () => {
                           className="w-full h-40 object-cover rounded-xl"
                         />
                       </div>
-                      <div className="absolute bottom-4 right-4">
+                      <div className="absolute top-4 right-4">
                         <div
                           className={`w-10 h-10 rounded-full bg-gradient-to-r ${categoryMenuContent[hoveredCategory].gradient} flex items-center justify-center`}
                         >
@@ -908,7 +908,8 @@ const Index = () => {
                           WebkitLineClamp: 2,
                           WebkitBoxOrient: "vertical",
                           overflow: "hidden",
-                          textOverflow: "ellipsis"
+                          textOverflow: "ellipsis",
+                          paddingRight: "3rem"
                         }}
                       >
                         {article.title}
