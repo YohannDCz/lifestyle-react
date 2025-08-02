@@ -10,6 +10,8 @@ const Index = () => {
   const [hoveredCategory, setHoveredCategory] = useState(null);
   const [showHoverMenu, setShowHoverMenu] = useState(false);
   const [hoverTimeout, setHoverTimeout] = useState(null);
+  const [realArticles, setRealArticles] = useState<{ [key: string]: ArticleWithContent[] }>({});
+  const [trendingArticles, setTrendingArticles] = useState<{ [key: string]: string[] }>({});
 
   const categoryPills = [
     { name: "SLEEP", colors: "from-blue-400 to-blue-800" },
