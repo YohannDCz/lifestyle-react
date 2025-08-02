@@ -445,7 +445,7 @@ export default function CategoryPage() {
               </div>
             </div>
 
-            <button className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-blue-700 transition-colors">
+            <button className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-blue-700 transition-colors mr-auto">
               Try Lifestyle
             </button>
           </div>
