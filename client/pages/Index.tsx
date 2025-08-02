@@ -949,7 +949,18 @@ const Index = () => {
                         </svg>
                       </div>
                     </div>
-                    <h3 className="text-white text-lg font-semibold mt-4">
+                    <h3
+                      className="text-white text-lg font-semibold mt-4"
+                      style={{
+                        height: "3.5rem",
+                        lineHeight: "1.75rem",
+                        display: "-webkit-box",
+                        WebkitLineClamp: 2,
+                        WebkitBoxOrient: "vertical",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis"
+                      }}
+                    >
                       {categoryMenuContent[hoveredCategory].articles[3].title}
                     </h3>
                   </div>
