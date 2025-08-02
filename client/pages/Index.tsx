@@ -1602,10 +1602,10 @@ const Index = () => {
           </div>
 
           <div className="overflow-hidden">
-            <div className="flex animate-marquee whitespace-nowrap">
+            <div className="flex animate-marquee">
               {/* First set of experts */}
               {experts.map((expert, index) => (
-                <div key={`first-${index}`} className="relative group mx-4 flex-shrink-0" style={{ width: "280px" }}>
+                <div key={`first-${index}`} className="relative group flex-shrink-0" style={{ width: "280px", marginRight: "32px" }}>
                   <div className="relative overflow-hidden rounded-3xl">
                     <img
                       src={expert.image}
@@ -1626,7 +1626,7 @@ const Index = () => {
               ))}
               {/* Second set of experts for seamless loop */}
               {experts.map((expert, index) => (
-                <div key={`second-${index}`} className="relative group mx-4 flex-shrink-0" style={{ width: "280px" }}>
+                <div key={`second-${index}`} className="relative group flex-shrink-0" style={{ width: "280px", marginRight: "32px" }}>
                   <div className="relative overflow-hidden rounded-3xl">
                     <img
                       src={expert.image}
@@ -1647,7 +1647,7 @@ const Index = () => {
               ))}
               {/* Third set for extra smoothness */}
               {experts.map((expert, index) => (
-                <div key={`third-${index}`} className="relative group mx-4 flex-shrink-0" style={{ width: "280px" }}>
+                <div key={`third-${index}`} className="relative group flex-shrink-0" style={{ width: "280px", marginRight: "32px" }}>
                   <div className="relative overflow-hidden rounded-3xl">
                     <img
                       src={expert.image}
