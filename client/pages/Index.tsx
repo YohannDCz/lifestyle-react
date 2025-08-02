@@ -1232,19 +1232,7 @@ const Index = () => {
                   left: "50%",
                   transform: "translate(-50%, -50%) translate(238px, 238px)",
                 }}
-                onMouseEnter={() => {
-                  handleCategoryHover("BODY");
-                  setHoveredCategory("BODY");
-                  setShowHoverMenu(true);
-                }}
-                onMouseLeave={() => {
-                  setTimeout(() => {
-                    if (!document.querySelector(".fixed.inset-0:hover")) {
-                      setShowHoverMenu(false);
-                      setHoveredCategory(null);
-                    }
-                  }, 100);
-                }}
+                onMouseEnter={() => handleCategoryHover("BODY")}
               >
                 <span
                   className={`bg-orange-400 text-black px-6 py-2 rounded-full text-lg transition-all duration-200 hover:scale-110 ${activeCategory === "BODY" ? "scale-110 shadow-lg" : ""}`}
