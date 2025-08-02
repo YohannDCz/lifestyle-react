@@ -393,12 +393,12 @@ export default function CategoryPage() {
       </div>
 
       {/* Category Navigation */}
-      <div 
-        className="relative min-h-screen"
+      <div
+        className="relative h-screen max-h-[1000px] flex flex-col overflow-hidden"
         style={{ background: config.background }}
       >
         {/* Navigation Pills */}
-        <div className="flex gap-2 px-6 py-4">
+        <div className="flex gap-2 px-6 py-4 flex-shrink-0">
           {categoryPills.map((pill) => (
             <button
               key={pill.name}
@@ -416,23 +416,23 @@ export default function CategoryPage() {
         </div>
 
         {/* Hero Section */}
-        <div className="flex flex-col lg:flex-row items-center justify-between px-6 lg:px-24 py-16 gap-12 min-h-[600px]">
+        <div className="flex-1 flex flex-col lg:flex-row items-center justify-between px-6 lg:px-24 py-8 gap-8 min-h-0 overflow-y-auto">
           <div className="flex-1 max-w-2xl flex flex-col justify-center">
-            <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6 min-h-[120px] flex items-center">
+            <h1 className="text-3xl lg:text-4xl font-bold text-white mb-4">
               {config.hero.title}
             </h1>
-            <h2 className="text-xl lg:text-2xl font-semibold text-white mb-8 min-h-[60px] flex items-center">
+            <h2 className="text-lg lg:text-xl font-semibold text-white mb-6">
               {config.hero.subtitle}
             </h2>
-            <p className="text-lg lg:text-xl text-white mb-12 leading-relaxed min-h-[150px] flex items-center">
+            <p className="text-base lg:text-lg text-white mb-8 leading-relaxed">
               {config.hero.description}
             </p>
 
             {/* Audio Player */}
-            <div className="bg-white rounded-2xl p-6 mb-12">
-              <div className="flex items-center gap-4 mb-4">
-                <button className="w-14 h-14 bg-blue-600 rounded-full flex items-center justify-center">
-                  <Play className="w-6 h-6 text-white ml-1" fill="white" />
+            <div className="bg-white rounded-2xl p-4 mb-8">
+              <div className="flex items-center gap-4 mb-3">
+                <button className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
+                  <Play className="w-5 h-5 text-white ml-1" fill="white" />
                 </button>
                 <span className="text-sm text-gray-600">Alone time</span>
               </div>
@@ -445,16 +445,16 @@ export default function CategoryPage() {
               </div>
             </div>
 
-            <button className="bg-blue-600 text-white px-12 py-4 rounded-full text-xl font-medium hover:bg-blue-700 transition-colors">
+            <button className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-blue-700 transition-colors">
               Try Lifestyle
             </button>
           </div>
 
           {/* Phone Mockup */}
           <div className="flex-shrink-0">
-            <div className="relative w-80 h-96 bg-black rounded-3xl p-2">
+            <div className="relative w-64 h-80 bg-black rounded-3xl p-2">
               <div className="w-full h-full bg-gradient-to-br from-orange-400 to-purple-600 rounded-2xl overflow-hidden">
-                <img 
+                <img
                   src="https://api.builder.io/api/v1/image/assets/TEMP/25a7cbb0066f516134cbed838dae9c33fc7224ce?width=668"
                   alt="Phone interface"
                   className="w-full h-full object-cover"
@@ -465,13 +465,13 @@ export default function CategoryPage() {
         </div>
 
         {/* Sub-category Pills */}
-        <div className="px-6 lg:px-24 pb-8">
-          <div className="flex flex-wrap gap-4">
+        <div className="px-6 lg:px-24 pb-6 flex-shrink-0">
+          <div className="flex flex-wrap gap-3">
             {config.subCategories.map((subCat) => (
               <button
                 key={subCat.name}
                 onClick={() => setSelectedSubCategory(subCat.name)}
-                className={`px-6 py-3 rounded-full font-semibold text-lg transition-colors hover:scale-105 transform duration-200 ${
+                className={`px-4 py-2 rounded-full font-semibold text-base transition-colors hover:scale-105 transform duration-200 ${
                   selectedSubCategory === subCat.name
                     ? "bg-white text-black border-2 border-black"
                     : "bg-black text-white hover:bg-gray-800"
