@@ -496,7 +496,7 @@ export default function CategoryPage() {
           {/* Most Popular Articles */}
           <div>
             <div className="flex items-center justify-between mb-8">
-              <h2 className="text-3xl font-bold text-black">Most Popular Articles on Lucid Dreaming</h2>
+              <h2 className="text-3xl font-bold text-black">Most Popular Articles on {config.title}</h2>
               <div className="flex gap-2">
                 <button className="w-12 h-12 bg-gray-200 hover:bg-gray-300 rounded-full flex items-center justify-center">
                   <ChevronLeft size={20} />
