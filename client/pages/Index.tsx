@@ -1737,7 +1737,7 @@ const Index = () => {
           </div>
 
           <div className="text-center">
-            <button className="bg-black text-white px-12 py-6 rounded-full text-xl font-medium hover:bg-gray-800 transition-colors">
+            <button className="bg-black text-white px-12 py-6 rounded-full text-xl font-medium hover:bg-gray-800 transition-colors mt-8">
               Learn more
             </button>
           </div>
