@@ -793,14 +793,28 @@ const Index = () => {
                   key={index}
                   className={`bg-gradient-to-r ${pill.colors} rounded-xl flex-1 text-center cursor-pointer transition-transform duration-200 hover:scale-105`}
                   style={{ height: "46px", padding: "9px 0" }}
-                  onMouseEnter={() => {
-                    // Clear any existing timeout
-                    if (hoverTimeout) {
-                      clearTimeout(hoverTimeout);
-                      setHoverTimeout(null);
+                  onClick={() => {
+                    // If menu is not shown, open it and lock it
+                    if (!showHoverMenu) {
+                      setHoveredCategory(pill.name);
+                      setShowHoverMenu(true);
+                      setMenuLocked(true);
+                    } else {
+                      // If menu is shown, just change category
+                      setHoveredCategory(pill.name);
                     }
-                    setHoveredCategory(pill.name);
-                    setShowHoverMenu(true);
+                  }}
+                  onMouseEnter={() => {
+                    // Only respond to hover if menu is not locked
+                    if (!menuLocked) {
+                      // Clear any existing timeout
+                      if (hoverTimeout) {
+                        clearTimeout(hoverTimeout);
+                        setHoverTimeout(null);
+                      }
+                      setHoveredCategory(pill.name);
+                      setShowHoverMenu(true);
+                    }
                   }}
                 >
                   <span className="text-white font-semibold text-lg drop-shadow-lg">
