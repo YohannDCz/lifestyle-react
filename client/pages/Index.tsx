@@ -1550,10 +1550,18 @@ const Index = () => {
             <div className="flex items-center justify-between mb-8">
               <h3 className="text-2xl font-semibold">Last articles on Mind</h3>
               <div className="flex gap-2">
-                <button className="bg-gray-200 hover:bg-gray-300 w-12 h-12 rounded-full flex items-center justify-center">
+                <button
+                  onClick={() => setMindArticlesPage(prev => Math.max(0, prev - 1))}
+                  disabled={mindArticlesPage === 0}
+                  className="bg-gray-200 hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed w-12 h-12 rounded-full flex items-center justify-center"
+                >
                   <ChevronLeft size={20} />
                 </button>
-                <button className="bg-gray-200 hover:bg-gray-300 w-12 h-12 rounded-full flex items-center justify-center">
+                <button
+                  onClick={() => setMindArticlesPage(prev => Math.min(1, prev + 1))}
+                  disabled={mindArticlesPage === 1}
+                  className="bg-gray-200 hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed w-12 h-12 rounded-full flex items-center justify-center"
+                >
                   <ChevronRight size={20} />
                 </button>
               </div>
