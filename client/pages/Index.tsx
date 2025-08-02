@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Star, Check, Globe } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import {
   fetchArticlesBySection,
   fetchTrendingBySection,
