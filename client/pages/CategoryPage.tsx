@@ -425,7 +425,7 @@ export default function CategoryPage() {
               <h2 className="text-lg lg:text-xl font-semibold text-white mb-6">
                 {config.hero.subtitle}
               </h2>
-              <p className="text-base lg:text-lg text-white mb-8 leading-relaxed">
+              <p className="text-base lg:text-lg text-white mb-8 leading-relaxed h-[150px] w-[400px]">
                 {config.hero.description}
               </p>
 
@@ -702,7 +702,7 @@ export default function CategoryPage() {
               <a href="#" className="text-white underline hover:text-gray-300">CA Privacy Notice</a>
             </div>
             <div className="flex items-center gap-4 border-4 border-white rounded-full px-6 py-3">
-              <span className="text-white text-xl">🌐</span>
+              <span className="text-white text-xl">����</span>
               <span className="text-white text-xl">English</span>
               <ChevronRight className="text-white transform rotate-90" size={24} />
             </div>
