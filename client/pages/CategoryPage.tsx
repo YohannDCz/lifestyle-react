@@ -516,12 +516,10 @@ export default function CategoryPage() {
           <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
             <div className="flex-1">
               <h3 className="text-4xl font-bold text-white mb-6">
-                Master Your Dreams, Master Your Mind
+                {getSubCategoryContent().section2.title}
               </h3>
               <p className="text-xl text-white leading-relaxed">
-                Our innovative app accompanies you in learning lucid dreaming techniques. Through interactive tools,
-                practical exercises, and personalized advice, you'll develop the ability to recognize and control your dreams.
-                Elevate your nocturnal consciousness and explore the depths of your imagination.
+                {getSubCategoryContent().section2.description}
               </p>
             </div>
             <img
