@@ -912,7 +912,10 @@ const Index = () => {
         }}
       >
         {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/30 z-10"></div>
+        <a
+          href="https://youtu.be/caiHvJbLC-w?si=_T5PkpUrG4hyT_NS"
+          className="absolute inset-0 bg-black/30 z-10 cursor-pointer flex"
+        ></a>
         <div
           className="relative z-10 text-center text-white max-w-4xl"
           style={{ margin: "0 auto 0 250px" }}
