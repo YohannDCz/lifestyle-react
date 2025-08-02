@@ -20,6 +20,113 @@ const Index = () => {
     { name: "HEALTH", colors: "from-cyan-400 to-cyan-800" },
   ];
 
+  const categoryMenuContent = {
+    SLEEP: {
+      title: "SLEEP",
+      color: "bg-blue-500",
+      gradient: "from-blue-400 to-blue-800",
+      items: ["Lucid Dreams", "Sleep Types", "Sleep Quality", "Daily Routines", "Technology"],
+      articles: [
+        { title: "How to induce lucid dreams", image: "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484" },
+        { title: "How to make the dreams last", image: "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484" },
+        { title: "Modes in lucid dreaming", image: "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484" },
+        { title: "The Star Wars mode", image: "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484" }
+      ],
+      trending: ["Relaxation", "Sleep patterns", "How to fall asleep faster?", "Why do I wake up tired?", "How do get better sleep", "What to eat before bed", "How to fall back to sleep", "How to stay asleep"]
+    },
+    MIND: {
+      title: "MIND",
+      color: "bg-purple-500",
+      gradient: "from-purple-400 to-purple-800",
+      items: ["Mindfulness", "Visualization", "Inner Peace", "Focused Mind", "Guided Meditation"],
+      articles: [
+        { title: "How to become mindful in a month", image: "https://api.builder.io/api/v1/image/assets/TEMP/e24ace208c1b70cfb4056da83bec83a5bfd83980?width=640" },
+        { title: "Visualize the entire universe with the power of meditation", image: "https://api.builder.io/api/v1/image/assets/TEMP/6fd9dffe05b2445c6c01f9b87871de85a43a3c1c?width=640" },
+        { title: "Develop your self love", image: "https://api.builder.io/api/v1/image/assets/TEMP/4b3011cc2d2adcb9622b0569f304355c6f3c65e4?width=640" },
+        { title: "How to leverage the true power of your mind", image: "https://api.builder.io/api/v1/image/assets/TEMP/0e1570560c85ecb3ec6227ab0d36582259f4d337?width=640" }
+      ],
+      trending: ["Meditation basics", "Mindful breathing", "Concentration techniques", "Mental clarity", "Focus exercises", "Visualization guides", "Inner peace practices", "Mindful living"]
+    },
+    MENTAL: {
+      title: "MENTAL",
+      color: "bg-pink-500",
+      gradient: "from-pink-400 to-pink-800",
+      items: ["Emotional Balance", "Anxiety Relief", "Positive Thinking", "Cognitive Reset", "Inner Strength"],
+      articles: [
+        { title: "Managing anxiety in daily life", image: "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484" },
+        { title: "Building emotional resilience", image: "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484" },
+        { title: "Positive thinking techniques", image: "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484" },
+        { title: "Mental reset strategies", image: "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484" }
+      ],
+      trending: ["Stress management", "Mental health", "Emotional wellness", "Anxiety support", "Mood boosters", "Cognitive training", "Mental clarity", "Emotional intelligence"]
+    },
+    SOUL: {
+      title: "SOUL",
+      color: "bg-red-500",
+      gradient: "from-red-400 to-red-800",
+      items: ["Social Dynamics", "Soulmate", "Sexuality", "Friendship", "Family"],
+      articles: [
+        { title: "Building meaningful relationships", image: "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484" },
+        { title: "Understanding social connections", image: "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484" },
+        { title: "Family relationship dynamics", image: "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484" },
+        { title: "Strengthening friendships", image: "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484" }
+      ],
+      trending: ["Relationship advice", "Social skills", "Love and connection", "Family harmony", "Friendship tips", "Communication", "Emotional intimacy", "Social wellness"]
+    },
+    BODY: {
+      title: "BODY",
+      color: "bg-orange-500",
+      gradient: "from-orange-400 to-orange-800",
+      items: ["Strength", "Flexibility", "Cardio", "Recovery", "Sports"],
+      articles: [
+        { title: "Building functional strength", image: "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484" },
+        { title: "Flexibility and mobility routines", image: "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484" },
+        { title: "Cardio training fundamentals", image: "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484" },
+        { title: "Recovery and rest strategies", image: "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484" }
+      ],
+      trending: ["Workout routines", "Fitness goals", "Exercise motivation", "Body transformation", "Athletic performance", "Physical wellness", "Training tips", "Recovery methods"]
+    },
+    BRAIN: {
+      title: "BRAIN",
+      color: "bg-yellow-500",
+      gradient: "from-yellow-400 to-yellow-800",
+      items: ["Mnemonics", "MindMap", "Speed Reading", "GPTpedia", "Tools"],
+      articles: [
+        { title: "Memory enhancement techniques", image: "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484" },
+        { title: "Effective mind mapping", image: "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484" },
+        { title: "Speed reading mastery", image: "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484" },
+        { title: "Brain training tools", image: "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484" }
+      ],
+      trending: ["Learning techniques", "Memory improvement", "Cognitive enhancement", "Brain training", "Study methods", "Mental performance", "Information processing", "Learning optimization"]
+    },
+    FOOD: {
+      title: "FOOD",
+      color: "bg-green-500",
+      gradient: "from-green-400 to-green-800",
+      items: ["Nutrition", "World Cuisine"],
+      articles: [
+        { title: "Nutritional fundamentals", image: "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484" },
+        { title: "Exploring world cuisines", image: "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484" },
+        { title: "Healthy eating habits", image: "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484" },
+        { title: "Cultural food traditions", image: "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484" }
+      ],
+      trending: ["Healthy recipes", "Nutritional guides", "Diet tips", "Cooking techniques", "Food culture", "Mindful eating", "Nutrition facts", "Meal planning"]
+    },
+    HEALTH: {
+      title: "HEALTH",
+      color: "bg-cyan-500",
+      gradient: "from-cyan-400 to-cyan-800",
+      items: ["Wellness", "Prevention", "Recovery", "Balance", "Vitality"],
+      articles: [
+        { title: "Holistic health approaches", image: "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484" },
+        { title: "Preventive health measures", image: "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484" },
+        { title: "Health and wellness balance", image: "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484" },
+        { title: "Vitality and longevity", image: "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484" }
+      ],
+      trending: ["Wellness tips", "Health optimization", "Preventive care", "Healthy lifestyle", "Medical insights", "Health monitoring", "Wellness strategies", "Health education"]
+    }
+  };
+
   const categoryContent = {
     SLEEP: {
       title: "Rejuvenate",
