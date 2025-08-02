@@ -589,7 +589,7 @@ const Index = () => {
 
   const sleepArticles = allSleepArticles.slice(sleepArticlesPage * 4, (sleepArticlesPage + 1) * 4);
 
-  const mindArticles = [
+  const allMindArticles = [
     {
       title: "How to become mindful in a month",
       category: "Mindfulness",
@@ -614,7 +614,33 @@ const Index = () => {
       image:
         "https://api.builder.io/api/v1/image/assets/TEMP/0e1570560c85ecb3ec6227ab0d36582259f4d337?width=640",
     },
+    {
+      title: "Advanced meditation techniques",
+      category: "Deep practice",
+      image:
+        "https://api.builder.io/api/v1/image/assets/TEMP/e24ace208c1b70cfb4056da83bec83a5bfd83980?width=640",
+    },
+    {
+      title: "Breathing exercises for clarity",
+      category: "Breathwork",
+      image:
+        "https://api.builder.io/api/v1/image/assets/TEMP/6fd9dffe05b2445c6c01f9b87871de85a43a3c1c?width=640",
+    },
+    {
+      title: "Mindful eating practices",
+      category: "Mindful living",
+      image:
+        "https://api.builder.io/api/v1/image/assets/TEMP/4b3011cc2d2adcb9622b0569f304355c6f3c65e4?width=640",
+    },
+    {
+      title: "Mental focus training",
+      category: "Concentration",
+      image:
+        "https://api.builder.io/api/v1/image/assets/TEMP/0e1570560c85ecb3ec6227ab0d36582259f4d337?width=640",
+    },
   ];
+
+  const mindArticles = allMindArticles.slice(mindArticlesPage * 4, (mindArticlesPage + 1) * 4);
 
   const experts = [
     {
