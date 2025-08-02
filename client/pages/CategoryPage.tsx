@@ -451,24 +451,10 @@ export default function CategoryPage() {
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="flex-1">
               <h3 className="text-4xl font-bold text-white mb-6">
-                {currentCategory === 'SLEEP' && 'Unlock the World of Lucid Dreams'}
-                {currentCategory === 'MIND' && 'Discover Your Inner Potential'}
-                {currentCategory === 'MENTAL' && 'Build Mental Resilience'}
-                {currentCategory === 'SOUL' && 'Connect with Your Soul'}
-                {currentCategory === 'BODY' && 'Transform Your Physical Health'}
-                {currentCategory === 'BRAIN' && 'Enhance Cognitive Function'}
-                {currentCategory === 'FOOD' && 'Nourish Your Body Mindfully'}
-                {currentCategory === 'HEALTH' && 'Optimize Your Well-being'}
+                {getSubCategoryContent().title}
               </h3>
               <p className="text-xl text-white leading-relaxed">
-                {currentCategory === 'SLEEP' && 'Embark on a journey into the fascinating realm of lucid dreaming with our dedicated app. Designed to guide you toward heightened awareness during sleep, it offers guided meditations, relaxation techniques, soothing soundscapes, and immersive sessions to help you take control of your dreams.'}
-                {currentCategory === 'MIND' && 'Explore the depths of your consciousness through mindfulness practices and meditation techniques. Our comprehensive approach helps you develop mental clarity, emotional balance, and a deeper understanding of your inner world.'}
-                {currentCategory === 'MENTAL' && 'Strengthen your mental health with evidence-based strategies and therapeutic approaches. Learn to manage stress, anxiety, and emotional challenges while building lasting resilience and psychological well-being.'}
-                {currentCategory === 'SOUL' && 'Journey into your spiritual essence and discover your true purpose. Through guided practices and introspective exercises, connect with your authentic self and cultivate inner peace and spiritual growth.'}
-                {currentCategory === 'BODY' && 'Achieve optimal physical wellness through comprehensive fitness, nutrition, and movement programs. Our holistic approach supports your body\'s natural strength, flexibility, and vitality.'}
-                {currentCategory === 'BRAIN' && 'Unlock your cognitive potential with scientifically-backed brain training exercises and learning techniques. Enhance memory, focus, creativity, and problem-solving abilities through targeted mental exercises.'}
-                {currentCategory === 'FOOD' && 'Transform your relationship with food through mindful eating practices and nutritional wisdom. Discover how proper nutrition can fuel your body, mind, and overall well-being.'}
-                {currentCategory === 'HEALTH' && 'Take a proactive approach to your health with preventive care strategies and lifestyle optimization. Learn evidence-based practices for maintaining and improving your overall health and longevity.'}
+                {getSubCategoryContent().description}
               </p>
             </div>
             <img
