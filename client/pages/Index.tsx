@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Star, Check, Globe } from "lucide-react";
-import { fetchArticlesBySection, fetchTrendingBySection, ArticleWithContent } from "../lib/articleService";
+import {
+  fetchArticlesBySection,
+  fetchTrendingBySection,
+  ArticleWithContent,
+} from "../lib/articleService";
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState("Growth Tracking");
@@ -10,8 +14,12 @@ const Index = () => {
   const [hoveredCategory, setHoveredCategory] = useState(null);
   const [showHoverMenu, setShowHoverMenu] = useState(false);
   const [hoverTimeout, setHoverTimeout] = useState(null);
-  const [realArticles, setRealArticles] = useState<{ [key: string]: ArticleWithContent[] }>({});
-  const [trendingArticles, setTrendingArticles] = useState<{ [key: string]: string[] }>({});
+  const [realArticles, setRealArticles] = useState<{
+    [key: string]: ArticleWithContent[];
+  }>({});
+  const [trendingArticles, setTrendingArticles] = useState<{
+    [key: string]: string[];
+  }>({});
 
   const categoryPills = [
     { name: "SLEEP", colors: "from-blue-400 to-blue-800" },
