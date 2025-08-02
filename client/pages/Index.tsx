@@ -527,8 +527,10 @@ const Index = () => {
                         {item}
                       </div>
                     ) : (
-                      <div className="bg-white text-black px-6 py-3 rounded-full text-lg font-semibold border border-gray-200 inline-block">
-                        {item}
+                      <div className="bg-white px-6 py-3 rounded-full text-lg font-semibold border border-gray-200 inline-block">
+                        <span className={`bg-gradient-to-r ${categoryMenuContent[hoveredCategory].gradient} bg-clip-text text-transparent`}>
+                          {item}
+                        </span>
                       </div>
                     )}
                   </div>
