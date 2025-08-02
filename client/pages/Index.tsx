@@ -20,6 +20,8 @@ const Index = () => {
   const [trendingArticles, setTrendingArticles] = useState<{
     [key: string]: string[];
   }>({});
+  const [sleepArticlesPage, setSleepArticlesPage] = useState(0);
+  const [mindArticlesPage, setMindArticlesPage] = useState(0);
 
   const categoryPills = [
     { name: "SLEEP", colors: "from-blue-400 to-blue-800" },
