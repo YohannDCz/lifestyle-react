@@ -870,8 +870,8 @@ const Index = () => {
                 setMenuLocked(false);
                 setHoveredCategory(null);
               }}
-              className={`absolute top-6 right-6 z-10 bg-gradient-to-r ${categoryPills.find(pill => pill.name === hoveredCategory)?.colors.replace('from-blue-400 to-blue-800', 'from-gray-400 to-gray-800').replace('from-purple-400 to-purple-800', 'from-gray-400 to-gray-800').replace('from-pink-400 to-pink-800', 'from-gray-400 to-gray-800').replace('from-red-400 to-red-800', 'from-gray-400 to-gray-800').replace('from-orange-400 to-orange-800', 'from-gray-400 to-gray-800').replace('from-yellow-400 to-yellow-800', 'from-gray-400 to-gray-800').replace('from-green-400 to-green-800', 'from-gray-400 to-gray-800').replace('from-cyan-400 to-cyan-800', 'from-gray-400 to-gray-800')} rounded-xl flex items-center justify-center cursor-pointer transition-transform duration-200 hover:scale-105`}
-              style={{ height: "46px", width: "120px" }}
+              className={`absolute top-6 right-6 z-10 bg-gradient-to-r ${categoryPills.find(pill => pill.name === hoveredCategory)?.colors.replace('from-blue-400 to-blue-800', 'from-gray-400 to-gray-800').replace('from-purple-400 to-purple-800', 'from-gray-400 to-gray-800').replace('from-pink-400 to-pink-800', 'from-gray-400 to-gray-800').replace('from-red-400 to-red-800', 'from-gray-400 to-gray-800').replace('from-orange-400 to-orange-800', 'from-gray-400 to-gray-800').replace('from-yellow-400 to-yellow-800', 'from-gray-400 to-gray-800').replace('from-green-400 to-green-800', 'from-gray-400 to-gray-800').replace('from-cyan-400 to-cyan-800', 'from-gray-400 to-gray-800')} rounded-full flex items-center justify-center cursor-pointer transition-transform duration-200 hover:scale-105`}
+              style={{ height: "46px", width: "46px" }}
             >
               <svg
                 className="w-6 h-6 text-white"
