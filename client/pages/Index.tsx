@@ -587,7 +587,10 @@ const Index = () => {
     },
   ];
 
-  const sleepArticles = allSleepArticles.slice(sleepArticlesPage * 4, (sleepArticlesPage + 1) * 4);
+  const sleepArticles = allSleepArticles.slice(
+    sleepArticlesPage * 4,
+    (sleepArticlesPage + 1) * 4,
+  );
 
   const allMindArticles = [
     {
@@ -640,7 +643,10 @@ const Index = () => {
     },
   ];
 
-  const mindArticles = allMindArticles.slice(mindArticlesPage * 4, (mindArticlesPage + 1) * 4);
+  const mindArticles = allMindArticles.slice(
+    mindArticlesPage * 4,
+    (mindArticlesPage + 1) * 4,
+  );
 
   const experts = [
     {
@@ -1345,11 +1351,15 @@ const Index = () => {
                 transform: `translateX(-${currentLifestyleSlide * 82}%)`,
                 gap: "12px",
                 width: "100%",
-                marginRight: "32px"
+                marginRight: "32px",
               }}
             >
               {lifestyleContent.map((content, index) => (
-                <div key={index} className="flex-shrink-0" style={{ width: "90%" }}>
+                <div
+                  key={index}
+                  className="flex-shrink-0"
+                  style={{ width: "90%" }}
+                >
                   <div className="bg-gradient-to-r from-purple-100 via-pink-100 to-purple-100 rounded-3xl relative overflow-hidden flex flex-row px-8">
                     <img
                       src={content.image}
@@ -1379,7 +1389,10 @@ const Index = () => {
                       </div>
                       <div className="flex gap-8 z-10 justify-center my-12 mr-6">
                         <div className="relative w-[250px]"></div>
-                        <div className="flex flex-col justify-center items-start" style={{ width: "300px" }}>
+                        <div
+                          className="flex flex-col justify-center items-start"
+                          style={{ width: "300px" }}
+                        >
                           <h3 className="text-4xl font-semibold mb-6">
                             {content.title}
                           </h3>
@@ -1429,14 +1442,18 @@ const Index = () => {
               <h3 className="text-2xl font-semibold">Last articles on Sleep</h3>
               <div className="flex gap-2">
                 <button
-                  onClick={() => setSleepArticlesPage(prev => Math.max(0, prev - 1))}
+                  onClick={() =>
+                    setSleepArticlesPage((prev) => Math.max(0, prev - 1))
+                  }
                   disabled={sleepArticlesPage === 0}
                   className="bg-gray-200 hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed w-12 h-12 rounded-full flex items-center justify-center"
                 >
                   <ChevronLeft size={20} />
                 </button>
                 <button
-                  onClick={() => setSleepArticlesPage(prev => Math.min(1, prev + 1))}
+                  onClick={() =>
+                    setSleepArticlesPage((prev) => Math.min(1, prev + 1))
+                  }
                   disabled={sleepArticlesPage === 1}
                   className="bg-gray-200 hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed w-12 h-12 rounded-full flex items-center justify-center"
                 >
@@ -1458,7 +1475,12 @@ const Index = () => {
                   <div className="text-sm font-semibold text-gray-600 mb-2">
                     {article.category}
                   </div>
-                  <h4 className="font-semibold text-lg" style={{ height: "3.5rem", lineHeight: "1.75rem" }}>{article.title}</h4>
+                  <h4
+                    className="font-semibold text-lg"
+                    style={{ height: "3.5rem", lineHeight: "1.75rem" }}
+                  >
+                    {article.title}
+                  </h4>
                 </div>
               ))}
             </div>
@@ -1470,14 +1492,18 @@ const Index = () => {
               <h3 className="text-2xl font-semibold">Last articles on Mind</h3>
               <div className="flex gap-2">
                 <button
-                  onClick={() => setMindArticlesPage(prev => Math.max(0, prev - 1))}
+                  onClick={() =>
+                    setMindArticlesPage((prev) => Math.max(0, prev - 1))
+                  }
                   disabled={mindArticlesPage === 0}
                   className="bg-gray-200 hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed w-12 h-12 rounded-full flex items-center justify-center"
                 >
                   <ChevronLeft size={20} />
                 </button>
                 <button
-                  onClick={() => setMindArticlesPage(prev => Math.min(1, prev + 1))}
+                  onClick={() =>
+                    setMindArticlesPage((prev) => Math.min(1, prev + 1))
+                  }
                   disabled={mindArticlesPage === 1}
                   className="bg-gray-200 hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed w-12 h-12 rounded-full flex items-center justify-center"
                 >
@@ -1499,7 +1525,12 @@ const Index = () => {
                   <div className="text-sm font-semibold text-gray-600 mb-2">
                     {article.category}
                   </div>
-                  <h4 className="font-semibold text-lg" style={{ height: "3.5rem", lineHeight: "1.75rem" }}>{article.title}</h4>
+                  <h4
+                    className="font-semibold text-lg"
+                    style={{ height: "3.5rem", lineHeight: "1.75rem" }}
+                  >
+                    {article.title}
+                  </h4>
                 </div>
               ))}
             </div>
@@ -1524,7 +1555,11 @@ const Index = () => {
             <div className="flex animate-marquee">
               {/* First set of experts */}
               {experts.map((expert, index) => (
-                <div key={`first-${index}`} className="relative group flex-shrink-0" style={{ width: "280px", marginRight: "32px" }}>
+                <div
+                  key={`first-${index}`}
+                  className="relative group flex-shrink-0"
+                  style={{ width: "280px", marginRight: "32px" }}
+                >
                   <div className="relative overflow-hidden rounded-3xl">
                     <img
                       src={expert.image}
@@ -1545,7 +1580,11 @@ const Index = () => {
               ))}
               {/* Second set of experts for seamless loop */}
               {experts.map((expert, index) => (
-                <div key={`second-${index}`} className="relative group flex-shrink-0" style={{ width: "280px", marginRight: "32px" }}>
+                <div
+                  key={`second-${index}`}
+                  className="relative group flex-shrink-0"
+                  style={{ width: "280px", marginRight: "32px" }}
+                >
                   <div className="relative overflow-hidden rounded-3xl">
                     <img
                       src={expert.image}
@@ -1566,7 +1605,11 @@ const Index = () => {
               ))}
               {/* Third set for extra smoothness */}
               {experts.map((expert, index) => (
-                <div key={`third-${index}`} className="relative group flex-shrink-0" style={{ width: "280px", marginRight: "32px" }}>
+                <div
+                  key={`third-${index}`}
+                  className="relative group flex-shrink-0"
+                  style={{ width: "280px", marginRight: "32px" }}
+                >
                   <div className="relative overflow-hidden rounded-3xl">
                     <img
                       src={expert.image}
@@ -1848,7 +1891,10 @@ const Index = () => {
           backgroundImage: `url('https://api.builder.io/api/v1/image/assets/TEMP/6b51dae713ae449e455c96ca2bde037b456c8c18?width=2880')`,
         }}
       >
-        <div className="absolute bg-purple-900/80" style={{ top: 0, right: 0, bottom: 0 }}></div>
+        <div
+          className="absolute bg-purple-900/80"
+          style={{ top: 0, right: 0, bottom: 0 }}
+        ></div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 text-white">
           <div className="grid lg:grid-cols-4 gap-12">
             <div className="lg:col-span-2">
