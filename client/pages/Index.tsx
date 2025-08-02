@@ -453,7 +453,19 @@ const Index = () => {
       <div className="bg-gray-600 relative z-40">
         <div className="bg-gray-800/90 py-3" style={{ height: "70px" }}>
           <div className="max-w-7xl mx-auto px-6">
-            <div className="flex flex-row gap-2 justify-between">
+            <div
+              className="flex flex-row gap-2 justify-between"
+              onMouseLeave={() => {
+                // Only hide when leaving the entire navigation area
+                const timeout = setTimeout(() => {
+                  if (!document.querySelector('.hover-menu-overlay:hover')) {
+                    setShowHoverMenu(false);
+                    setHoveredCategory(null);
+                  }
+                }, 100);
+                setHoverTimeout(timeout);
+              }}
+            >
               {categoryPills.map((pill, index) => (
                 <div
                   key={index}
@@ -467,16 +479,6 @@ const Index = () => {
                     }
                     setHoveredCategory(pill.name);
                     setShowHoverMenu(true);
-                  }}
-                  onMouseLeave={() => {
-                    // Set a timeout to hide menu only if not hovering another pill
-                    const timeout = setTimeout(() => {
-                      if (!document.querySelector('.hover-menu-overlay:hover')) {
-                        setShowHoverMenu(false);
-                        setHoveredCategory(null);
-                      }
-                    }, 150);
-                    setHoverTimeout(timeout);
                   }}
                 >
                   <span className="text-white font-semibold text-lg drop-shadow-lg">
