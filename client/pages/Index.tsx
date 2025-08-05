@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, Star, Check, Globe } from "lucide-react";
+import { Check, ChevronLeft, ChevronRight, Globe, Star } from "lucide-react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { allMindArticles, allSleepArticles, categoryContent, categoryMenuContent, categoryPills, experts, lifestyleContent, pricingPlans, tabs, testimonials } from "../assets/index.tsx";
 import {
-  fetchArticlesBySection,
-  fetchTrendingBySection,
   ArticleWithContent,
+  fetchTopArticlesBySubsection,
+  fetchTrendingArticlesBySection
 } from "../lib/articleService";
 
 const Index = () => {
@@ -21,441 +22,25 @@ const Index = () => {
     [key: string]: ArticleWithContent[];
   }>({});
   const [trendingArticles, setTrendingArticles] = useState<{
-    [key: string]: string[];
+    [key: string]: ArticleWithContent[];
   }>({});
+  const [topArticles, setTopArticles] = useState<{
+    [key: string]: ArticleWithContent[];
+  }>({});
+  const [selectedSubcategory, setSelectedSubcategory] = useState<string>("");
   const [sleepArticlesPage, setSleepArticlesPage] = useState(0);
   const [mindArticlesPage, setMindArticlesPage] = useState(0);
+  const [isInitialLoading, setIsInitialLoading] = useState(true);
 
-  const categoryPills = [
-    { name: "SLEEP", colors: "from-blue-400 to-blue-800" },
-    { name: "MIND", colors: "from-purple-400 to-purple-800" },
-    { name: "MENTAL", colors: "from-pink-400 to-pink-800" },
-    { name: "SOUL", colors: "from-red-400 to-red-800" },
-    { name: "BODY", colors: "from-orange-400 to-orange-800" },
-    { name: "BRAIN", colors: "from-yellow-400 to-yellow-800" },
-    { name: "FOOD", colors: "from-green-400 to-green-800" },
-    { name: "HEALTH", colors: "from-cyan-400 to-cyan-800" },
-  ];
+  const sleepArticles = allSleepArticles.slice(
+    sleepArticlesPage * 4,
+    (sleepArticlesPage + 1) * 4,
+  );
 
-  const categoryMenuContent = {
-    SLEEP: {
-      title: "SLEEP",
-      color: "bg-blue-500",
-      gradient: "from-blue-400 to-blue-800",
-      items: [
-        "Lucid Dreams",
-        "Sleep Types",
-        "Sleep Quality",
-        "Daily Routines",
-        "Technology",
-      ],
-      articles: [
-        {
-          title: "How to induce lucid dreams",
-          image:
-            "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484",
-        },
-        {
-          title: "How to make the dreams last",
-          image:
-            "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484",
-        },
-        {
-          title: "Modes in lucid dreaming",
-          image:
-            "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484",
-        },
-        {
-          title: "The Star Wars mode",
-          image:
-            "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484",
-        },
-      ],
-      trending: [
-        "Relaxation",
-        "Sleep patterns",
-        "How to fall asleep faster?",
-        "Why do I wake up tired?",
-        "How do get better sleep",
-        "What to eat before bed",
-        "How to fall back to sleep",
-        "How to stay asleep",
-      ],
-    },
-    MIND: {
-      title: "MIND",
-      color: "bg-purple-500",
-      gradient: "from-purple-400 to-purple-800",
-      items: [
-        "Mindfulness",
-        "Visualization",
-        "Inner Peace",
-        "Focused Mind",
-        "Guided Meditation",
-      ],
-      articles: [
-        {
-          title: "How to become mindful in a month",
-          image:
-            "https://api.builder.io/api/v1/image/assets/TEMP/e24ace208c1b70cfb4056da83bec83a5bfd83980?width=640",
-        },
-        {
-          title: "Visualize the entire universe with the power of meditation",
-          image:
-            "https://api.builder.io/api/v1/image/assets/TEMP/6fd9dffe05b2445c6c01f9b87871de85a43a3c1c?width=640",
-        },
-        {
-          title: "Develop your self love",
-          image:
-            "https://api.builder.io/api/v1/image/assets/TEMP/4b3011cc2d2adcb9622b0569f304355c6f3c65e4?width=640",
-        },
-        {
-          title: "How to leverage the true power of your mind",
-          image:
-            "https://api.builder.io/api/v1/image/assets/TEMP/0e1570560c85ecb3ec6227ab0d36582259f4d337?width=640",
-        },
-      ],
-      trending: [
-        "Meditation basics",
-        "Mindful breathing",
-        "Concentration techniques",
-        "Mental clarity",
-        "Focus exercises",
-        "Visualization guides",
-        "Inner peace practices",
-        "Mindful living",
-      ],
-    },
-    MENTAL: {
-      title: "MENTAL",
-      color: "bg-pink-500",
-      gradient: "from-pink-400 to-pink-800",
-      items: [
-        "Emotional Balance",
-        "Anxiety Relief",
-        "Positive Thinking",
-        "Cognitive Reset",
-        "Inner Strength",
-      ],
-      articles: [
-        {
-          title: "Managing anxiety in daily life",
-          image:
-            "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484",
-        },
-        {
-          title: "Building emotional resilience",
-          image:
-            "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484",
-        },
-        {
-          title: "Positive thinking techniques",
-          image:
-            "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484",
-        },
-        {
-          title: "Mental reset strategies",
-          image:
-            "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484",
-        },
-      ],
-      trending: [
-        "Stress management",
-        "Mental health",
-        "Emotional wellness",
-        "Anxiety support",
-        "Mood boosters",
-        "Cognitive training",
-        "Mental clarity",
-        "Emotional intelligence",
-      ],
-    },
-    SOUL: {
-      title: "SOUL",
-      color: "bg-red-500",
-      gradient: "from-red-400 to-red-800",
-      items: [
-        "Social Dynamics",
-        "Soulmate",
-        "Sexuality",
-        "Friendship",
-        "Family",
-      ],
-      articles: [
-        {
-          title: "Building meaningful relationships",
-          image:
-            "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484",
-        },
-        {
-          title: "Understanding social connections",
-          image:
-            "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484",
-        },
-        {
-          title: "Family relationship dynamics",
-          image:
-            "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484",
-        },
-        {
-          title: "Strengthening friendships",
-          image:
-            "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484",
-        },
-      ],
-      trending: [
-        "Relationship advice",
-        "Social skills",
-        "Love and connection",
-        "Family harmony",
-        "Friendship tips",
-        "Communication",
-        "Emotional intimacy",
-        "Social wellness",
-      ],
-    },
-    BODY: {
-      title: "BODY",
-      color: "bg-orange-500",
-      gradient: "from-orange-400 to-orange-800",
-      items: ["Strength", "Flexibility", "Cardio", "Recovery", "Sports"],
-      articles: [
-        {
-          title: "Building functional strength",
-          image:
-            "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484",
-        },
-        {
-          title: "Flexibility and mobility routines",
-          image:
-            "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484",
-        },
-        {
-          title: "Cardio training fundamentals",
-          image:
-            "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484",
-        },
-        {
-          title: "Recovery and rest strategies",
-          image:
-            "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484",
-        },
-      ],
-      trending: [
-        "Workout routines",
-        "Fitness goals",
-        "Exercise motivation",
-        "Body transformation",
-        "Athletic performance",
-        "Physical wellness",
-        "Training tips",
-        "Recovery methods",
-      ],
-    },
-    BRAIN: {
-      title: "BRAIN",
-      color: "bg-yellow-500",
-      gradient: "from-yellow-400 to-yellow-800",
-      items: ["Mnemonics", "MindMap", "Speed Reading", "GPTpedia", "Tools"],
-      articles: [
-        {
-          title: "Memory enhancement techniques",
-          image:
-            "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484",
-        },
-        {
-          title: "Effective mind mapping",
-          image:
-            "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484",
-        },
-        {
-          title: "Speed reading mastery",
-          image:
-            "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484",
-        },
-        {
-          title: "Brain training tools",
-          image:
-            "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484",
-        },
-      ],
-      trending: [
-        "Learning techniques",
-        "Memory improvement",
-        "Cognitive enhancement",
-        "Brain training",
-        "Study methods",
-        "Mental performance",
-        "Information processing",
-        "Learning optimization",
-      ],
-    },
-    FOOD: {
-      title: "FOOD",
-      color: "bg-green-500",
-      gradient: "from-green-400 to-green-800",
-      items: [
-        "Nutrition",
-        "World Cuisine",
-        "Special Diets",
-        "Snacks",
-        "Creative",
-      ],
-      articles: [
-        {
-          title: "Nutritional fundamentals",
-          image:
-            "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484",
-        },
-        {
-          title: "Exploring world cuisines",
-          image:
-            "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484",
-        },
-        {
-          title: "Healthy eating habits",
-          image:
-            "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484",
-        },
-        {
-          title: "Cultural food traditions",
-          image:
-            "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484",
-        },
-      ],
-      trending: [
-        "Healthy recipes",
-        "Nutritional guides",
-        "Diet tips",
-        "Cooking techniques",
-        "Food culture",
-        "Mindful eating",
-        "Nutrition facts",
-        "Meal planning",
-      ],
-    },
-    HEALTH: {
-      title: "HEALTH",
-      color: "bg-cyan-500",
-      gradient: "from-cyan-400 to-cyan-800",
-      items: ["Wellness", "Prevention", "Recovery", "Balance", "Vitality"],
-      articles: [
-        {
-          title: "Holistic health approaches",
-          image:
-            "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484",
-        },
-        {
-          title: "Preventive health measures",
-          image:
-            "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484",
-        },
-        {
-          title: "Health and wellness balance",
-          image:
-            "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484",
-        },
-        {
-          title: "Vitality and longevity",
-          image:
-            "https://api.builder.io/api/v1/image/assets/TEMP/3516e1b0a2fc421f2e50fc235044d64f99114005?width=484",
-        },
-      ],
-      trending: [
-        "Wellness tips",
-        "Health optimization",
-        "Preventive care",
-        "Healthy lifestyle",
-        "Medical insights",
-        "Health monitoring",
-        "Wellness strategies",
-        "Health education",
-      ],
-    },
-  };
-
-  const categoryContent = {
-    SLEEP: {
-      title: "Rejuvenate",
-      color: "bg-blue-400",
-      borderColor: "border-blue-400",
-      content: [
-        "Rejuvenate your body and mind by prioritizing restful sleep and delving into the fascinating realm of dreams. Quality sleep restores your energy, boosts cognitive function, and supports emotional balance, creating the foundation for everything you do.",
-        "Beyond just resting, explore lucid dreaming to unlock your subconscious creativity and navigate the dream world with intention. Establish a bedtime ritual that calms the body and signals the mind to unwind.",
-        "From optimizing your sleep environment to embracing mindfulness techniques that prepare you for slumber, rejuvenation starts with giving yourself permission to rest fully and deeply.",
-      ],
-    },
-    MIND: {
-      title: "Refocus",
-      color: "bg-purple-400",
-      borderColor: "border-purple-400",
-      content: [
-        "Refocus your mental energy through the practice of meditation. In a world filled with distractions, finding stillness is a superpower. Meditation helps quiet the mind, sharpening your ability to concentrate and bringing your attention to the present moment.",
-        "By practicing daily, you cultivate resilience to stress and a greater capacity for emotional regulation. Begin with guided meditations that take you on a journey of calm and clarity.",
-        "Whether it's visualizing the vastness of the universe or simply focusing on your breath, meditation reconnects you with your inner self and paves the way for purposeful living.",
-      ],
-    },
-    MENTAL: {
-      title: "Rebalance",
-      color: "bg-pink-400",
-      borderColor: "border-pink-400",
-      content: [
-        "Rebalance your emotional and mental well-being by fostering awareness of your thoughts and feelings. Life's challenges can often leave you feeling overwhelmed, but building a toolkit of coping strategies helps you navigate with confidence.",
-        "Techniques like journaling, gratitude exercises, and mindfulness can transform negative thought patterns into constructive energy. By addressing stress and anxiety, you create space for inner peace and emotional stability.",
-        "Rebalancing is about understanding yourself deeply, embracing your vulnerabilities, and strengthening your ability to adapt and grow through life's complexities.",
-      ],
-    },
-    SOUL: {
-      title: "Reconnect",
-      color: "bg-red-400",
-      borderColor: "border-red-400",
-      content: [
-        "Reconnect with the people who matter most and nurture meaningful relationships. Human connection is a powerful source of joy, support, and growth. Begin by actively listening to others and expressing empathy, ensuring that your interactions are authentic and valuable.",
-        "Strengthen bonds by dedicating time to loved ones and creating moments of shared joy. Explore ways to deepen intimacy, improve communication, and resolve conflicts constructively.",
-        "Relationships thrive when built on trust, understanding, and love. Reconnecting allows you to grow not only as an individual but as part of a network of mutual care and encouragement.",
-      ],
-    },
-    BODY: {
-      title: "Reenergize",
-      color: "bg-orange-400",
-      borderColor: "border-orange-400",
-      content: [
-        "Reenergize your body with regular physical activity and a commitment to self-discipline. Physical fitness is not just about appearance but about building strength, resilience, and vitality.",
-        "Whether it's through weightlifting, running, yoga, or martial arts, find a routine that challenges and excites you. Proper nutrition and hydration play an equally important role in sustaining your energy levels.",
-        "Monitor your progress, celebrate milestones, and push past limits to uncover your potential. Reenergizing transforms your body into a vessel of strength and endurance, empowering you to approach life's challenges with vigor and confidence.",
-      ],
-    },
-    BRAIN: {
-      title: "Reinvent",
-      color: "bg-yellow-400",
-      borderColor: "border-yellow-400",
-      content: [
-        "Reinvent yourself by embracing a lifelong journey of learning and exploration. Each day is an opportunity to expand your knowledge, develop new skills, and redefine what's possible.",
-        "Dive into books, courses, and experiences that challenge your understanding and spark your curiosity. Experiment with different tools like mind mapping, memory techniques, or time management strategies to optimize your learning.",
-        "Reinvention is about staying open to change, breaking old patterns, and becoming the best version of yourself. In doing so, you set the stage for a future rich with innovation, creativity, and personal growth.",
-      ],
-    },
-    FOOD: {
-      title: "Refuel",
-      color: "bg-green-400",
-      borderColor: "border-green-400",
-      content: [
-        "Refuel your body by embracing the power of mindful nourishment. Food is not just fuel; it is the foundation of your energy, vitality, and overall well-being. Prioritize whole, nutrient-dense ingredients that rejuvenate your body and enhance your mental clarity.",
-        "Make each meal an intentional act of self-care, choosing foods that support both short-term energy and long-term health. Explore cooking as an art form, experimenting with vibrant flavors, textures, and cuisines to create meals that excite and satisfy.",
-        "Cultivate an awareness of how food impacts your physical and emotional state, turning every bite into an opportunity to recharge. By refueling with purpose, you empower yourself to thrive in every aspect of life.",
-      ],
-    },
-    HEALTH: {
-      title: "Restore",
-      color: "bg-cyan-400",
-      borderColor: "border-cyan-400",
-      content: [
-        "Restore balance and harmony to your overall well-being by focusing on your health. True health is a dynamic interplay between physical, mental, and emotional wellness. Regular health checkups and preventive care are key to staying ahead of potential challenges.",
-        "Learn to listen to your body's signals, whether it's through physical symptoms, energy levels, or mood changes. Practice stress management techniques like yoga, breathwork, and relaxation exercises to maintain equilibrium.",
-        "Commit to a lifestyle that supports longevity—adequate hydration, a nutrient-rich diet, quality sleep, and consistent movement. By making health a priority, you lay the foundation for a vibrant, fulfilling life where you can thrive at your fullest potential.",
-      ],
-    },
-  };
+  const mindArticles = allMindArticles.slice(
+    mindArticlesPage * 4,
+    (mindArticlesPage + 1) * 4,
+  );
 
   const currentContent = categoryContent[activeCategory];
   const totalSlides = currentContent.content.length;
@@ -488,268 +73,125 @@ const Index = () => {
     setActiveTab(tabs[prevIndex]);
   };
 
-  const tabs = [
-    "Growth Tracking",
-    "Expert-led programs",
-    "AI Guidance",
-    "Dreams Genesis",
-    "Mental Reset",
-  ];
+  // Map category names to database sections
+  const categoryToSectionMap: { [key: string]: string } = {
+    SLEEP: "Sleep",
+    MIND: "Mind",
+    MENTAL: "Mental",
+    SOUL: "Soul",
+    BODY: "Body",
+    BRAIN: "Brain",
+    FOOD: "Food",
+    HEALTH: "Health",
+  };
 
-  const lifestyleContent = [
-    {
-      title: "Track your progress",
-      subtitle: "Growth Tracking",
-      description:
-        "Explore the growth tracker as you make more and more improvements throughout the entire lifestyle rehabilitation process.",
-      image:
-        "https://api.builder.io/api/v1/image/assets/TEMP/980bff91973aff50ef58da5eecca8cb33f48718f?width=2640",
-    },
-    {
-      title: "Masterclasses from the top",
-      subtitle: "Expert-led Programs",
-      description:
-        "Access curated courses and guidance from world-class experts in their respective fields.",
-      image:
-        "https://api.builder.io/api/v1/image/assets/TEMP/980bff91973aff50ef58da5eecca8cb33f48718f?width=2640",
-    },
-    {
-      title: "Intelligence is yours",
-      subtitle: "AI Guidance",
-      description:
-        "Receive personalized insights and recommendations through AI-driven tools to accelerate your journey.",
-      image:
-        "https://api.builder.io/api/v1/image/assets/TEMP/980bff91973aff50ef58da5eecca8cb33f48718f?width=2640",
-    },
-    {
-      title: "Pathway to lucid dreaming",
-      subtitle: "Dream Genesis",
-      description:
-        "Explore the art of lucid dreaming and unlock the creative potential of your subconscious mind.",
-      image:
-        "https://api.builder.io/api/v1/image/assets/TEMP/980bff91973aff50ef58da5eecca8cb33f48718f?width=2640",
-    },
-    {
-      title: "Restart all over",
-      subtitle: "Mind Reset",
-      description:
-        "Clear your mind and begin fresh with powerful techniques to reset your mental state and approach life with renewed clarity.",
-      image:
-        "https://api.builder.io/api/v1/image/assets/TEMP/980bff91973aff50ef58da5eecca8cb33f48718f?width=2640",
-    },
-  ];
+  // Load trending articles when hoveredCategory changes (only if not already preloaded)
+  useEffect(() => {
+    const loadTrendingArticles = async () => {
+      if (hoveredCategory && categoryToSectionMap[hoveredCategory]) {
+        // Auto-select the first subcategory when switching categories
+        const firstSubcategory = categoryMenuContent[hoveredCategory]?.items?.[0];
+        if (firstSubcategory) {
+          console.log("🎯 Auto-selecting first subcategory:", firstSubcategory);
+          setSelectedSubcategory(firstSubcategory);
+        } else {
+          setSelectedSubcategory("");
+        }
 
-  const allSleepArticles = [
-    {
-      title: "How to make the dreams last",
-      category: "Lucid Dreams",
-      image:
-        "https://api.builder.io/api/v1/image/assets/TEMP/ea99e73276d1abd9cd94db39da6a337169268ceb?width=640",
-    },
-    {
-      title: "What is your sleep type?",
-      category: "Sleep types",
-      image:
-        "https://api.builder.io/api/v1/image/assets/TEMP/58d76ffbf8416d628119e44317b9a1b20e7cb54f?width=640",
-    },
-    {
-      title: "How to have a clean sleep at night",
-      category: "Sleep quality",
-      image:
-        "https://api.builder.io/api/v1/image/assets/TEMP/20b1ef112a92489372731f3b69b7512545024925?width=640",
-    },
-    {
-      title: "Have your own daily routine!",
-      category: "Daily routines",
-      image:
-        "https://api.builder.io/api/v1/image/assets/TEMP/d6e0ebad917a70f558053bd9d267119197182adf?width=640",
-    },
-    {
-      title: "Understanding sleep cycles",
-      category: "Sleep science",
-      image:
-        "https://api.builder.io/api/v1/image/assets/TEMP/ea99e73276d1abd9cd94db39da6a337169268ceb?width=640",
-    },
-    {
-      title: "Best sleep positions for health",
-      category: "Sleep health",
-      image:
-        "https://api.builder.io/api/v1/image/assets/TEMP/58d76ffbf8416d628119e44317b9a1b20e7cb54f?width=640",
-    },
-    {
-      title: "Creating the perfect sleep environment",
-      category: "Sleep optimization",
-      image:
-        "https://api.builder.io/api/v1/image/assets/TEMP/20b1ef112a92489372731f3b69b7512545024925?width=640",
-    },
-    {
-      title: "Sleep tracking technology guide",
-      category: "Sleep tech",
-      image:
-        "https://api.builder.io/api/v1/image/assets/TEMP/d6e0ebad917a70f558053bd9d267119197182adf?width=640",
-    },
-  ];
+        // Skip loading if articles are already preloaded for this category
+        if (trendingArticles[hoveredCategory] && trendingArticles[hoveredCategory].length > 0) {
+          console.log("🔥 Using preloaded trending articles for", hoveredCategory);
+          return;
+        }
 
-  const sleepArticles = allSleepArticles.slice(
-    sleepArticlesPage * 4,
-    (sleepArticlesPage + 1) * 4,
-  );
+        const section = categoryToSectionMap[hoveredCategory];
+        console.log("🔥 Loading trending articles for", hoveredCategory, "->", section);
 
-  const allMindArticles = [
-    {
-      title: "How to become mindful in a month",
-      category: "Mindfulness",
-      image:
-        "https://api.builder.io/api/v1/image/assets/TEMP/e24ace208c1b70cfb4056da83bec83a5bfd83980?width=640",
-    },
-    {
-      title: "Visualize the entire universe with the power of meditation",
-      category: "Visualization",
-      image:
-        "https://api.builder.io/api/v1/image/assets/TEMP/6fd9dffe05b2445c6c01f9b87871de85a43a3c1c?width=640",
-    },
-    {
-      title: "Develop your self love",
-      category: "Inner peace",
-      image:
-        "https://api.builder.io/api/v1/image/assets/TEMP/4b3011cc2d2adcb9622b0569f304355c6f3c65e4?width=640",
-    },
-    {
-      title: "How to leverage the true power of your mind",
-      category: "Focused mind",
-      image:
-        "https://api.builder.io/api/v1/image/assets/TEMP/0e1570560c85ecb3ec6227ab0d36582259f4d337?width=640",
-    },
-    {
-      title: "Advanced meditation techniques",
-      category: "Deep practice",
-      image:
-        "https://api.builder.io/api/v1/image/assets/TEMP/e24ace208c1b70cfb4056da83bec83a5bfd83980?width=640",
-    },
-    {
-      title: "Breathing exercises for clarity",
-      category: "Breathwork",
-      image:
-        "https://api.builder.io/api/v1/image/assets/TEMP/6fd9dffe05b2445c6c01f9b87871de85a43a3c1c?width=640",
-    },
-    {
-      title: "Mindful eating practices",
-      category: "Mindful living",
-      image:
-        "https://api.builder.io/api/v1/image/assets/TEMP/4b3011cc2d2adcb9622b0569f304355c6f3c65e4?width=640",
-    },
-    {
-      title: "Mental focus training",
-      category: "Concentration",
-      image:
-        "https://api.builder.io/api/v1/image/assets/TEMP/0e1570560c85ecb3ec6227ab0d36582259f4d337?width=640",
-    },
-  ];
+        const trending = await fetchTrendingArticlesBySection(section, 8);
+        setTrendingArticles(prev => ({
+          ...prev,
+          [hoveredCategory]: trending
+        }));
+      }
+    };
 
-  const mindArticles = allMindArticles.slice(
-    mindArticlesPage * 4,
-    (mindArticlesPage + 1) * 4,
-  );
+    loadTrendingArticles();
+  }, [hoveredCategory, trendingArticles]);
 
-  const experts = [
-    {
-      name: "Dr. Camille Durand",
-      description:
-        "Psychiatrist\nGraduated from Oxford\nSpecialist in Mental Health",
-      image:
-        "https://api.builder.io/api/v1/image/assets/TEMP/a0984178998544c162eacbb6ea6be1bbb0227f1d?width=640",
-    },
-    {
-      name: "Dr. Adrian Leclerc",
-      description:
-        "Psychologist from Harvard\nCertified OWSLA\nSpecialist in Sleep Health",
-      image:
-        "https://api.builder.io/api/v1/image/assets/TEMP/848141448b99503dfad648fd1dc6355ccd595c07?width=640",
-    },
-    {
-      name: "Lama Tenzin Norbu",
-      description: "Tibetan Master\nSpecialist in Mind Arts & Visual Thinking",
-      image:
-        "https://api.builder.io/api/v1/image/assets/TEMP/22c01e42f78266551811feb74a25354d677081f2?width=640",
-    },
-    {
-      name: "Pr. Isabelle Fournier",
-      description:
-        "Professor in technical mnemonic\nGrand Champion of the World Mnemonic Contest in 2014",
-      image:
-        "https://api.builder.io/api/v1/image/assets/TEMP/c61e0c48d600823f4cfeccec8429bde48a5da170?width=640",
-    },
-  ];
+  // Load top articles when selectedSubcategory changes
+  useEffect(() => {
+    const loadTopArticles = async () => {
+      if (selectedSubcategory && hoveredCategory && categoryToSectionMap[hoveredCategory]) {
+        const section = categoryToSectionMap[hoveredCategory];
+        console.log("⭐ Loading top articles for", hoveredCategory, "->", section, "subsection:", selectedSubcategory);
 
-  const testimonials = [
-    {
-      text: "I appreciate the consistent reminders to be kind and patient with myself as I learn and practice daily habits that are helping me find a calmer daily space.",
-      author: "Member on forming more helpful habits",
-    },
-    {
-      text: "Headspace helped me begin the process of stepping back from toxic thinking and being a part of something bigger than my own personal grievances.",
-      author: "Member on learning to think in more helpful ways",
-    },
-    {
-      text: "The strategies in the courses allow me to work on a part of myself that I am struggling with. Headspace changed the relationship I have with myself.",
-      author: "Member on working through their feelings",
-    },
-  ];
+        const topArts = await fetchTopArticlesBySubsection(section, selectedSubcategory, 4);
+        setTopArticles(prev => ({
+          ...prev,
+          [`${hoveredCategory}_${selectedSubcategory}`]: topArts
+        }));
+      }
+    };
 
-  const pricingPlans = [
-    {
-      name: "Plus Plan",
-      price: "200",
-      features: [
-        "All tools",
-        "All articles",
-        "All audios",
-        "AI Guided Sessions",
-      ],
-      guarantees: [
-        "Improved mental condition",
-        "Sufficient learning material",
-        "Restful sleep",
-      ],
-      buttonText: "Your current plan",
-      buttonStyle: "border border-black bg-white text-black",
-    },
-    {
-      name: "Pro Plan",
-      price: "20",
-      features: [
-        "Weekly video coaching session",
-        "Personalized learning paths",
-        "Advanced analytics and insight",
-      ],
-      guarantees: [
-        "Faster mindfulness development",
-        "Faster growth across all area of life",
-        "Regular lucid dreaming",
-      ],
-      buttonText: "Get Pro",
-      buttonStyle: "bg-black text-white",
-    },
-    {
-      name: "Max Plan",
-      price: "2000",
-      features: [
-        "Daily coaching sessions",
-        "Meditation visualization",
-        "Access to dream universes",
-      ],
-      guarantees: [
-        "Your personal dream shelter",
-        "Visualization of the universe",
-        "Always synced chakras",
-      ],
-      buttonText: "Get Max",
-      buttonStyle: "bg-black text-white",
-    },
-  ];
+    loadTopArticles();
+  }, [selectedSubcategory, hoveredCategory]);
+
+  // Preload all trending articles on website launch
+  useEffect(() => {
+    const preloadAllData = async () => {
+      console.log("🚀 Preloading all articles data...");
+      setIsInitialLoading(true);
+
+      try {
+        // Load trending articles for all categories
+        const categoryPromises = Object.keys(categoryToSectionMap).map(async (category) => {
+          const section = categoryToSectionMap[category];
+          const trending = await fetchTrendingArticlesBySection(section, 8);
+          return { category, trending };
+        });
+
+        const results = await Promise.all(categoryPromises);
+
+        // Update trending articles state with all preloaded data
+        const allTrendingData: { [key: string]: ArticleWithContent[] } = {};
+        results.forEach(({ category, trending }) => {
+          allTrendingData[category] = trending;
+        });
+
+        setTrendingArticles(allTrendingData);
+        console.log("✅ All trending articles preloaded:", allTrendingData);
+
+      } catch (error) {
+        console.error("❌ Error preloading articles:", error);
+      } finally {
+        // Add minimum delay for splash screen effect
+        setTimeout(() => {
+          setIsInitialLoading(false);
+        }, 1000);
+      }
+    };
+
+    preloadAllData();
+  }, []); // Run only once on mount
+
 
   return (
     <div className="min-h-screen bg-white">
+      {/* Black Splash Screen */}
+      {isInitialLoading && (
+        <div className="fixed inset-0 bg-black z-[9999] flex items-center justify-center">
+          <div className="text-center">
+            <div className="font-righteous text-6xl text-white mb-8">Lifestyle</div>
+            <div className="flex items-center justify-center space-x-2">
+              <div className="w-3 h-3 bg-white rounded-full animate-bounce [animation-delay:-0.3s]"></div>
+              <div className="w-3 h-3 bg-white rounded-full animate-bounce [animation-delay:-0.15s]"></div>
+              <div className="w-3 h-3 bg-white rounded-full animate-bounce"></div>
+            </div>
+            <div className="text-white text-lg mt-4 opacity-75">Loading articles...</div>
+          </div>
+        </div>
+      )}
+
       {/* Top Navigation Bar */}
       <nav
         className="bg-black text-white py-1.5 px-6 relative z-50"
@@ -779,7 +221,7 @@ const Index = () => {
             }
           }}
         >
-          <div className="max-w-7xl mx-auto px-6">
+          <div className="max-w-7xl mx-auto">
             <div
               className="flex flex-row gap-2 justify-between"
               onMouseEnter={() => {
@@ -805,32 +247,23 @@ const Index = () => {
               {categoryPills.map((pill, index) => (
                 <div
                   key={index}
-                  className={`bg-gradient-to-r ${pill.colors} rounded-xl flex-1 text-center cursor-pointer transition-transform duration-200 hover:scale-105`}
+                  className={`bg-gradient-to-r ${pill.colors} rounded-xl flex-1 text-center cursor-pointer transition-all duration-200 hover:scale-105`}
                   style={{ height: "46px", padding: "9px 0" }}
                   onClick={() => {
-                    // If menu is not shown, open it and lock it
-                    if (!showHoverMenu) {
-                      setHoveredCategory(pill.name);
-                      setShowHoverMenu(true);
-                      setMenuLocked(true);
-                    } else {
-                      // If menu is shown, close it
-                      setShowHoverMenu(false);
-                      setMenuLocked(false);
-                      setHoveredCategory(null);
-                    }
+                    // Always open menu and lock it on click
+                    setHoveredCategory(pill.name);
+                    setShowHoverMenu(true);
+                    setMenuLocked(true);
                   }}
                   onMouseEnter={() => {
-                    // Only respond to hover if menu is not locked
-                    if (!menuLocked) {
-                      // Clear any existing timeout
-                      if (hoverTimeout) {
-                        clearTimeout(hoverTimeout);
-                        setHoverTimeout(null);
-                      }
-                      setHoveredCategory(pill.name);
-                      setShowHoverMenu(true);
+                    // Always respond to hover
+                    // Clear any existing timeout
+                    if (hoverTimeout) {
+                      clearTimeout(hoverTimeout);
+                      setHoverTimeout(null);
                     }
+                    setHoveredCategory(pill.name);
+                    setShowHoverMenu(true);
                   }}
                 >
                   <span className="text-white font-semibold text-lg drop-shadow-lg">
@@ -864,7 +297,7 @@ const Index = () => {
             }
           }}
         >
-          <div className="h-full flex relative">
+          <div className="h-full flex relative max-w-7xl mx-auto">
             {/* Close Button */}
             <button
               onClick={() => {
@@ -928,14 +361,50 @@ const Index = () => {
                     <div key={index} className="mb-4">
                       {index === 0 ? (
                         <div
-                          className={`bg-gradient-to-r ${categoryMenuContent[hoveredCategory].gradient} text-white px-6 py-3 rounded-full text-lg font-semibold inline-block`}
+                          className={`px-6 py-3 rounded-full text-lg font-semibold border-2 inline-block cursor-pointer transition-all duration-200 hover:scale-105 ${selectedSubcategory === item
+                            ? `bg-gradient-to-r ${categoryMenuContent[hoveredCategory].gradient} text-white border-transparent`
+                            : `bg-white border-gray-200 hover:border-gray-400`
+                            }`}
+                          onClick={() => {
+                            console.log("🎯 Clicked first subcategory:", item);
+                            setSelectedSubcategory(item);
+                          }}
+                          onMouseEnter={() => {
+                            // Select and stay colored
+                            console.log("🎯 Hovering first subcategory:", item);
+                            setSelectedSubcategory(item);
+                          }}
                         >
-                          {item}
+                          <span
+                            className={selectedSubcategory === item
+                              ? "text-white"
+                              : `bg-gradient-to-r ${categoryMenuContent[hoveredCategory].gradient} bg-clip-text text-transparent`
+                            }
+                          >
+                            {item}
+                          </span>
                         </div>
                       ) : (
-                        <div className="bg-white px-6 py-3 rounded-full text-lg font-semibold border border-gray-200 inline-block">
+                        <div
+                          className={`px-6 py-3 rounded-full text-lg font-semibold border-2 inline-block cursor-pointer transition-all duration-200 hover:scale-105 ${selectedSubcategory === item
+                            ? `bg-gradient-to-r ${categoryMenuContent[hoveredCategory].gradient} text-white border-transparent`
+                            : `bg-white border-gray-200 hover:border-gray-400`
+                            }`}
+                          onClick={() => {
+                            console.log("🎯 Clicked subcategory:", item);
+                            setSelectedSubcategory(item);
+                          }}
+                          onMouseEnter={() => {
+                            // Select and stay colored
+                            console.log("🎯 Hovering subcategory:", item);
+                            setSelectedSubcategory(item);
+                          }}
+                        >
                           <span
-                            className={`bg-gradient-to-r ${categoryMenuContent[hoveredCategory].gradient} bg-clip-text text-transparent`}
+                            className={selectedSubcategory === item
+                              ? "text-white"
+                              : `bg-gradient-to-r ${categoryMenuContent[hoveredCategory].gradient} bg-clip-text text-transparent`
+                            }
                           >
                             {item}
                           </span>
@@ -994,19 +463,22 @@ const Index = () => {
             {/* Center Articles Section */}
             <div className="flex-1 p-6">
               <h2 className="text-white text-2xl font-semibold mb-8">
-                Top articles
+                {selectedSubcategory ? `Top articles in ${selectedSubcategory}` : "Top articles"}
               </h2>
               <div className="flex gap-6 mb-8">
-                {categoryMenuContent[hoveredCategory]?.articles
+                {(selectedSubcategory && topArticles[`${hoveredCategory}_${selectedSubcategory}`]
+                  ? topArticles[`${hoveredCategory}_${selectedSubcategory}`]
+                  : categoryMenuContent[hoveredCategory]?.articles || []
+                )
                   .slice(0, 3)
                   .map((article, index) => (
-                    <div key={index} className="w-60">
+                    <div key={article.id || index} className="w-60">
                       <div
-                        className={`p-1 rounded-2xl bg-gradient-to-r ${categoryMenuContent[hoveredCategory].gradient}`}
+                        className={`p-0.5 rounded-2xl bg-gradient-to-r ${categoryMenuContent[hoveredCategory].gradient}`}
                       >
                         <div className="bg-black rounded-xl overflow-hidden">
                           <img
-                            src={article.image}
+                            src={article.image_url || article.image || "/placeholder.svg"}
                             alt={article.title}
                             className="w-full h-40 object-cover"
                           />
@@ -1049,62 +521,81 @@ const Index = () => {
                   ))}
               </div>
 
-              {categoryMenuContent[hoveredCategory]?.articles.length > 3 && (
-                <div className="flex justify-start">
-                  <div className="w-60">
-                    <div
-                      className={`p-1 rounded-2xl bg-gradient-to-r ${categoryMenuContent[hoveredCategory].gradient}`}
-                    >
-                      <div className="bg-black rounded-xl overflow-hidden">
-                        <img
-                          src={
-                            categoryMenuContent[hoveredCategory].articles[3]
-                              .image
-                          }
-                          alt={
-                            categoryMenuContent[hoveredCategory].articles[3]
-                              .title
-                          }
-                          className="w-full h-40 object-cover"
-                        />
-                      </div>
-                    </div>
-                    <div className="flex items-start justify-between mt-4">
-                      <h3
-                        className="text-white text-lg font-semibold flex-1"
-                        style={{
-                          height: "3.5rem",
-                          lineHeight: "1.75rem",
-                          display: "-webkit-box",
-                          WebkitLineClamp: 2,
-                          WebkitBoxOrient: "vertical",
-                          overflow: "hidden",
-                          textOverflow: "ellipsis",
-                          paddingRight: "0.75rem",
-                        }}
-                      >
-                        {categoryMenuContent[hoveredCategory].articles[3].title}
-                      </h3>
-                      <div
-                        className={`w-10 h-10 rounded-full bg-gradient-to-r ${categoryMenuContent[hoveredCategory].gradient} flex items-center justify-center flex-shrink-0`}
-                      >
-                        <svg
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M14.43 5.93L20.5 12L14.43 18.07L13.02 16.66L17.17 12.5H3.5V11.5H17.17L13.02 7.34L14.43 5.93Z"
-                            fill="white"
-                          />
-                        </svg>
-                      </div>
-                    </div>
+              {((selectedSubcategory && topArticles[`${hoveredCategory}_${selectedSubcategory}`]
+                ? topArticles[`${hoveredCategory}_${selectedSubcategory}`]
+                : categoryMenuContent[hoveredCategory]?.articles || []
+              ).length > 3) && (
+                  <div className="flex justify-start">
+                    {((selectedSubcategory && topArticles[`${hoveredCategory}_${selectedSubcategory}`]
+                      ? topArticles[`${hoveredCategory}_${selectedSubcategory}`]
+                      : categoryMenuContent[hoveredCategory]?.articles || []
+                    )[3]) && (
+                        <div className="w-60">
+                          <div
+                            className={`p-0.5 rounded-2xl bg-gradient-to-r ${categoryMenuContent[hoveredCategory].gradient}`}
+                          >
+                            <div className="bg-black rounded-xl overflow-hidden">
+                              <img
+                                src={
+                                  (selectedSubcategory && topArticles[`${hoveredCategory}_${selectedSubcategory}`]
+                                    ? topArticles[`${hoveredCategory}_${selectedSubcategory}`]
+                                    : categoryMenuContent[hoveredCategory]?.articles || []
+                                  )[3].image_url ||
+                                  (selectedSubcategory && topArticles[`${hoveredCategory}_${selectedSubcategory}`]
+                                    ? topArticles[`${hoveredCategory}_${selectedSubcategory}`]
+                                    : categoryMenuContent[hoveredCategory]?.articles || []
+                                  )[3].image || "/placeholder.svg"
+                                }
+                                alt={
+                                  (selectedSubcategory && topArticles[`${hoveredCategory}_${selectedSubcategory}`]
+                                    ? topArticles[`${hoveredCategory}_${selectedSubcategory}`]
+                                    : categoryMenuContent[hoveredCategory]?.articles || []
+                                  )[3].title
+                                }
+                                className="w-full h-40 object-cover"
+                              />
+                            </div>
+                          </div>
+                          <div className="flex items-start justify-between mt-4">
+                            <h3
+                              className="text-white text-lg font-semibold flex-1"
+                              style={{
+                                height: "3.5rem",
+                                lineHeight: "1.75rem",
+                                display: "-webkit-box",
+                                WebkitLineClamp: 2,
+                                WebkitBoxOrient: "vertical",
+                                overflow: "hidden",
+                                textOverflow: "ellipsis",
+                                paddingRight: "0.75rem",
+                              }}
+                            >
+                              {(selectedSubcategory && topArticles[`${hoveredCategory}_${selectedSubcategory}`]
+                                ? topArticles[`${hoveredCategory}_${selectedSubcategory}`]
+                                : categoryMenuContent[hoveredCategory]?.articles || []
+                              )[3].title}
+                            </h3>
+                            <div
+                              className={`w-10 h-10 rounded-full bg-gradient-to-r ${categoryMenuContent[hoveredCategory].gradient} flex items-center justify-center flex-shrink-0`}
+                            >
+                              <svg
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M14.43 5.93L20.5 12L14.43 18.07L13.02 16.66L17.17 12.5H3.5V11.5H17.17L13.02 7.34L14.43 5.93Z"
+                                  fill="white"
+                                />
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+                      )}
                   </div>
-                </div>
-              )}
+                )}
             </div>
 
             {/* Right Trending Section */}
@@ -1113,16 +604,16 @@ const Index = () => {
                 Trending
               </h2>
               <div className="space-y-4">
-                {categoryMenuContent[hoveredCategory]?.trending.map(
-                  (item, index) => (
+                {(trendingArticles[hoveredCategory] || categoryMenuContent[hoveredCategory]?.trending || [])
+                  .slice(0, 8)
+                  .map((item, index) => (
                     <div
-                      key={index}
+                      key={item.id || index}
                       className="text-white text-lg underline cursor-pointer hover:text-gray-300 transition-colors"
                     >
-                      {item}
+                      {typeof item === 'string' ? item : item.title}
                     </div>
-                  ),
-                )}
+                  ))}
               </div>
             </div>
           </div>
@@ -1155,62 +646,63 @@ const Index = () => {
           className="absolute inset-0 bg-black/30 z-10 cursor-pointer flex"
         ></a>
         <div
-          className="relative z-10 text-center text-white max-w-4xl"
-          style={{ margin: "0 auto 0 250px" }}
+          className="relative z-10 text-white max-w-7xl mx-auto w-full px-6 flex justify-start"
         >
-          <div className="mb-8">
-            <h1
-              className="font-roboto text-6xl md:text-7xl lg:text-8xl font-medium text-left"
-              style={{ marginRight: "auto" }}
-            >
-              Website of
-            </h1>
-            <h1
-              className="font-shrikhand text-6xl md:text-7xl lg:text-8xl text-right"
-              style={{ marginRight: "auto" }}
-            >
-              dynamic
-            </h1>
-            <h1
-              className="font-roboto text-6xl md:text-7xl lg:text-8xl font-medium"
-              style={{ margin: "-10px auto 0 0" }}
-            >
-              energies
-            </h1>
-          </div>
+          <div className="w-full max-w-2xl">
+            <div className="mb-8">
+              <h1
+                className="font-roboto text-6xl md:text-7xl lg:text-8xl font-medium text-left"
+                style={{ marginRight: "auto" }}
+              >
+                Website of
+              </h1>
+              <h1
+                className="font-shrikhand text-6xl md:text-7xl lg:text-8xl text-right"
+                style={{ marginRight: "auto" }}
+              >
+                dynamic
+              </h1>
+              <h1
+                className="font-roboto text-6xl md:text-7xl lg:text-8xl font-medium"
+                style={{ margin: "-10px auto 0 0" }}
+              >
+                energies
+              </h1>
+            </div>
 
-          <p
-            className="text-xl font-medium max-w-2xl text-left"
-            style={{ margin: "0 auto 16px", paddingTop: "12px" }}
-          >
-            From one habit to an entire routine system. Let lifestyle.com change
-            your life!
-          </p>
-
-          <p
-            className="text-base max-w-2xl text-left"
-            style={{ margin: "0 auto 32px" }}
-          >
-            Lifestyle is lucid dreams, mindfulness, a healthy mental, body &
-            brain, and balanced diet & relationships.
-          </p>
-
-          <div
-            className="flex flex-col sm:flex-row gap-6 justify-start items-center"
-            style={{ paddingTop: "12px" }}
-          >
-            <button
-              className="bg-gradient-to-r from-cyan-400 to-white text-black px-12 py-6 rounded-full text-xl font-medium"
-              style={{ width: "190px" }}
+            <p
+              className="text-xl font-medium max-w-2xl text-left"
+              style={{ margin: "0 auto 16px", paddingTop: "12px" }}
             >
-              Plus Plan
-            </button>
-            <button
-              className="bg-gradient-to-r from-purple-400 to-white text-black px-12 py-6 rounded-full text-xl font-medium"
-              style={{ width: "190px" }}
+              From one habit to an entire routine system. Let lifestyle.com change
+              your life!
+            </p>
+
+            <p
+              className="text-base max-w-2xl text-left"
+              style={{ margin: "0 auto 32px" }}
             >
-              Pro Plan
-            </button>
+              Lifestyle is lucid dreams, mindfulness, a healthy mental, body &
+              brain, and balanced diet & relationships.
+            </p>
+
+            <div
+              className="flex flex-col sm:flex-row gap-6 justify-start items-center"
+              style={{ paddingTop: "12px" }}
+            >
+              <button
+                className="bg-gradient-to-r from-cyan-400 to-white text-black px-12 py-6 rounded-full text-xl font-medium"
+                style={{ width: "190px" }}
+              >
+                Plus Plan
+              </button>
+              <button
+                className="bg-gradient-to-r from-purple-400 to-white text-black px-12 py-6 rounded-full text-xl font-medium"
+                style={{ width: "190px" }}
+              >
+                Pro Plan
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -1307,11 +799,10 @@ const Index = () => {
                         <button
                           key={index}
                           onClick={() => setCurrentSlide(index)}
-                          className={`w-2 h-2 rounded-full transition-colors ${
-                            index === currentSlide
-                              ? "bg-gray-800"
-                              : "bg-gray-300"
-                          }`}
+                          className={`w-2 h-2 rounded-full transition-colors ${index === currentSlide
+                            ? "bg-gray-800"
+                            : "bg-gray-300"
+                            }`}
                         />
                       ))}
                     </div>
@@ -1497,11 +988,10 @@ const Index = () => {
                   setActiveTab(tab);
                   setCurrentLifestyleSlide(index);
                 }}
-                className={`px-6 py-3 rounded-full font-semibold transition-colors ${
-                  activeTab === tab
-                    ? "bg-black text-white"
-                    : "bg-gray-200 text-black hover:bg-gray-300"
-                }`}
+                className={`px-6 py-3 rounded-full font-semibold transition-colors ${activeTab === tab
+                  ? "bg-black text-white"
+                  : "bg-gray-200 text-black hover:bg-gray-300"
+                  }`}
               >
                 {tab}
               </button>
@@ -2002,7 +1492,7 @@ const Index = () => {
                             marginTop:
                               (plan.name === "Pro Plan" ||
                                 plan.name === "Max Plan") &&
-                              featureIndex === 0
+                                featureIndex === 0
                                 ? undefined
                                 : "12px",
                           }}
