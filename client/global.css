@@ -1,11 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Righteous:wght@400&family=Shrikhand:wght@400&family=Roboto:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap");
 
 @keyframes marquee {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-1248px);
   }
@@ -15,9 +17,9 @@
   animation: marquee 15s linear infinite;
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Righteous:wght@400&family=Shrikhand:wght@400&family=Roboto:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap");
 
 @layer base {
+
   /**
    * Tailwind CSS theme
    * tailwind.config.ts expects the following color variables to be expressed as HSL values.
